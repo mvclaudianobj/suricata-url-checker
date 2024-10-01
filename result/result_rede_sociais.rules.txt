@@ -1,0 +1,99 @@
+SID: 9000009 - https://twitter.com - Código: Erro, Descrição: HTTPSConnectionPool(host='twitter.com', port=443): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f30aba51d50>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+SID: 9000013 - https://pluto.web.telegram.org - Código: 403, Descrição: Proibido
+SID: 9000014 - https://telegram.org - Código: 200, Descrição: Sucesso
+SID: 9000016 - https://web.telegram.org - Código: 200, Descrição: Sucesso
+SID: 9000552 - https://br.viadeo.com - Código: 410, Descrição: Erro desconhecido
+SID: 9000021 - https://branchout.com - Código: Erro, Descrição: HTTPSConnectionPool(host='branchout.com', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7f30aba52c20>, 'Connection to branchout.com timed out. (connect timeout=5)'))
+SID: 9000022 - https://youku.com - Código: 200, Descrição: Sucesso
+SID: 9000023 - https://www.xing.com - Código: 200, Descrição: Sucesso
+SID: 9000024 - https://www.wer-kennt-wen.net - Código: 403, Descrição: Proibido
+SID: 9000025 - https://www.weibo.com - Código: 200, Descrição: Sucesso
+SID: 9000026 - https://www.tuenti.es - Código: 200, Descrição: Sucesso
+SID: 9000027 - https://tinychat.com - Código: 200, Descrição: Sucesso
+SID: 9000028 - https://www.taringa.net - Código: 403, Descrição: Proibido
+SID: 9000029 - https://www.tagged.com - Código: 200, Descrição: Sucesso
+SID: 9000030 - https://studivz.net - Código: Erro, Descrição: HTTPSConnectionPool(host='studivz.net', port=443): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f30ab9f7940>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+SID: 9000031 - https://www.studivz.net - Código: Erro, Descrição: HTTPSConnectionPool(host='www.studivz.net', port=443): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f30ab9f7880>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+SID: 9000032 - https://www.stayfriends.de - Código: Erro, Descrição: HTTPSConnectionPool(host='www.stayfriends.de', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7f30ab9f7ac0>, 'Connection to www.stayfriends.de timed out. (connect timeout=5)'))
+SID: 9000034 - https://slashdot.org - Código: 200, Descrição: Sucesso
+SID: 9000035 - https://www.skyrock.com - Código: Erro, Descrição: HTTPSConnectionPool(host='www.skyrock.com', port=443): Read timed out. (read timeout=5)
+SID: 9000036 - https://www.shutterfly.com - Código: 200, Descrição: Sucesso
+SID: 9000037 - https://sharethis.com - Código: 200, Descrição: Sucesso
+SID: 9000038 - https://www.renren-inc.com - Código: Erro, Descrição: HTTPSConnectionPool(host='www.renren-inc.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1007)')))
+SID: 9000039 - https://www.reddit.com - Código: 200, Descrição: Sucesso
+SID: 9000040 - https://qzone.qq.com - Código: 200, Descrição: Sucesso
+SID: 9000041 - https://pt.quora.com - Código: 200, Descrição: Sucesso
+SID: 9000042 - https://br.pinterest.com - Código: 200, Descrição: Sucesso
+SID: 9000043 - https://www.ameba.jp - Código: 200, Descrição: Sucesso
+SID: 9000044 - https://pinboard.in - Código: 200, Descrição: Sucesso
+SID: 9000045 - https://photobucket.com - Código: 200, Descrição: Sucesso
+SID: 9000046 - https://www.ning.com - Código: 200, Descrição: Sucesso
+SID: 9000047 - https://myspace.com - Código: 200, Descrição: Sucesso
+SID: 9000048 - https://www.mylife.com - Código: Erro, Descrição: HTTPSConnectionPool(host='www.mylife.com', port=443): Read timed out. (read timeout=5)
+SID: 9000049 - https://www.meetup.com - Código: 200, Descrição: Sucesso
+SID: 9000050 - https://www.lokalisten.de - Código: 200, Descrição: Sucesso
+SID: 9000051 - https://www.livingsocial.com - Código: Erro, Descrição: HTTPSConnectionPool(host='www.livingsocial.com', port=443): Read timed out. (read timeout=5)
+SID: 9000052 - https://www.livejournal.com - Código: 200, Descrição: Sucesso
+SID: 9000053 - https://imgur.com - Código: 429, Descrição: Erro desconhecido
+SID: 9000404 - https://www.gaia.com - Código: 200, Descrição: Sucesso
+SID: 9000056 - https://github.com - Código: 200, Descrição: Sucesso
+SID: 9000057 - https://foursquare.com - Código: 200, Descrição: Sucesso
+SID: 9000058 - https://www.fotki.com - Código: 200, Descrição: Sucesso
+SID: 9000059 - https://flixster.com - Código: 200, Descrição: Sucesso
+SID: 9000060 - https://www.flickr.com - Código: 200, Descrição: Sucesso
+SID: 9000061 - https://evernote.com - Código: 200, Descrição: Sucesso
+SID: 9000062 - https://deviantart.com - Código: 200, Descrição: Sucesso
+SID: 9000063 - https://cy.cyworld.com - Código: Erro, Descrição: HTTPSConnectionPool(host='cy.cyworld.com', port=443): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f30ab9f7d90>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+SID: 9000064 - https://www.classmates.com - Código: 403, Descrição: Proibido
+SID: 9000065 - https://bitbucket.org - Código: 200, Descrição: Sucesso
+SID: 9000066 - https://www.kickstarter.com - Código: 403, Descrição: Proibido
+SID: 9000067 - https://web.500px.com - Código: Erro, Descrição: HTTPSConnectionPool(host='web.500px.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1007)')))
+SID: 9000068 - https://digg.com - Código: 200, Descrição: Sucesso
+SID: 9000069 - https://www.myheritage.com.br - Código: 200, Descrição: Sucesso
+SID: 9000071 - https://www.goodreads.com - Código: 403, Descrição: Proibido
+SID: 9000073 - https://hello.com - Código: 200, Descrição: Sucesso
+SID: 9000074 - https://snapchat.com - Código: 200, Descrição: Sucesso
+SID: 9000007 - https://linkedin.com - Código: 200, Descrição: Sucesso
+SID: 9000077 - https://dc.ads.linkedin.com - Código: 200, Descrição: Sucesso
+SID: 9000078 - https://dms.licdn.com - Código: 404, Descrição: Página Não Encontrada
+SID: 9000079 - https://platform.linkedin.com - Código: 404, Descrição: Página Não Encontrada
+SID: 9000081 - https://static.licdn.com - Código: 404, Descrição: Página Não Encontrada
+SID: 9000082 - https://slack.com - Código: 200, Descrição: Sucesso
+SID: 9000083 - https://discord.com - Código: 200, Descrição: Sucesso
+SID: 9000084 - https://tiktok.com - Código: 200, Descrição: Sucesso
+SID: 9000342 - https://whatsapp.net - Código: 200, Descrição: Sucesso
+SID: 9000006 - https://facebook.com - Código: 200, Descrição: Sucesso
+SID: 9900010 - https://external.fcpq1-1.fna.fbcdn.net - Código: 204, Descrição: Nenhum Conteúdo
+SID: 9000428 - https://external.fcpq14-1.fna.fbcdn.net - Código: 204, Descrição: Nenhum Conteúdo
+SID: 9000429 - https://external.fcpq9-1.fna.fbcdn.net - Código: 204, Descrição: Nenhum Conteúdo
+SID: 9000430 - https://external.xx.fbcdn.net - Código: 204, Descrição: Nenhum Conteúdo
+SID: 9000434 - https://facebook.fcpq14-1.fna.fbcdn.net - Código: 400, Descrição: Requisição Inválida
+SID: 9000436 - https://fb.watch - Código: 200, Descrição: Sucesso
+SID: 9000437 - https://fbcdn.com - Código: Erro, Descrição: HTTPSConnectionPool(host='fbcdn.com', port=443): Max retries exceeded with url: / (Caused by SSLError(CertificateError("hostname 'fbcdn.com' doesn't match either of '*.facebook.com', '*.facebook.net', '*.fbcdn.net', '*.fbsbx.com', '*.m.facebook.com', '*.messenger.com', '*.xx.fbcdn.net', '*.xy.fbcdn.net', '*.xz.fbcdn.net', 'facebook.com', 'messenger.com'")))
+SID: 9000438 - https://fbcdn.net - Código: 200, Descrição: Sucesso
+SID: 9000461 - https://media.fcpq14-1.fna.fbcdn.net - Código: 400, Descrição: Requisição Inválida
+SID: 9000481 - https://scontent-lax3-2.xx.fbcdn.net - Código: 204, Descrição: Nenhum Conteúdo
+SID: 9000482 - https://scontent.fcpq14-1.fna.fbcdn.net - Código: 204, Descrição: Nenhum Conteúdo
+SID: 9000483 - https://scontent.fcpq8-1.fna.fbcdn.net - Código: 204, Descrição: Nenhum Conteúdo
+SID: 9000484 - https://scontent.fcpq9-1.fna.fbcdn.net - Código: 204, Descrição: Nenhum Conteúdo
+SID: 9000485 - https://scontent.xx.fbcdn.net - Código: 204, Descrição: Nenhum Conteúdo
+SID: 9000504 - https://video.fcpq1-1.fna.fbcdn.net - Código: 204, Descrição: Nenhum Conteúdo
+SID: 9000505 - https://video.fcpq14-1.fna.fbcdn.net - Código: 204, Descrição: Nenhum Conteúdo
+SID: 9000506 - https://video.fcpq9-1.fna.fbcdn.net - Código: 204, Descrição: Nenhum Conteúdo
+SID: 9000507 - https://video.xx.fbcdn.net - Código: 204, Descrição: Nenhum Conteúdo
+SID: 9000515 - https://scontent-atl3-2.xx.fbcdn.net - Código: 204, Descrição: Nenhum Conteúdo
+SID: 9000002 - https://instagram.com - Código: 200, Descrição: Sucesso
+SID: 9000517 - https://instagram.fcpq9-1.fna.fbcdn.net - Código: 204, Descrição: Nenhum Conteúdo
+SID: 9000518 - https://www.instagram.com - Código: 200, Descrição: Sucesso
+SID: 9000522 - https://instagram.fyzd1-3.fna.fbcdn.net - Código: 204, Descrição: Nenhum Conteúdo
+SID: 9000523 - https://api.linkr.bio - Código: 200, Descrição: Sucesso
+SID: 9000524 - https://linkr.bio - Código: 200, Descrição: Sucesso
+SID: 9000525 - https://static.linkr.bio - Código: 403, Descrição: Proibido
+SID: 9000526 - https://likee.com - Código: 200, Descrição: Sucesso
+SID: 9000527 - https://static-web.likeevideo.com - Código: 404, Descrição: Página Não Encontrada
+SID: 9000531 - https://signal.org - Código: 200, Descrição: Sucesso
+SID: 9000536 - https://whatsflirt.com - Código: 403, Descrição: Proibido
+SID: 9000539 - https://pixiv.net - Código: 200, Descrição: Sucesso
+SID: 9000541 - https://tradingview.com - Código: 200, Descrição: Sucesso
+SID: 9000542 - https://orkut.com - Código: 200, Descrição: Sucesso
+SID: 9000544 - https://kwai.com - Código: 200, Descrição: Sucesso
