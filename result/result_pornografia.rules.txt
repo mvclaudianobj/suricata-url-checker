@@ -1,0 +1,2 @@
+SID: 9620001 - https://pornhub.com - Código: Erro, Descrição: HTTPSConnectionPool(host='pornhub.com', port=443): Read timed out. (read timeout=5)
+SID: 9620003 - https://xvideos.com - Código: Erro, Descrição: HTTPSConnectionPool(host='xvideos.com', port=443): Read timed out. (read timeout=5)

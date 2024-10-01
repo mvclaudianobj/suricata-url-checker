@@ -1,263 +1,940 @@
-alert tls any any -> any any (msg:"pornhub"; tls_sni; content:"pornhub"; flow:to_server,established; sid:9620001; classtype:pornhub; gid:26; rev:1; reference:url,pornhub.com;)
-alert ip any any -> [66.254.114.41,66.254.114.32] any (msg:"pornhub"; flow:to_server,established; threshold: type limit, track by_src, seconds 20, count 1; sid:9620002; classtype:pornhub; gid:26; rev:1; reference:url,pornhub.com;)
-alert tls any any -> [!172.67.188.196,!104.21.49.12] any (msg:"xvideos"; tls_sni; content:"xvideos"; flow:to_server,established; sid:9620003; classtype:xvideos; gid:27; rev:1; reference:url,xvideos.com;)
-alert tls any any -> [!172.67.188.196,!104.21.49.12] any (msg:"xvideos"; tls_sni; content:"caiunoxvideos.com.br"; pcre:"/caiunoxvideos.com.br$/"; flow:to_server,established; sid:9620004; classtype:xvideos; gid:27; rev:1; reference:url,xvideos.com;)
-alert tls any any -> [!172.67.188.196,!104.21.49.12] any (msg:"xvideos"; tls_sni; content:"img100.xvideos.com"; pcre:"/img100.xvideos.com$/"; flow:to_server,established; sid:9620005; classtype:xvideos; gid:27; rev:1; reference:url,xvideos.com;)
-alert tls any any -> [!172.67.188.196,!104.21.49.12] any (msg:"xvideos"; tls_sni; content:"static.xvideos.com"; pcre:"/static.xvideos.com$/"; flow:to_server,established; sid:9620006; classtype:xvideos; gid:27; rev:1; reference:url,xvideos.com;)
-alert tls any any -> [!172.67.188.196,!104.21.49.12] any (msg:"xvideos"; tls_sni; content:"topamateursexvideos.com"; pcre:"/topamateursexvideos.com$/"; flow:to_server,established; sid:9620007; classtype:xvideos; gid:27; rev:1; reference:url,xvideos.com;)
-alert tls any any -> [!172.67.188.196,!104.21.49.12] any (msg:"xvideos"; tls_sni; content:"usexvideos.com"; pcre:"/usexvideos.com$/"; flow:to_server,established; sid:9620008; classtype:xvideos; gid:27; rev:1; reference:url,xvideos.com;)
-alert tls any any -> [!172.67.188.196,!104.21.49.12] any (msg:"xvideos"; tls_sni; content:"xvideos.com"; pcre:"/xvideos.com$/"; flow:to_server,established; sid:9620009; classtype:xvideos; gid:27; rev:1; reference:url,xvideos.com;)
-alert tls any any -> [!172.67.188.196,!104.21.49.12] any (msg:"xvideos"; tls_sni; content:"xvideosx.com.br"; pcre:"/xvideosx.com.br$/"; flow:to_server,established; sid:9620010; classtype:xvideos; gid:27; rev:1; reference:url,xvideos.com;)
-alert tls any any -> [!172.67.188.196,!104.21.49.12] any (msg:"xvideos"; tls_sni; content:"xxvideoss.org"; pcre:"/xxvideoss.org$/"; flow:to_server,established; sid:9620011; classtype:xvideos; gid:27; rev:1; reference:url,xvideos.com;)
-alert tls any any -> [!172.67.188.196,!104.21.49.12] any (msg:"xvideos"; tls_sni; content:"xvideos.eu.org"; pcre:"/xvideos.eu.org$/"; flow:to_server,established; sid:9620012; classtype:xvideos; gid:27; rev:1; reference:url,xvideos.com;)
-alert ip any any -> [!172.67.188.196,!104.21.49.12,151.139.18.35,185.88.181.10,185.88.181.5,185.88.181.9,195.181.162.15,195.181.162.16,195.181.162.19,205.185.208.170,209.197.3.84,8.240.36.123,8.241.198.251,8.241.210.251,8.249.235.251,8.253.253.2,!172.67.188.196,!104.21.49.12] any (msg:"xvideos"; flow:to_server,established; threshold: type limit, track by_src, seconds 20, count 1; sid:9620013; classtype:xvideos; gid:27; rev:1; reference:url,xvideos.com;)
+alert tls any any -> any any (msg:"pornhub"; tls_sni; content:"pornhub"; flow:to_server,established; sid:9620001; classtype:pornhub; gid:26; rev:1; reference:url,pornhub.com; metadata:updated_at 2024_10_01;)
+alert ip any any -> [66.254.114.41, 66.254.114.32] any (msg:"pornhub"; flow:to_server,established; threshold: type limit, track by_src, seconds 20, count 1; sid:9620002; classtype:pornhub; gid:26; rev:1; reference:url,pornhub.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> [!172.67.188.196, !104.21.49.12] any (msg:"xvideos"; tls_sni; content:"xvideos"; flow:to_server,established; sid:9620003; classtype:xvideos; gid:27; rev:1; reference:url,xvideos.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> [!172.67.188.196, !104.21.49.12] any (msg:"xvideos"; tls_sni; content:"caiunoxvideos.com.br"; pcre:"/caiunoxvideos.com.br$/"; flow:to_server,established; sid:9620004; classtype:xvideos; gid:27; rev:1; reference:url,xvideos.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> [!172.67.188.196, !104.21.49.12] any (msg:"xvideos"; tls_sni; content:"img100.xvideos.com"; pcre:"/img100.xvideos.com$/"; flow:to_server,established; sid:9620005; classtype:xvideos; gid:27; rev:1; reference:url,xvideos.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> [!172.67.188.196, !104.21.49.12] any (msg:"xvideos"; tls_sni; content:"static.xvideos.com"; pcre:"/static.xvideos.com$/"; flow:to_server,established; sid:9620006; classtype:xvideos; gid:27; rev:1; reference:url,xvideos.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> [!172.67.188.196, !104.21.49.12] any (msg:"xvideos"; tls_sni; content:"topamateursexvideos.com"; pcre:"/topamateursexvideos.com$/"; flow:to_server,established; sid:9620007; classtype:xvideos; gid:27; rev:1; reference:url,xvideos.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> [!172.67.188.196, !104.21.49.12] any (msg:"xvideos"; tls_sni; content:"usexvideos.com"; pcre:"/usexvideos.com$/"; flow:to_server,established; sid:9620008; classtype:xvideos; gid:27; rev:1; reference:url,xvideos.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> [!172.67.188.196, !104.21.49.12] any (msg:"xvideos"; tls_sni; content:"xvideos.com"; pcre:"/xvideos.com$/"; flow:to_server,established; sid:9620009; classtype:xvideos; gid:27; rev:1; reference:url,xvideos.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> [!172.67.188.196, !104.21.49.12] any (msg:"xvideos"; tls_sni; content:"xvideosx.com.br"; pcre:"/xvideosx.com.br$/"; flow:to_server,established; sid:9620010; classtype:xvideos; gid:27; rev:1; reference:url,xvideos.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> [!172.67.188.196, !104.21.49.12] any (msg:"xvideos"; tls_sni; content:"xvideos.eu.org"; pcre:"/xvideos.eu.org$/"; flow:to_server,established; sid:9620012; classtype:xvideos; gid:27; rev:1; reference:url,xvideos.com; metadata:updated_at 2024_10_01;)
+alert ip any any -> [!172.67.188.196, !104.21.49.12,151.139.18.35,185.88.181.10,185.88.181.5,185.88.181.9,195.181.162.15,195.181.162.16,195.181.162.19,205.185.208.170,209.197.3.84,8.240.36.123,8.241.198.251,8.241.210.251,8.249.235.251,8.253.253.2,!172.67.188.196, !104.21.49.12] any (msg:"xvideos"; flow:to_server,established; threshold: type limit, track by_src, seconds 20, count 1; sid:9620013; classtype:xvideos; gid:27; rev:1; reference:url,xvideos.com; metadata:updated_at 2024_10_01;)
 #regras_novas
-alert tls any any -> any any (msg:"alotporn.com"; tls_sni; content:"alotporn.com"; pcre:"/alotporn.com$/"; flow:to_server,established; sid:9620014; classtype:policy-violation; rev:1; reference:url,alotporn.com;)
-alert tls any any -> any any (msg:"anyporn.com"; tls_sni; content:"anyporn.com"; pcre:"/anyporn.com$/"; flow:to_server,established; sid:9620015; classtype:policy-violation; rev:1; reference:url,anyporn.com;)
-alert tls any any -> any any (msg:"anysex.com"; tls_sni; content:"anysex.com"; pcre:"/anysex.com$/"; flow:to_server,established; sid:9620016; classtype:policy-violation; rev:1; reference:url,anysex.com;)
-alert tls any any -> any any (msg:"beeg.com"; tls_sni; content:"beeg.com"; pcre:"/beeg.com$/"; flow:to_server,established; sid:9620017; classtype:policy-violation; rev:1; reference:url,beeg.com;)
-alert tls any any -> any any (msg:"brasileirinhas.com.br"; tls_sni; content:"brasileirinhas.com.br"; pcre:"/brasileirinhas.com.br$/"; flow:to_server,established; sid:9620018; classtype:policy-violation; rev:1; reference:url,brasileirinhas.com.br;)
-alert tls any any -> any any (msg:"caiunoxvideos.com.br"; tls_sni; content:"caiunoxvideos.com.br"; pcre:"/caiunoxvideos.com.br$/"; flow:to_server,established; sid:9620019; classtype:policy-violation; rev:1; reference:url,caiunoxvideos.com.br;)
-alert tls any any -> any any (msg:"cams.com"; tls_sni; content:"cams.com"; pcre:"/cams.com$/"; flow:to_server,established; sid:9620020; classtype:policy-violation; rev:1; reference:url,cams.com;)
-alert tls any any -> any any (msg:"cliphunter.com"; tls_sni; content:"cliphunter.com"; pcre:"/cliphunter.com$/"; flow:to_server,established; sid:9620021; classtype:policy-violation; rev:1; reference:url,cliphunter.com;)
-alert tls any any -> any any (msg:"collectionofbestporn.com"; tls_sni; content:"collectionofbestporn.com"; pcre:"/collectionofbestporn.com$/"; flow:to_server,established; sid:9620022; classtype:policy-violation; rev:1; reference:url,collectionofbestporn.com;)
-alert tls any any -> any any (msg:"daftsex.com"; tls_sni; content:"daftsex.com"; pcre:"/daftsex.com$/"; flow:to_server,established; sid:9620023; classtype:policy-violation; rev:1; reference:url,daftsex.com;)
-alert tls any any -> any any (msg:"drtuber.com"; tls_sni; content:"drtuber.com"; pcre:"/drtuber.com$/"; flow:to_server,established; sid:9620024; classtype:policy-violation; rev:1; reference:url,drtuber.com;)
-alert tls any any -> any any (msg:"empflix.com"; tls_sni; content:"empflix.com"; pcre:"/empflix.com$/"; flow:to_server,established; sid:9620025; classtype:policy-violation; rev:1; reference:url,empflix.com;)
-alert tls any any -> any any (msg:"en.paradisehill.cc"; tls_sni; content:"en.paradisehill.cc"; pcre:"/en.paradisehill.cc$/"; flow:to_server,established; sid:9620026; classtype:policy-violation; rev:1; reference:url,en.paradisehill.cc;)
-alert tls any any -> any any (msg:"fatalmodel.com"; tls_sni; content:"fatalmodel.com"; pcre:"/fatalmodel.com$/"; flow:to_server,established; sid:9620027; classtype:policy-violation; rev:1; reference:url,fatalmodel.com;)
-alert tls any any -> any any (msg:"festadoprazer.com.br"; tls_sni; content:"festadoprazer.com.br"; pcre:"/festadoprazer.com.br$/"; flow:to_server,established; sid:9620028; classtype:policy-violation; rev:1; reference:url,festadoprazer.com.br;)
-alert tls any any -> any any (msg:"filmespornos.net"; tls_sni; content:"filmespornos.net"; pcre:"/filmespornos.net$/"; flow:to_server,established; sid:9620029; classtype:policy-violation; rev:1; reference:url,filmespornos.net;)
-alert tls any any -> any any (msg:"fullxxxmovies.net"; tls_sni; content:"fullxxxmovies.net"; pcre:"/fullxxxmovies.net$/"; flow:to_server,established; sid:9620030; classtype:policy-violation; rev:1; reference:url,fullxxxmovies.net;)
-alert tls any any -> any any (msg:"garotacomlocal.com"; tls_sni; content:"garotacomlocal.com"; pcre:"/garotacomlocal.com$/"; flow:to_server,established; sid:9620031; classtype:policy-violation; rev:1; reference:url,garotacomlocal.com;)
-alert tls any any -> any any (msg:"gatascomlocal.com.br"; tls_sni; content:"gatascomlocal.com.br"; pcre:"/gatascomlocal.com.br$/"; flow:to_server,established; sid:9620032; classtype:policy-violation; rev:1; reference:url,gatascomlocal.com.br;)
-alert tls any any -> any any (msg:"hclips.com"; tls_sni; content:"hclips.com"; pcre:"/hclips.com$/"; flow:to_server,established; sid:9620033; classtype:policy-violation; rev:1; reference:url,hclips.com;)
-alert tls any any -> any any (msg:"hqporner.com"; tls_sni; content:"hqporner.com"; pcre:"/hqporner.com$/"; flow:to_server,established; sid:9620034; classtype:policy-violation; rev:1; reference:url,hqporner.com;)
-alert tls any any -> any any (msg:"hustlertube.com"; tls_sni; content:"hustlertube.com"; pcre:"/hustlertube.com$/"; flow:to_server,established; sid:9620035; classtype:policy-violation; rev:1; reference:url,hustlertube.com;)
-alert tls any any -> any any (msg:"ilhadoprazer.com.br"; tls_sni; content:"ilhadoprazer.com.br"; pcre:"/ilhadoprazer.com.br$/"; flow:to_server,established; sid:9620036; classtype:policy-violation; rev:1; reference:url,ilhadoprazer.com.br;)
-alert tls any any -> any any (msg:"justswallows.com"; tls_sni; content:"justswallows.com"; pcre:"/justswallows.com$/"; flow:to_server,established; sid:9620037; classtype:policy-violation; rev:1; reference:url,justswallows.com;)
-alert tls any any -> any any (msg:"keezmovies.com"; tls_sni; content:"keezmovies.com"; pcre:"/keezmovies.com$/"; flow:to_server,established; sid:9620038; classtype:policy-violation; rev:1; reference:url,keezmovies.com;)
-alert tls any any -> any any (msg:"king-media.net"; tls_sni; content:"king-media.net"; pcre:"/king-media.net$/"; flow:to_server,established; sid:9620039; classtype:policy-violation; rev:1; reference:url,king-media.net;)
-alert tls any any -> any any (msg:"letsjerk.cc"; tls_sni; content:"letsjerk.cc"; pcre:"/letsjerk.cc$/"; flow:to_server,established; sid:9620040; classtype:policy-violation; rev:1; reference:url,letsjerk.cc;)
-alert tls any any -> any any (msg:"letsjerk.org"; tls_sni; content:"letsjerk.org"; pcre:"/letsjerk.org$/"; flow:to_server,established; sid:9620041; classtype:policy-violation; rev:1; reference:url,letsjerk.org;)
-alert tls any any -> any any (msg:"livejasmin.com"; tls_sni; content:"livejasmin.com"; pcre:"/livejasmin.com$/"; flow:to_server,established; sid:9620042; classtype:policy-violation; rev:1; reference:url,livejasmin.com;)
-alert tls any any -> any any (msg:"lubetube.com"; tls_sni; content:"lubetube.com"; pcre:"/lubetube.com$/"; flow:to_server,established; sid:9620043; classtype:policy-violation; rev:1; reference:url,lubetube.com;)
-alert tls any any -> any any (msg:"mangoporn.net"; tls_sni; content:"mangoporn.net"; pcre:"/mangoporn.net$/"; flow:to_server,established; sid:9620044; classtype:policy-violation; rev:1; reference:url,mangoporn.net;)
-alert tls any any -> any any (msg:"mileroticos.com"; tls_sni; content:"mileroticos.com"; pcre:"/mileroticos.com$/"; flow:to_server,established; sid:9620045; classtype:policy-violation; rev:1; reference:url,mileroticos.com;)
-alert tls any any -> any any (msg:"mofosex.com"; tls_sni; content:"mofosex.com"; pcre:"/mofosex.com$/"; flow:to_server,established; sid:9620046; classtype:policy-violation; rev:1; reference:url,mofosex.com;)
-alert tls any any -> any any (msg:"monster-tube.com"; tls_sni; content:"monster-tube.com"; pcre:"/monster-tube.com$/"; flow:to_server,established; sid:9620047; classtype:policy-violation; rev:1; reference:url,monster-tube.com;)
-alert tls any any -> any any (msg:"morangovip.com.br"; tls_sni; content:"morangovip.com.br"; pcre:"/morangovip.com.br$/"; flow:to_server,established; sid:9620048; classtype:policy-violation; rev:1; reference:url,morangovip.com.br;)
-alert tls any any -> any any (msg:"motherless.com"; tls_sni; content:"motherless.com"; pcre:"/motherless.com$/"; flow:to_server,established; sid:9620049; classtype:policy-violation; rev:1; reference:url,motherless.com;)
-alert tls any any -> any any (msg:"moviefap.com"; tls_sni; content:"moviefap.com"; pcre:"/moviefap.com$/"; flow:to_server,established; sid:9620050; classtype:policy-violation; rev:1; reference:url,moviefap.com;)
-alert tls any any -> any any (msg:"moviesand.com"; tls_sni; content:"moviesand.com"; pcre:"/moviesand.com$/"; flow:to_server,established; sid:9620051; classtype:policy-violation; rev:1; reference:url,moviesand.com;)
-alert tls any any -> any any (msg:"mundosexanuncio.com"; tls_sni; content:"mundosexanuncio.com"; pcre:"/mundosexanuncio.com$/"; flow:to_server,established; sid:9620052; classtype:policy-violation; rev:1; reference:url,mundosexanuncio.com;)
-alert tls any any -> any any (msg:"netfapx.com"; tls_sni; content:"netfapx.com"; pcre:"/netfapx.com$/"; flow:to_server,established; sid:9620053; classtype:policy-violation; rev:1; reference:url,netfapx.com;)
-alert tls any any -> any any (msg:"palmtube.com"; tls_sni; content:"palmtube.com"; pcre:"/palmtube.com$/"; flow:to_server,established; sid:9620054; classtype:policy-violation; rev:1; reference:url,palmtube.com;)
-alert tls any any -> any any (msg:"pandamovies.pw"; tls_sni; content:"pandamovies.pw"; pcre:"/pandamovies.pw$/"; flow:to_server,established; sid:9620055; classtype:policy-violation; rev:1; reference:url,pandamovies.pw;)
-alert tls any any -> any any (msg:"paradisehill.cc"; tls_sni; content:"paradisehill.cc"; pcre:"/paradisehill.cc$/"; flow:to_server,established; sid:9620056; classtype:policy-violation; rev:1; reference:url,paradisehill.cc;)
-alert tls any any -> any any (msg:"photoacompanhantes.com"; tls_sni; content:"photoacompanhantes.com"; pcre:"/photoacompanhantes.com$/"; flow:to_server,established; sid:9620057; classtype:policy-violation; rev:1; reference:url,photoacompanhantes.com;)
-alert tls any any -> any any (msg:"pichunter.com"; tls_sni; content:"pichunter.com"; pcre:"/pichunter.com$/"; flow:to_server,established; sid:9620058; classtype:policy-violation; rev:1; reference:url,pichunter.com;)
-alert tls any any -> any any (msg:"plusone8.com"; tls_sni; content:"plusone8.com"; pcre:"/plusone8.com$/"; flow:to_server,established; sid:9620060; classtype:policy-violation; rev:1; reference:url,plusone8.com;)
-alert tls any any -> any any (msg:"porn555.com"; tls_sni; content:"porn555.com"; pcre:"/porn555.com$/"; flow:to_server,established; sid:9620061; classtype:policy-violation; rev:1; reference:url,porn555.com;)
-alert tls any any -> any any (msg:"porncor.com"; tls_sni; content:"porncor.com"; pcre:"/porncor.com$/"; flow:to_server,established; sid:9620062; classtype:policy-violation; rev:1; reference:url,porncor.com;)
-alert tls any any -> any any (msg:"porndoe.com"; tls_sni; content:"porndoe.com"; pcre:"/porndoe.com$/"; flow:to_server,established; sid:9620063; classtype:policy-violation; rev:1; reference:url,porndoe.com;)
-alert tls any any -> any any (msg:"pornobae.com"; tls_sni; content:"pornobae.com"; pcre:"/pornobae.com$/"; flow:to_server,established; sid:9620064; classtype:policy-violation; rev:1; reference:url,pornobae.com;)
-alert tls any any -> any any (msg:"pornobrasil.blog.br"; tls_sni; content:"pornobrasil.blog.br"; pcre:"/pornobrasil.blog.br$/"; flow:to_server,established; sid:9620065; classtype:policy-violation; rev:1; reference:url,pornobrasil.blog.br;)
-alert tls any any -> any any (msg:"pornocarioca.com"; tls_sni; content:"pornocarioca.com"; pcre:"/pornocarioca.com$/"; flow:to_server,established; sid:9620066; classtype:policy-violation; rev:1; reference:url,pornocarioca.com;)
-alert tls any any -> any any (msg:"pornogram.xxx"; tls_sni; content:"pornogram.xxx"; pcre:"/pornogram.xxx$/"; flow:to_server,established; sid:9620067; classtype:policy-violation; rev:1; reference:url,pornogram.xxx;)
-alert tls any any -> any any (msg:"pornonacionais.com"; tls_sni; content:"pornonacionais.com"; pcre:"/pornonacionais.com$/"; flow:to_server,established; sid:9620068; classtype:policy-violation; rev:1; reference:url,pornonacionais.com;)
-alert tls any any -> any any (msg:"pornone.com"; tls_sni; content:"pornone.com"; pcre:"/pornone.com$/"; flow:to_server,established; sid:9620069; classtype:policy-violation; rev:1; reference:url,pornone.com;)
-alert tls any any -> any any (msg:"pornoou.com"; tls_sni; content:"pornoou.com"; pcre:"/pornoou.com$/"; flow:to_server,established; sid:9620070; classtype:policy-violation; rev:1; reference:url,pornoou.com;)
-alert tls any any -> any any (msg:"porn-plus.com"; tls_sni; content:"porn-plus.com"; pcre:"/porn-plus.com$/"; flow:to_server,established; sid:9620071; classtype:policy-violation; rev:1; reference:url,porn-plus.com;)
-alert tls any any -> any any (msg:"pornrabbit.com"; tls_sni; content:"pornrabbit.com"; pcre:"/pornrabbit.com$/"; flow:to_server,established; sid:9620072; classtype:policy-violation; rev:1; reference:url,pornrabbit.com;)
-alert tls any any -> any any (msg:"porntitan.com"; tls_sni; content:"porntitan.com"; pcre:"/porntitan.com$/"; flow:to_server,established; sid:9620073; classtype:policy-violation; rev:1; reference:url,porntitan.com;)
-alert tls any any -> any any (msg:"pornvibe.org"; tls_sni; content:"pornvibe.org"; pcre:"/pornvibe.org$/"; flow:to_server,established; sid:9620074; classtype:policy-violation; rev:1; reference:url,pornvibe.org;)
-alert tls any any -> any any (msg:"pornwild.to"; tls_sni; content:"pornwild.to"; pcre:"/pornwild.to$/"; flow:to_server,established; sid:9620075; classtype:policy-violation; rev:1; reference:url,pornwild.to;)
-alert tls any any -> any any (msg:"pussy.com"; tls_sni; content:"pussy.com"; pcre:"/pussy.com$/"; flow:to_server,established; sid:9620076; classtype:policy-violation; rev:1; reference:url,pussy.com;)
-alert tls any any -> any any (msg:"rclove.com.br"; tls_sni; content:"rclove.com.br"; pcre:"/rclove.com.br$/"; flow:to_server,established; sid:9620077; classtype:policy-violation; rev:1; reference:url,rclove.com.br;)
-alert tls any any -> any any (msg:"rcmodells.com.br"; tls_sni; content:"rcmodells.com.br"; pcre:"/rcmodells.com.br$/"; flow:to_server,established; sid:9620078; classtype:policy-violation; rev:1; reference:url,rcmodells.com.br;)
-alert tls any any -> any any (msg:"redtube.com"; tls_sni; content:"redtube.com"; pcre:"/redtube.com$/"; flow:to_server,established; sid:9620079; classtype:policy-violation; rev:1; reference:url,redtube.com;)
-alert tls any any -> any any (msg:"sexlog.com"; tls_sni; content:"sexlog.com"; pcre:"/sexlog.com$/"; flow:to_server,established; sid:9620080; classtype:policy-violation; rev:1; reference:url,sexlog.com;)
-alert tls any any -> any any (msg:"sexo.uol.com.br"; tls_sni; content:"sexo.uol.com.br"; pcre:"/sexo.uol.com.br$/"; flow:to_server,established; sid:9620081; classtype:policy-violation; rev:1; reference:url,sexo.uol.com.br;)
-alert tls any any -> any any (msg:"sexu.com"; tls_sni; content:"sexu.com"; pcre:"/sexu.com$/"; flow:to_server,established; sid:9620082; classtype:policy-violation; rev:1; reference:url,sexu.com;)
-alert tls any any -> any any (msg:"sexyclube.uol.com.br"; tls_sni; content:"sexyclube.uol.com.br"; pcre:"/sexyclube.uol.com.br$/"; flow:to_server,established; sid:9620083; classtype:policy-violation; rev:1; reference:url,sexyclube.uol.com.br;)
-alert tls any any -> any any (msg:"sexyhot.globo.com"; tls_sni; content:"sexyhot.globo.com"; pcre:"/sexyhot.globo.com$/"; flow:to_server,established; sid:9620084; classtype:policy-violation; rev:1; reference:url,sexyhot.globo.com;)
-alert tls any any -> any any (msg:"spankbang.com"; tls_sni; content:"spankbang.com"; pcre:"/spankbang.com$/"; flow:to_server,established; sid:9620085; classtype:policy-violation; rev:1; reference:url,spankbang.com;)
-alert tls any any -> any any (msg:"streamporn.pw"; tls_sni; content:"streamporn.pw"; pcre:"/streamporn.pw$/"; flow:to_server,established; sid:9620086; classtype:policy-violation; rev:1; reference:url,streamporn.pw;)
-alert tls any any -> any any (msg:"sxyprn.com"; tls_sni; content:"sxyprn.com"; pcre:"/sxyprn.com$/"; flow:to_server,established; sid:9620087; classtype:policy-violation; rev:1; reference:url,sxyprn.com;)
-alert tls any any -> any any (msg:"taxi69.com"; tls_sni; content:"taxi69.com"; pcre:"/taxi69.com$/"; flow:to_server,established; sid:9620088; classtype:policy-violation; rev:1; reference:url,taxi69.com;)
-alert tls any any -> any any (msg:"theporndude.com"; tls_sni; content:"theporndude.com"; pcre:"/theporndude.com$/"; flow:to_server,established; sid:9620089; classtype:policy-violation; rev:1; reference:url,theporndude.com;)
-alert tls any any -> any any (msg:"tnaflix.com"; tls_sni; content:"tnaflix.com"; pcre:"/tnaflix.com$/"; flow:to_server,established; sid:9620090; classtype:policy-violation; rev:1; reference:url,tnaflix.com;)
-alert tls any any -> any any (msg:"topamateursexvideos.com"; tls_sni; content:"topamateursexvideos.com"; pcre:"/topamateursexvideos.com$/"; flow:to_server,established; sid:9620091; classtype:policy-violation; rev:1; reference:url,topamateursexvideos.com;)
-alert tls any any -> any any (msg:"tube8.com"; tls_sni; content:"tube8.com"; pcre:"/tube8.com$/"; flow:to_server,established; sid:9620092; classtype:policy-violation; rev:1; reference:url,tube8.com;)
-alert tls any any -> any any (msg:"tv.fakings.com"; tls_sni; content:"tv.fakings.com"; pcre:"/tv.fakings.com$/"; flow:to_server,established; sid:9620093; classtype:policy-violation; rev:1; reference:url,tv.fakings.com;)
-alert tls any any -> any any (msg:"txxx.com"; tls_sni; content:"txxx.com"; pcre:"/txxx.com$/"; flow:to_server,established; sid:9620094; classtype:policy-violation; rev:1; reference:url,txxx.com;)
-alert tls any any -> any any (msg:"usexvideos.com"; tls_sni; content:"usexvideos.com"; pcre:"/usexvideos.com$/"; flow:to_server,established; sid:9620095; classtype:policy-violation; rev:1; reference:url,usexvideos.com;)
-alert tls any any -> any any (msg:"videosdesexo.mobi"; tls_sni; content:"videosdesexo.mobi"; pcre:"/videosdesexo.mobi$/"; flow:to_server,established; sid:9620096; classtype:policy-violation; rev:1; reference:url,videosdesexo.mobi;)
-alert tls any any -> any any (msg:"vidoz8.com"; tls_sni; content:"vidoz8.com"; pcre:"/vidoz8.com$/"; flow:to_server,established; sid:9620097; classtype:policy-violation; rev:1; reference:url,vidoz8.com;)
-alert tls any any -> any any (msg:"vrporn.com"; tls_sni; content:"vrporn.com"; pcre:"/vrporn.com$/"; flow:to_server,established; sid:9620098; classtype:policy-violation; rev:1; reference:url,vrporn.com;)
-alert tls any any -> any any (msg:"www.3movs.com"; tls_sni; content:"www.3movs.com"; pcre:"/www.3movs.com$/"; flow:to_server,established; sid:9620099; classtype:policy-violation; rev:1; reference:url,www.3movs.com;)
-alert tls any any -> any any (msg:"www.4tube.com"; tls_sni; content:"www.4tube.com"; pcre:"/www.4tube.com$/"; flow:to_server,established; sid:9620100; classtype:policy-violation; rev:1; reference:url,www.4tube.com;)
-alert tls any any -> any any (msg:"www.analdin.com"; tls_sni; content:"www.analdin.com"; pcre:"/www.analdin.com$/"; flow:to_server,established; sid:9620101; classtype:policy-violation; rev:1; reference:url,www.analdin.com;)
-alert tls any any -> any any (msg:"www.boafoda.com"; tls_sni; content:"www.boafoda.com"; pcre:"/www.boafoda.com$/"; flow:to_server,established; sid:9620102; classtype:policy-violation; rev:1; reference:url,www.boafoda.com;)
-alert tls any any -> any any (msg:"www.cliphunter.com"; tls_sni; content:"www.cliphunter.com"; pcre:"/www.cliphunter.com$/"; flow:to_server,established; sid:9620103; classtype:policy-violation; rev:1; reference:url,www.cliphunter.com;)
-alert tls any any -> any any (msg:"www.cumlouder.com"; tls_sni; content:"www.cumlouder.com"; pcre:"/www.cumlouder.com$/"; flow:to_server,established; sid:9620104; classtype:policy-violation; rev:1; reference:url,www.cumlouder.com;)
-alert tls any any -> any any (msg:"www.drtuber.com"; tls_sni; content:"www.drtuber.com"; pcre:"/www.drtuber.com$/"; flow:to_server,established; sid:9620105; classtype:policy-violation; rev:1; reference:url,www.drtuber.com;)
-alert tls any any -> any any (msg:"www.empflix.com"; tls_sni; content:"www.empflix.com"; pcre:"/www.empflix.com$/"; flow:to_server,established; sid:9620106; classtype:policy-violation; rev:1; reference:url,www.empflix.com;)
-alert tls any any -> any any (msg:"www.eporner.com"; tls_sni; content:"www.eporner.com"; pcre:"/www.eporner.com$/"; flow:to_server,established; sid:9620107; classtype:policy-violation; rev:1; reference:url,www.eporner.com;)
-alert tls any any -> any any (msg:"www.freeomovie.to"; tls_sni; content:"www.freeomovie.to"; pcre:"/www.freeomovie.to$/"; flow:to_server,established; sid:9620108; classtype:policy-violation; rev:1; reference:url,www.freeomovie.to;)
-alert tls any any -> any any (msg:"www.fuq.com"; tls_sni; content:"www.fuq.com"; pcre:"/www.fuq.com$/"; flow:to_server,established; sid:9620109; classtype:policy-violation; rev:1; reference:url,www.fuq.com;)
-alert tls any any -> any any (msg:"www.fux.com"; tls_sni; content:"www.fux.com"; pcre:"/www.fux.com$/"; flow:to_server,established; sid:9620110; classtype:policy-violation; rev:1; reference:url,www.fux.com;)
-alert tls any any -> any any (msg:"www.garotaporno.com"; tls_sni; content:"www.garotaporno.com"; pcre:"/www.garotaporno.com$/"; flow:to_server,established; sid:9620111; classtype:policy-violation; rev:1; reference:url,www.garotaporno.com;)
-alert tls any any -> any any (msg:"www.gotporn.com"; tls_sni; content:"www.gotporn.com"; pcre:"/www.gotporn.com$/"; flow:to_server,established; sid:9620112; classtype:policy-violation; rev:1; reference:url,www.gotporn.com;)
-alert tls any any -> any any (msg:"www.hd-easyporn.com"; tls_sni; content:"www.hd-easyporn.com"; pcre:"/www.hd-easyporn.com$/"; flow:to_server,established; sid:9620113; classtype:policy-violation; rev:1; reference:url,www.hd-easyporn.com;)
-alert tls any any -> any any (msg:"www.ixxx.com"; tls_sni; content:"www.ixxx.com"; pcre:"/www.ixxx.com$/"; flow:to_server,established; sid:9620114; classtype:policy-violation; rev:1; reference:url,www.ixxx.com;)
-alert tls any any -> any any (msg:"www.joysporn.com"; tls_sni; content:"www.joysporn.com"; pcre:"/www.joysporn.com$/"; flow:to_server,established; sid:9620115; classtype:policy-violation; rev:1; reference:url,www.joysporn.com;)
-alert tls any any -> any any (msg:"www.joysporn.vip"; tls_sni; content:"www.joysporn.vip"; pcre:"/www.joysporn.vip$/"; flow:to_server,established; sid:9620116; classtype:policy-violation; rev:1; reference:url,www.joysporn.vip;)
-alert tls any any -> any any (msg:"www.likuoo.video"; tls_sni; content:"www.likuoo.video"; pcre:"/www.likuoo.video$/"; flow:to_server,established; sid:9620117; classtype:policy-violation; rev:1; reference:url,www.likuoo.video;)
-alert tls any any -> any any (msg:"www.nuvid.com"; tls_sni; content:"www.nuvid.com"; pcre:"/www.nuvid.com$/"; flow:to_server,established; sid:9620118; classtype:policy-violation; rev:1; reference:url,www.nuvid.com;)
-alert tls any any -> any any (msg:"www.porn00.org"; tls_sni; content:"www.porn00.org"; pcre:"/www.porn00.org$/"; flow:to_server,established; sid:9620119; classtype:policy-violation; rev:1; reference:url,www.porn00.org;)
-alert tls any any -> any any (msg:"www.porn300.com"; tls_sni; content:"www.porn300.com"; pcre:"/www.porn300.com$/"; flow:to_server,established; sid:9620120; classtype:policy-violation; rev:1; reference:url,www.porn300.com;)
-alert tls any any -> any any (msg:"www.porn.com"; tls_sni; content:"www.porn.com"; pcre:"/www.porn.com$/"; flow:to_server,established; sid:9620121; classtype:policy-violation; rev:1; reference:url,www.porn.com;)
-alert tls any any -> any any (msg:"www.porndig.com"; tls_sni; content:"www.porndig.com"; pcre:"/www.porndig.com$/"; flow:to_server,established; sid:9620122; classtype:policy-violation; rev:1; reference:url,www.porndig.com;)
-alert tls any any -> any any (msg:"www.porndish.com"; tls_sni; content:"www.porndish.com"; pcre:"/www.porndish.com$/"; flow:to_server,established; sid:9620123; classtype:policy-violation; rev:1; reference:url,www.porndish.com;)
-alert tls any any -> any any (msg:"www.porngo.com"; tls_sni; content:"www.porngo.com"; pcre:"/www.porngo.com$/"; flow:to_server,established; sid:9620124; classtype:policy-violation; rev:1; reference:url,www.porngo.com;)
-alert tls any any -> any any (msg:"www.pornhd.com"; tls_sni; content:"www.pornhd.com"; pcre:"/www.pornhd.com$/"; flow:to_server,established; sid:9620125; classtype:policy-violation; rev:1; reference:url,www.pornhd.com;)
-alert tls any any -> any any (msg:"www.pornhits.com"; tls_sni; content:"www.pornhits.com"; pcre:"/www.pornhits.com$/"; flow:to_server,established; sid:9620126; classtype:policy-violation; rev:1; reference:url,www.pornhits.com;)
-alert tls any any -> any any (msg:"www.pornktu.be"; tls_sni; content:"www.pornktu.be"; pcre:"/www.pornktu.be$/"; flow:to_server,established; sid:9620127; classtype:policy-violation; rev:1; reference:url,www.pornktu.be;)
-alert tls any any -> any any (msg:"www.pornky.com"; tls_sni; content:"www.pornky.com"; pcre:"/www.pornky.com$/"; flow:to_server,established; sid:9620128; classtype:policy-violation; rev:1; reference:url,www.pornky.com;)
-alert tls any any -> any any (msg:"www.pornodoido.com"; tls_sni; content:"www.pornodoido.com"; pcre:"/www.pornodoido.com$/"; flow:to_server,established; sid:9620129; classtype:policy-violation; rev:1; reference:url,www.pornodoido.com;)
-alert tls any any -> any any (msg:"www.porntrex.com"; tls_sni; content:"www.porntrex.com"; pcre:"/www.porntrex.com$/"; flow:to_server,established; sid:9620130; classtype:policy-violation; rev:1; reference:url,www.porntrex.com;)
-alert tls any any -> any any (msg:"www.porntube.com"; tls_sni; content:"www.porntube.com"; pcre:"/www.porntube.com$/"; flow:to_server,established; sid:9620131; classtype:policy-violation; rev:1; reference:url,www.porntube.com;)
-alert tls any any -> any any (msg:"www.pussyspace.com"; tls_sni; content:"www.pussyspace.com"; pcre:"/www.pussyspace.com$/"; flow:to_server,established; sid:9620132; classtype:policy-violation; rev:1; reference:url,www.pussyspace.com;)
-alert tls any any -> any any (msg:"www.redtube.com"; tls_sni; content:"www.redtube.com"; pcre:"/www.redtube.com$/"; flow:to_server,established; sid:9620133; classtype:policy-violation; rev:1; reference:url,www.redtube.com;)
-alert tls any any -> any any (msg:"www.sextvx.com"; tls_sni; content:"www.sextvx.com"; pcre:"/www.sextvx.com$/"; flow:to_server,established; sid:9620134; classtype:policy-violation; rev:1; reference:url,www.sextvx.com;)
-alert tls any any -> any any (msg:"www.sexvid.xxx"; tls_sni; content:"www.sexvid.xxx"; pcre:"/www.sexvid.xxx$/"; flow:to_server,established; sid:9620135; classtype:policy-violation; rev:1; reference:url,www.sexvid.xxx;)
-alert tls any any -> any any (msg:"www.slutload.com"; tls_sni; content:"www.slutload.com"; pcre:"/www.slutload.com$/"; flow:to_server,established; sid:9620136; classtype:policy-violation; rev:1; reference:url,www.slutload.com;)
-alert tls any any -> any any (msg:"www.sunporno.com"; tls_sni; content:"www.sunporno.com"; pcre:"/www.sunporno.com$/"; flow:to_server,established; sid:9620137; classtype:policy-violation; rev:1; reference:url,www.sunporno.com;)
-alert tls any any -> any any (msg:"www.thumbzilla.com"; tls_sni; content:"www.thumbzilla.com"; pcre:"/www.thumbzilla.com$/"; flow:to_server,established; sid:9620138; classtype:policy-violation; rev:1; reference:url,www.thumbzilla.com;)
-alert tls any any -> any any (msg:"www.tnaflix.com"; tls_sni; content:"www.tnaflix.com"; pcre:"/www.tnaflix.com$/"; flow:to_server,established; sid:9620139; classtype:policy-violation; rev:1; reference:url,www.tnaflix.com;)
-alert tls any any -> any any (msg:"www.tube8.com"; tls_sni; content:"www.tube8.com"; pcre:"/www.tube8.com$/"; flow:to_server,established; sid:9620140; classtype:policy-violation; rev:1; reference:url,www.tube8.com;)
-alert tls any any -> any any (msg:"www.tubxporn.com"; tls_sni; content:"www.tubxporn.com"; pcre:"/www.tubxporn.com$/"; flow:to_server,established; sid:9620141; classtype:policy-violation; rev:1; reference:url,www.tubxporn.com;)
-alert tls any any -> any any (msg:"www.tubxporn.xxx"; tls_sni; content:"www.tubxporn.xxx"; pcre:"/www.tubxporn.xxx$/"; flow:to_server,established; sid:9620142; classtype:policy-violation; rev:1; reference:url,www.tubxporn.xxx;)
-alert tls any any -> any any (msg:"www.xfreehd.com"; tls_sni; content:"www.xfreehd.com"; pcre:"/www.xfreehd.com$/"; flow:to_server,established; sid:9620143; classtype:policy-violation; rev:1; reference:url,www.xfreehd.com;)
-alert tls any any -> any any (msg:"www.xnxx.com"; tls_sni; content:"www.xnxx.com"; pcre:"/www.xnxx.com$/"; flow:to_server,established; sid:9620144; classtype:policy-violation; rev:1; reference:url,www.xnxx.com;)
-alert tls any any -> any any (msg:"www.xxxfiles.com"; tls_sni; content:"www.xxxfiles.com"; pcre:"/www.xxxfiles.com$/"; flow:to_server,established; sid:9620145; classtype:policy-violation; rev:1; reference:url,www.xxxfiles.com;)
-alert tls any any -> any any (msg:"www.youjizz.com"; tls_sni; content:"www.youjizz.com"; pcre:"/www.youjizz.com$/"; flow:to_server,established; sid:9620146; classtype:policy-violation; rev:1; reference:url,www.youjizz.com;)
-alert tls any any -> any any (msg:"www.youporn.com"; tls_sni; content:"www.youporn.com"; pcre:"/www.youporn.com$/"; flow:to_server,established; sid:9620147; classtype:policy-violation; rev:1; reference:url,www.youporn.com;)
-alert tls any any -> any any (msg:"xhamster.com"; tls_sni; content:"xhamster.com"; pcre:"/xhamster.com$/"; flow:to_server,established; sid:9620148; classtype:policy-violation; rev:1; reference:url,xhamster.com;)
-alert tls any any -> any any (msg:"xisvideos.net"; tls_sni; content:"xisvideos.net"; pcre:"/xisvideos.net$/"; flow:to_server,established; sid:9620149; classtype:policy-violation; rev:1; reference:url,xisvideos.net;)
-alert tls any any -> any any (msg:"xkeezmovies.com"; tls_sni; content:"xkeezmovies.com"; pcre:"/xkeezmovies.com$/"; flow:to_server,established; sid:9620150; classtype:policy-violation; rev:1; reference:url,xkeezmovies.com;)
-alert tls any any -> any any (msg:"xmoviesforyou.com"; tls_sni; content:"xmoviesforyou.com"; pcre:"/xmoviesforyou.com$/"; flow:to_server,established; sid:9620151; classtype:policy-violation; rev:1; reference:url,xmoviesforyou.com;)
-alert tls any any -> any any (msg:"xnxx.com"; tls_sni; content:"xnxx.com"; pcre:"/xnxx.com$/"; flow:to_server,established; sid:9620152; classtype:policy-violation; rev:1; reference:url,xnxx.com;)
-alert tls any any -> any any (msg:"xvid3os.blog.br"; tls_sni; content:"xvid3os.blog.br"; pcre:"/xvid3os.blog.br$/"; flow:to_server,established; sid:9620153; classtype:policy-violation; rev:1; reference:url,xvid3os.blog.br;)
-alert tls any any -> any any (msg:"xvideo.blog"; tls_sni; content:"xvideo.blog"; pcre:"/xvideo.blog$/"; flow:to_server,established; sid:9620154; classtype:policy-violation; rev:1; reference:url,xvideo.blog;)
-alert tls any any -> any any (msg:"xvideoporno.net"; tls_sni; content:"xvideoporno.net"; pcre:"/xvideoporno.net$/"; flow:to_server,established; sid:9620155; classtype:policy-violation; rev:1; reference:url,xvideoporno.net;)
-alert tls any any -> [!172.67.188.196,!104.21.49.12] any (msg:"xvideos"; tls_sni; content:"xvideos"; pcre:"/xvideos$/"; flow:to_server,established; sid:9620156; classtype:xvideos; gid:27; rev:1; reference:url,xvideos;)
-alert tls any any -> any any (msg:"xvideos10.blog.br"; tls_sni; content:"xvideos10.blog.br"; pcre:"/xvideos10.blog.br$/"; flow:to_server,established; sid:9620157; classtype:policy-violation; rev:1; reference:url,xvideos10.blog.br;)
-alert tls any any -> any any (msg:"xvideos18.blog.br"; tls_sni; content:"xvideos18.blog.br"; pcre:"/xvideos18.blog.br$/"; flow:to_server,established; sid:9620158; classtype:policy-violation; rev:1; reference:url,xvideos18.blog.br;)
-alert tls any any -> any any (msg:"xvideos18.com.br"; tls_sni; content:"xvideos18.com.br"; pcre:"/xvideos18.com.br$/"; flow:to_server,established; sid:9620159; classtype:policy-violation; rev:1; reference:url,xvideos18.com.br;)
-alert tls any any -> any any (msg:"xvideos-4k.com"; tls_sni; content:"xvideos-4k.com"; pcre:"/xvideos-4k.com$/"; flow:to_server,established; sid:9620160; classtype:policy-violation; rev:1; reference:url,xvideos-4k.com;)
-alert tls any any -> any any (msg:"xvideos5.com.br"; tls_sni; content:"xvideos5.com.br"; pcre:"/xvideos5.com.br$/"; flow:to_server,established; sid:9620161; classtype:policy-violation; rev:1; reference:url,xvideos5.com.br;)
-alert tls any any -> any any (msg:"xvideosamadoras.com"; tls_sni; content:"xvideosamadoras.com"; pcre:"/xvideosamadoras.com$/"; flow:to_server,established; sid:9620162; classtype:policy-violation; rev:1; reference:url,xvideosamadoras.com;)
-alert tls any any -> any any (msg:"xvideos.blog"; tls_sni; content:"xvideos.blog"; pcre:"/xvideos.blog$/"; flow:to_server,established; sid:9620163; classtype:policy-violation; rev:1; reference:url,xvideos.blog;)
-alert tls any any -> any any (msg:"xvideos.blog.br"; tls_sni; content:"xvideos.blog.br"; pcre:"/xvideos.blog.br$/"; flow:to_server,established; sid:9620164; classtype:policy-violation; rev:1; reference:url,xvideos.blog.br;)
-alert tls any any -> any any (msg:"xvideosbrasil.com"; tls_sni; content:"xvideosbrasil.com"; pcre:"/xvideosbrasil.com$/"; flow:to_server,established; sid:9620165; classtype:policy-violation; rev:1; reference:url,xvideosbrasil.com;)
-alert tls any any -> any any (msg:"xvideosbrasil.com.br"; tls_sni; content:"xvideosbrasil.com.br"; pcre:"/xvideosbrasil.com.br$/"; flow:to_server,established; sid:9620166; classtype:policy-violation; rev:1; reference:url,xvideosbrasil.com.br;)
-alert tls any any -> any any (msg:"xvideosbrasileiro.net"; tls_sni; content:"xvideosbrasileiro.net"; pcre:"/xvideosbrasileiro.net$/"; flow:to_server,established; sid:9620167; classtype:policy-violation; rev:1; reference:url,xvideosbrasileiro.net;)
-alert tls any any -> any any (msg:"xvideosbr.blog"; tls_sni; content:"xvideosbr.blog"; pcre:"/xvideosbr.blog$/"; flow:to_server,established; sid:9620168; classtype:policy-violation; rev:1; reference:url,xvideosbr.blog;)
-alert tls any any -> any any (msg:"xvideos.com.br"; tls_sni; content:"xvideos.com.br"; pcre:"/xvideos.com.br$/"; flow:to_server,established; sid:9620169; classtype:xvideos; gid:27; rev:1; reference:url,xvideos.com.br;)
-alert tls any any -> any any (msg:"xvideos.es"; tls_sni; content:"xvideos.es"; pcre:"/xvideos.es$/"; flow:to_server,established; sid:9620170; classtype:policy-violation; rev:1; reference:url,xvideos.es;)
-alert tls any any -> any any (msg:"xvideos.etc.br"; tls_sni; content:"xvideos.etc.br"; pcre:"/xvideos.etc.br$/"; flow:to_server,established; sid:9620171; classtype:policy-violation; rev:1; reference:url,xvideos.etc.br;)
-alert tls any any -> any any (msg:"xvideos.eu.org"; tls_sni; content:"xvideos.eu.org"; pcre:"/xvideos.eu.org$/"; flow:to_server,established; sid:9620172; classtype:policy-violation; rev:1; reference:url,xvideos.eu.org;)
-alert tls any any -> any any (msg:"xvideosfoda.com"; tls_sni; content:"xvideosfoda.com"; pcre:"/xvideosfoda.com$/"; flow:to_server,established; sid:9620173; classtype:policy-violation; rev:1; reference:url,xvideosfoda.com;)
-alert tls any any -> any any (msg:"xvideosgratis.com.br"; tls_sni; content:"xvideosgratis.com.br"; pcre:"/xvideosgratis.com.br$/"; flow:to_server,established; sid:9620174; classtype:policy-violation; rev:1; reference:url,xvideosgratis.com.br;)
-alert tls any any -> any any (msg:"xvideosgratuito.com"; tls_sni; content:"xvideosgratuito.com"; pcre:"/xvideosgratuito.com$/"; flow:to_server,established; sid:9620175; classtype:policy-violation; rev:1; reference:url,xvideosgratuito.com;)
-alert tls any any -> any any (msg:"xvideos-hd.com"; tls_sni; content:"xvideos-hd.com"; pcre:"/xvideos-hd.com$/"; flow:to_server,established; sid:9620176; classtype:policy-violation; rev:1; reference:url,xvideos-hd.com;)
-alert tls any any -> any any (msg:"xvideosincesto.com"; tls_sni; content:"xvideosincesto.com"; pcre:"/xvideosincesto.com$/"; flow:to_server,established; sid:9620177; classtype:policy-violation; rev:1; reference:url,xvideosincesto.com;)
-alert tls any any -> any any (msg:"xvideos.net"; tls_sni; content:"xvideos.net"; pcre:"/xvideos.net$/"; flow:to_server,established; sid:9620178; classtype:policy-violation; rev:1; reference:url,xvideos.net;)
-alert tls any any -> any any (msg:"xvideosnovinha.com"; tls_sni; content:"xvideosnovinha.com"; pcre:"/xvideosnovinha.com$/"; flow:to_server,established; sid:9620179; classtype:policy-violation; rev:1; reference:url,xvideosnovinha.com;)
-alert tls any any -> any any (msg:"xvideosnovinha.com.br"; tls_sni; content:"xvideosnovinha.com.br"; pcre:"/xvideosnovinha.com.br$/"; flow:to_server,established; sid:9620180; classtype:policy-violation; rev:1; reference:url,xvideosnovinha.com.br;)
-alert tls any any -> any any (msg:"xvideosnovinhas.com"; tls_sni; content:"xvideosnovinhas.com"; pcre:"/xvideosnovinhas.com$/"; flow:to_server,established; sid:9620181; classtype:policy-violation; rev:1; reference:url,xvideosnovinhas.com;)
-alert tls any any -> any any (msg:"xvideoson.com"; tls_sni; content:"xvideoson.com"; pcre:"/xvideoson.com$/"; flow:to_server,established; sid:9620182; classtype:policy-violation; rev:1; reference:url,xvideoson.com;)
-alert tls any any -> any any (msg:"xvideospornor.com"; tls_sni; content:"xvideospornor.com"; pcre:"/xvideospornor.com$/"; flow:to_server,established; sid:9620183; classtype:policy-violation; rev:1; reference:url,xvideospornor.com;)
-alert tls any any -> any any (msg:"xvideostop.org"; tls_sni; content:"xvideostop.org"; pcre:"/xvideostop.org$/"; flow:to_server,established; sid:9620184; classtype:policy-violation; rev:1; reference:url,xvideostop.org;)
-alert tls any any -> any any (msg:"xvideos-tv.com"; tls_sni; content:"xvideos-tv.com"; pcre:"/xvideos-tv.com$/"; flow:to_server,established; sid:9620185; classtype:policy-violation; rev:1; reference:url,xvideos-tv.com;)
-alert tls any any -> any any (msg:"xvideosx.blog.br"; tls_sni; content:"xvideosx.blog.br"; pcre:"/xvideosx.blog.br$/"; flow:to_server,established; sid:9620186; classtype:policy-violation; rev:1; reference:url,xvideosx.blog.br;)
-alert tls any any -> any any (msg:"xvideosxbr.com.br"; tls_sni; content:"xvideosxbr.com.br"; pcre:"/xvideosxbr.com.br$/"; flow:to_server,established; sid:9620187; classtype:policy-violation; rev:1; reference:url,xvideosxbr.com.br;)
-alert tls any any -> any any (msg:"xvideosx.com.br"; tls_sni; content:"xvideosx.com.br"; pcre:"/xvideosx.com.br$/"; flow:to_server,established; sid:9620188; classtype:policy-violation; rev:1; reference:url,xvideosx.com.br;)
-alert tls any any -> any any (msg:"xvideos-xxx.com"; tls_sni; content:"xvideos-xxx.com"; pcre:"/xvideos-xxx.com$/"; flow:to_server,established; sid:9620189; classtype:policy-violation; rev:1; reference:url,xvideos-xxx.com;)
-alert tls any any -> any any (msg:"xvideosxxx.com.br"; tls_sni; content:"xvideosxxx.com.br"; pcre:"/xvideosxxx.com.br$/"; flow:to_server,established; sid:9620190; classtype:policy-violation; rev:1; reference:url,xvideosxxx.com.br;)
-alert tls any any -> any any (msg:"xvideotravestis.com"; tls_sni; content:"xvideotravestis.com"; pcre:"/xvideotravestis.com$/"; flow:to_server,established; sid:9620191; classtype:policy-violation; rev:1; reference:url,xvideotravestis.com;)
-alert tls any any -> any any (msg:"xvideo.tv.br"; tls_sni; content:"xvideo.tv.br"; pcre:"/xvideo.tv.br$/"; flow:to_server,established; sid:9620192; classtype:policy-violation; rev:1; reference:url,xvideo.tv.br;)
-alert tls any any -> any any (msg:"xvideo.vlog.br"; tls_sni; content:"xvideo.vlog.br"; pcre:"/xvideo.vlog.br$/"; flow:to_server,established; sid:9620193; classtype:policy-violation; rev:1; reference:url,xvideo.vlog.br;)
-alert tls any any -> any any (msg:"xvidio.com.br"; tls_sni; content:"xvidio.com.br"; pcre:"/xvidio.com.br$/"; flow:to_server,established; sid:9620194; classtype:policy-violation; rev:1; reference:url,xvidio.com.br;)
-alert tls any any -> any any (msg:"xvidios.blog"; tls_sni; content:"xvidios.blog"; pcre:"/xvidios.blog$/"; flow:to_server,established; sid:9620195; classtype:policy-violation; rev:1; reference:url,xvidios.blog;)
-alert tls any any -> any any (msg:"xxvideoss.org"; tls_sni; content:"xxvideoss.org"; pcre:"/xxvideoss.org$/"; flow:to_server,established; sid:9620196; classtype:policy-violation; rev:1; reference:url,xxvideoss.org;)
-alert tls any any -> any any (msg:"xxxfree.watch"; tls_sni; content:"xxxfree.watch"; pcre:"/xxxfree.watch$/"; flow:to_server,established; sid:9620197; classtype:policy-violation; rev:1; reference:url,xxxfree.watch;)
-alert tls any any -> any any (msg:"youjizz.com"; tls_sni; content:"youjizz.com"; pcre:"/youjizz.com$/"; flow:to_server,established; sid:9620198; classtype:policy-violation; rev:1; reference:url,youjizz.com;)
-alert tls any any -> any any (msg:"youporn.com"; tls_sni; content:"youporn.com"; pcre:"/youporn.com$/"; flow:to_server,established; sid:9620199; classtype:policy-violation; rev:1; reference:url,youporn.com;)
-alert tls any any -> any any (msg:"yourdailypornvideos.ws"; tls_sni; content:"yourdailypornvideos.ws"; pcre:"/yourdailypornvideos.ws$/"; flow:to_server,established; sid:9620200; classtype:policy-violation; rev:1; reference:url,yourdailypornvideos.ws;)
-alert http any any -> any any (msg:"fapdu.com"; content:"fapdu.com"; http_host; flow:to_server,established; sid:9620201; classtype:policy-violation; rev:1; reference:url,fapdu.com;)
-alert http any any -> any any (msg:"godude.link"; content:"godude.link"; http_host; flow:to_server,established; sid:9620202; classtype:policy-violation; rev:1; reference:url,godude.link;)
-alert http any any -> any any (msg:"malicia.com.br"; content:"malicia.com.br"; http_host; flow:to_server,established; sid:9620203; classtype:policy-violation; rev:1; reference:url,malicia.com.br;)
-alert http any any -> any any (msg:"m.perfectgirls.net"; content:"m.perfectgirls.net"; http_host; flow:to_server,established; sid:9620204; classtype:policy-violation; rev:1; reference:url,m.perfectgirls.net;)
-alert http any any -> any any (msg:"planetsuzy.com"; content:"planetsuzy.com"; http_host; flow:to_server,established; sid:9620205; classtype:policy-violation; rev:1; reference:url,planetsuzy.com;)
-alert tls any any -> any any (msg:"porn4days.biz"; content:"porn4days.biz"; tls_sni; pcre:"/porn4days.biz$/"; flow:to_server,established; sid:9620206; classtype:policy-violation; rev:1; reference:url,porn4days.biz;)
-alert tls any any -> any any (msg:"pornhd8k.net"; content:"pornhd8k.net"; tls_sni; pcre:"/pornhd8k.net$/"; flow:to_server,established; sid:9620207; classtype:policy-violation; rev:1; reference:url,pornhd8k.net;)
-alert tls any any -> any any (msg:"pornovideoshub.com"; content:"pornovideoshub.com"; tls_sni; pcre:"/pornovideoshub.com$/"; flow:to_server,established; sid:9620208; classtype:policy-violation; rev:1; reference:url,pornovideoshub.com;)
-alert http any any -> any any (msg:"sexvideos.host"; content:"sexvideos.host"; http_host; flow:to_server,established; sid:9620209; classtype:policy-violation; rev:1; reference:url,sexvideos.host;)
-alert http any any -> any any (msg:"siska.video"; content:"siska.video"; http_host; flow:to_server,established; sid:9620210; classtype:policy-violation; rev:1; reference:url,siska.video;)
-alert http any any -> any any (msg:"videosx.pro"; content:"videosx.pro"; http_host; flow:to_server,established; sid:9620211; classtype:policy-violation; rev:1; reference:url,videosx.pro;)
-alert tls any any -> any any (msg:"www.definebabe.com"; content:"definebabe.com"; tls_sni; pcre:"/definebabe.com$/"; flow:to_server,established; sid:9620212; classtype:policy-violation; rev:1; reference:url,www.definebabe.com;)
-alert tls any any -> any any (msg:"erotik.com"; content:"erotik.com"; tls_sni; pcre:"/erotik.com$/"; flow:to_server,established; sid:9620213; classtype:policy-violation; rev:1; reference:url,www.dvdtrailertube.com;)
-alert http any any -> any any (msg:"www.ellxx.com"; content:"www.ellxx.com"; http_host; flow:to_server,established; sid:9620214; classtype:policy-violation; rev:1; reference:url,www.ellxx.com;)
-alert http any any -> any any (msg:"www.freudbox.com"; content:"www.freudbox.com"; http_host; flow:to_server,established; sid:9620215; classtype:policy-violation; rev:1; reference:url,www.freudbox.com;)
-alert http any any -> any any (msg:"www.gameofporn.net"; content:"www.gameofporn.net"; http_host; flow:to_server,established; sid:9620216; classtype:policy-violation; rev:1; reference:url,www.gameofporn.net;)
-alert http any any -> any any (msg:"www.hotgirlclub.com"; content:"www.hotgirlclub.com"; http_host; flow:to_server,established; sid:9620217; classtype:policy-violation; rev:1; reference:url,www.hotgirlclub.com;)
-alert http any any -> any any (msg:"www.kaktuz.com"; content:"www.kaktuz.com"; http_host; flow:to_server,established; sid:9620218; classtype:policy-violation; rev:1; reference:url,www.kaktuz.com;)
-alert http any any -> any any (msg:"www.laraporn.com"; content:"www.laraporn.com"; http_host; flow:to_server,established; sid:9620219; classtype:policy-violation; rev:1; reference:url,www.laraporn.com;)
-alert http any any -> any any (msg:"www.lovelyclips.com"; content:"www.lovelyclips.com"; http_host; flow:to_server,established; sid:9620220; classtype:policy-violation; rev:1; reference:url,www.lovelyclips.com;)
-alert tls any any -> any any (msg:"madthumbs.com"; content:"madthumbs.com"; tls_sni; pcre:"/madthumbs.com$/"; flow:to_server,established; sid:9620221; classtype:policy-violation; rev:1; reference:url,www.madthumbs.com;)
-alert http any any -> any any (msg:"www.orgasm.com"; content:"www.orgasm.com"; http_host; flow:to_server,established; sid:9620222; classtype:policy-violation; rev:1; reference:url,www.orgasm.com;)
-alert tls any any -> any any (msg:"perfectgirls.net"; content:"perfectgirls.xxx"; tls_sni; pcre:"/perfectgirls.xxx$/"; flow:to_server,established; sid:9620223; classtype:policy-violation; rev:1; reference:url,www.perfectgirls.net;)
-alert http any any -> any any (msg:"www.pornomineiro.com"; content:"www.pornomineiro.com"; http_host; flow:to_server,established; sid:9620224; classtype:policy-violation; rev:1; reference:url,www.pornomineiro.com;)
-alert tls any any -> any any (msg:"veporno.net"; content:"veporno.net"; tls_sni; pcre:"/veporno.net$/"; flow:to_server,established; sid:9620225; classtype:policy-violation; rev:1; reference:url,www.veporno.net;)
-alert tls any any -> any any (msg:"xtapes.to"; content:"www.xtapes.to"; tls_sni; pcre:"/xtapes.to$/"; flow:to_server,established; sid:9620226; classtype:policy-violation; rev:1; reference:url,www.xtapes.to;)
-alert http any any -> any any (msg:"www.xvideosf.com"; content:"www.xvideosf.com"; http_host; flow:to_server,established; sid:9620227; classtype:policy-violation; rev:1; reference:url,www.xvideosf.com;)
-alert http any any -> any any (msg:"xvideos.pet"; content:"xvideos.pet"; http_host; flow:to_server,established; sid:9620228; classtype:policy-violation; rev:1; reference:url,xvideos.pet;)
-alert http any any -> any any (msg:"xvideosporno.blog.br"; content:"xvideosporno.blog.br"; http_host; flow:to_server,established; sid:9620229; classtype:policy-violation; rev:1; reference:url,xvideosporno.blog.br;)
-alert http any any -> any any (msg:"xvidios.xxx"; content:"xvidios.xxx"; http_host; flow:to_server,established; sid:9620230; classtype:policy-violation; rev:1; reference:url,xvidios.xxx;)
-alert tls any any -> any any (msg:"erosguia.com.br"; tls_sni; content:"erosguia.com.br"; pcre:"/erosguia.com.br$/"; flow:to_server,established; sid:9620231; classtype:policy-violation; rev:1; reference:url,erosguia.com.br;)
-alert tls any any -> any any (msg:"onlyfans.com"; tls_sni; content:"onlyfans.com"; flow:to_server,established; sid:9620270; classtype:policy-violation; rev:1; reference:url,onlyfans.com;)
-alert tls any any -> any any (msg:"pt.porn.com"; tls_sni; content:"pt.porn.com"; flow:to_server,established; sid:9620233; classtype:misc-activity; metadata:updated_at 2023_04_06; rev:1; reference:url,pt.porn.com;)
-alert tls any any -> any any (msg:"redtube.com.br"; tls_sni; content:"redtube.com.br"; flow:to_server,established; sid:9620240; classtype:misc-activity; metadata:updated_at 2023_04_06; rev:1; reference:url,redtube.com.br;)
-alert tls any any -> any any (msg:"www.hotms.com.br"; tls_sni; content:"www.hotms.com.br"; flow:to_server,established; sid:9620236; classtype:misc-activity; metadata:updated_at 2023_04_06; rev:1; reference:url,www.hotms.com.br;)
-alert tls any any -> any any (msg:"sexymt.com.br"; tls_sni; content:"sexymt.com.br"; flow:to_server,established; sid:9620237; classtype:misc-activity; metadata:updated_at 2023_04_06; rev:1; reference:url,sexymt.com.br;)
-alert tls any any -> any any (msg:"www.revistaplayboy.com.br"; tls_sni; content:"www.revistaplayboy.com.br"; flow:to_server,established; sid:9620238; classtype:playboy; gid:29; metadata:updated_at 2023_04_06; rev:1; reference:url,www.revistaplayboy.com.br;)
-alert tls any any -> any any (msg:"revistaplayboy.com.br"; tls_sni; content:"revistaplayboy.com.br"; flow:to_server,established; sid:9620271; classtype:playboy; gid:29; metadata:updated_at 2023_04_06; rev:1; reference:url,revistaplayboy.com.br;)
-alert tls any any -> any any (msg:"playboy.com"; tls_sni; content:"playboy.com"; pcre:"/playboy.com$/"; flow:to_server,established; sid:9620059; classtype:playboy; gid:29; rev:1; reference:url,playboy.com;)
-alert tls any any -> any any (msg:"playboyplus.com"; tls_sni; content:"playboyplus.com"; pcre:"/playboyplus.com$/"; flow:to_server,established; sid:9620273; classtype:playboy; gid:29; rev:1; reference:url,playboyplus.com;)
-alert tls any any -> any any (msg:"playboy.de"; tls_sni; content:"playboy.de"; pcre:"/playboy.de$/"; flow:to_server,established; sid:9620241; classtype:playboy; gid:29; rev:1; reference:url,playboy.de;)
-alert tls any any -> any any (msg:"playboyjobs.shop"; tls_sni; content:"playboyjobs.shop"; pcre:"/playboyjobs.shop$/"; flow:to_server,established; sid:9620242; classtype:playboy; gid:29; rev:1; reference:url,playboyjobs.shop;)
-alert tls any any -> any any (msg:"playboytv.com"; tls_sni; content:"playboytv.com"; pcre:"/playboytv.com$/"; flow:to_server,established; sid:9620243; classtype:playboy; gid:29; rev:1; reference:url,playboytv.com;)
-alert tls any any -> any any (msg:"playboyzz.com"; tls_sni; content:"playboyzz.com"; pcre:"/playboyzz.com$/"; flow:to_server,established; sid:9620244; classtype:playboy; gid:29; rev:1; reference:url,playboyzz.com;)
-alert tls any any -> any any (msg:"playboytw.com"; tls_sni; content:"playboytw.com"; pcre:"/playboytw.com$/"; flow:to_server,established; sid:9620245; classtype:playboy; gid:29; rev:1; reference:url,playboytw.com;)
-alert tls any any -> any any (msg:"iplayboy.com"; tls_sni; content:"iplayboy.com"; pcre:"/iplayboy.com$/"; flow:to_server,established; sid:9620246; classtype:playboy; gid:29; rev:1; reference:url,iplayboy.com;)
-alert tls any any -> any any (msg:"playboy.tv"; tls_sni; content:"playboy.tv"; pcre:"/playboy.tv$/"; flow:to_server,established; sid:9620247; classtype:playboy; gid:29; rev:1; reference:url,playboy.tv;)
-alert tls any any -> any any (msg:"theplayboys.gr"; tls_sni; content:"theplayboys.gr"; pcre:"/theplayboys.gr$/"; flow:to_server,established; sid:9620248; classtype:playboy; gid:29; rev:1; reference:url,theplayboys.gr;)
-alert tls any any -> any any (msg:"vintageplayboymags.co.uk"; tls_sni; content:"vintageplayboymags.co.uk"; pcre:"/vintageplayboymags.co.uk$/"; flow:to_server,established; sid:9620249; classtype:playboy; gid:29; rev:1; reference:url,vintageplayboymags.co.uk;)
-alert tls any any -> any any (msg:"ladiesofplayboy.com"; tls_sni; content:"ladiesofplayboy.com"; pcre:"/ladiesofplayboy.com$/"; flow:to_server,established; sid:9620250; classtype:playboy; gid:29; rev:1; reference:url,ladiesofplayboy.com;)
-alert tls any any -> any any (msg:"playboy-babes.net"; tls_sni; content:"playboy-babes.net"; pcre:"/playboy-babes.net$/"; flow:to_server,established; sid:9620251; classtype:playboy; gid:29; rev:1; reference:url,playboy-babes.net;)
-alert tls any any -> any any (msg:"playboyrussia.com"; tls_sni; content:"playboyrussia.com"; pcre:"/playboyrussia.com$/"; flow:to_server,established; sid:9620252; classtype:playboy; gid:29; rev:1; reference:url,playboyrussia.com;)
-alert tls any any -> any any (msg:"playboy.nl"; tls_sni; content:"playboy.nl"; pcre:"/playboy.nl$/"; flow:to_server,established; sid:9620253; classtype:playboy; gid:29; rev:1; reference:url,playboy.nl;)
-alert tls any any -> any any (msg:"playboy.it"; tls_sni; content:"playboy.it"; pcre:"/playboy.it$/"; flow:to_server,established; sid:9620254; classtype:playboy; gid:29; rev:1; reference:url,playboy.it;)
-alert tls any any -> any any (msg:"playboy.bz"; tls_sni; content:"playboy.bz"; pcre:"/playboy.bz$/"; flow:to_server,established; sid:9620255; classtype:playboy; gid:29; rev:1; reference:url,playboy.bz;)
-alert tls any any -> any any (msg:"playboy.co"; tls_sni; content:"playboy.co"; pcre:"/playboy.co$/"; flow:to_server,established; sid:9620256; classtype:playboy; gid:29; rev:1; reference:url,playboy.co;)
-alert tls any any -> any any (msg:"playboy-babes.com"; tls_sni; content:"playboy-babes.com"; pcre:"/playboy-babes.com$/"; flow:to_server,established; sid:9620257; classtype:playboy; gid:29; rev:1; reference:url,playboy-babes.com;)
-alert tls any any -> any any (msg:"playboyparade.com"; tls_sni; content:"playboyparade.com"; pcre:"/playboyparade.com$/"; flow:to_server,established; sid:9620258; classtype:playboy; gid:29; rev:1; reference:url,playboyparade.com;)
-alert tls any any -> any any (msg:"playboy-se.com"; tls_sni; content:"playboy-se.com"; pcre:"/playboy-se.com$/"; flow:to_server,established; sid:9620259; classtype:playboy; gid:29; rev:1; reference:url,playboy-se.com;)
-alert tls any any -> any any (msg:"playboy.com.se"; tls_sni; content:"playboy.com.se"; pcre:"/playboy.com.se$/"; flow:to_server,established; sid:9620260; classtype:playboy; gid:29; rev:1; reference:url,playboy.com.se;)
-alert tls any any -> any any (msg:"videodesexo.blog"; tls_sni; content:"videodesexo.blog"; flow:to_server,established; sid:9620239; classtype:misc-activity; metadata:updated_at 2023_04_06; rev:1; reference:url,videodesexo.blog;)
+alert tls any any -> any any (msg:"anysex.com"; tls_sni; content:"anysex.com"; flow:to_server,established; sid:9620016; classtype:anysex; gid:66; rev:1; reference:url,anysex.com; metadata:updated_at 2024_10_01;)
+alert ip any any -> [104.21.234.188, 104.21.234.189, 45.133.44.3, 45.133.44.4] any (msg:"anysex"; flow:to_server,established; sid:9620248; classtype:anysex; gid:66; rev:1; reference:url,anysex.com; metadata:updated_at 2024_10_01;)
+alert ip any any -> [172.67.181.179, 104.21.56.86] any (msg:"beeg.com"; flow:to_server,established; sid:9620017; classtype:policy-violation; rev:1; reference:url,beeg.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"brasileirinhas.com.br"; tls_sni; content:"brasileirinhas.com.br"; pcre:"/brasileirinhas.com.br$/"; flow:to_server,established; sid:9620018; classtype:policy-violation; rev:1; reference:url,brasileirinhas.com.br; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"caiunoxvideos.com.br"; tls_sni; content:"caiunoxvideos.com.br"; pcre:"/caiunoxvideos.com.br$/"; flow:to_server,established; sid:9620019; classtype:policy-violation; rev:1; reference:url,caiunoxvideos.com.br; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"cams.com"; tls_sni; content:"cams.com"; pcre:"/cams.com$/"; flow:to_server,established; sid:9620020; classtype:policy-violation; rev:1; reference:url,cams.com; metadata:updated_at 2024_10_01;)
+alert ip any any -> [104.21.66.39, 172.67.155.249] any (msg:"cliphunter.com"; flow:to_server,established; sid:9620021; classtype:policy-violation; rev:1; reference:url,cliphunter.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"collectionofbestporn.com"; tls_sni; content:"collectionofbestporn.com"; pcre:"/collectionofbestporn.com$/"; flow:to_server,established; sid:9620022; classtype:policy-violation; rev:1; reference:url,collectionofbestporn.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"daftsex.com"; tls_sni; content:"daftsex.com"; pcre:"/daftsex.com$/"; flow:to_server,established; sid:9620023; classtype:policy-violation; rev:1; reference:url,daftsex.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"drtuber.com"; tls_sni; content:"drtuber.com"; pcre:"/drtuber.com$/"; flow:to_server,established; sid:9620024; classtype:policy-violation; rev:1; reference:url,drtuber.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"empflix.com"; tls_sni; content:"empflix.com"; pcre:"/empflix.com$/"; flow:to_server,established; sid:9620025; classtype:policy-violation; rev:1; reference:url,empflix.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"en.paradisehill.cc"; tls_sni; content:"en.paradisehill.cc"; pcre:"/en.paradisehill.cc$/"; flow:to_server,established; sid:9620026; classtype:policy-violation; rev:1; reference:url,en.paradisehill.cc; metadata:updated_at 2024_10_01;)
+alert ip any any -> [104.22.11.236, 172.67.23.187, 104.22.10.236] any (msg:"fatalmodel.com"; flow:to_server,established; sid:9620027; classtype:policy-violation; rev:1; reference:url,fatalmodel.com; metadata:updated_at 2024_10_01;)
+alert ip any any -> [104.21.70.234, 172.67.168.191] any (msg:"festadoprazer.com.br"; flow:to_server,established; sid:9620028; classtype:policy-violation; rev:1; reference:url,festadoprazer.com.br; metadata:updated_at 2024_10_01;)
+alert ip any any -> [104.21.83.102, 172.67.222.26] any (msg:"filmespornos.net"; flow:to_server,established; sid:9620029; classtype:policy-violation; rev:1; reference:url,filmespornos.net; metadata:updated_at 2024_10_01;)
+alert ip any any -> [172.67.148.140, 104.21.29.65, 2606:4700:3033::ac43:948c, 2606:4700:3035::6815:1d41] any (msg:"fullxxxmovies.net"; flow:to_server,established; sid:9620030; classtype:policy-violation; rev:1; reference:url,fullxxxmovies.net; metadata:updated_at 2024_10_01;)
+alert ip any any -> [172.67.44.7, 104.22.14.219, 104.22.15.219, 162.255.119.110, 2606:4700:10::6816:edb, 2606:4700:10::ac43:2c07, 2606:4700:10::6816:fdb] any (msg:"garotacomlocal.com"; flow:to_server,established; sid:9620031; classtype:policy-violation; rev:1; reference:url,garotacomlocal.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"hclips.com"; tls_sni; content:"hclips.com"; pcre:"/hclips.com$/"; flow:to_server,established; sid:9620036; classtype:policy-violation; rev:1; reference:url,hclips.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"hqporner.com"; tls_sni; content:"hqporner.com"; pcre:"/hqporner.com$/"; flow:to_server,established; sid:9620034; classtype:policy-violation; rev:1; reference:url,hqporner.com; metadata:updated_at 2024_10_01;)
+alert ip any any -> [15.197.225.128, 172.67.213.49, 104.21.35.44,2606:4700:3035::6815:232c, 2606:4700:3033::ac43:d531] any (msg:"hustlertube.com"; flow:to_server,established; sid:9620035; classtype:policy-violation; rev:1; reference:url,hustlertube.com; metadata:updated_at 2024_10_01;)
+alert ip any any -> [104.18.1.131, 104.18.0.131, 2606:4700::6812:83, 2606:4700::6812:183] any (msg:"ilhadoprazer.com.br"; flow:to_server,established; sid:9620036; classtype:policy-violation; rev:1; reference:url,ilhadoprazer.com.br; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"keezmovies.com"; tls_sni; content:"keezmovies.com"; pcre:"/keezmovies.com$/"; flow:to_server,established; sid:9620038; classtype:policy-violation; rev:1; reference:url,keezmovies.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"king-media.net"; tls_sni; content:"king-media.net"; pcre:"/king-media.net$/"; flow:to_server,established; sid:9620039; classtype:policy-violation; rev:1; reference:url,king-media.net; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"livejasmin.com"; tls_sni; content:"livejasmin.com"; pcre:"/livejasmin.com$/"; flow:to_server,established; sid:9620042; classtype:policy-violation; rev:1; reference:url,livejasmin.com; metadata:updated_at 2024_10_01;)
+alert ip any any -> [104.21.79.191, 172.67.171.2, 2606:4700:3033::6815:4fbf, 2606:4700:3032::ac43:ab02] any (msg:"lubetube.com"; flow:to_server,established; sid:9620043; classtype:policy-violation; rev:1; reference:url,lubetube.com; metadata:updated_at 2024_10_01;)
+alert http any any -> any any (msg:"mangoporn.net"; content:"mangoporn.net"; http_host; flow:to_server,established; sid:9620044; classtype:policy-violation; rev:1; reference:url,mangoporn.net; metadata:updated_at 2024_10_01;)
+alert ip any any -> [104.22.40.230, 172.67.24.118, 104.22.41.230, 2606:4700:10::6816:28e6, 2606:4700:10::ac43:1876, 2606:4700:10::6816:29e6] any (msg:"mileroticos.com"; flow:to_server,established; sid:9620045; classtype:policy-violation; rev:1; reference:url,mileroticos.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"mofosex.com"; tls_sni; content:"mofosex.com"; pcre:"/mofosex.com$/"; flow:to_server,established; sid:9620046; classtype:policy-violation; rev:1; reference:url,mofosex.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"monster-tube.com"; tls_sni; content:"monster-tube.com"; pcre:"/monster-tube.com$/"; flow:to_server,established; sid:9620047; classtype:policy-violation; rev:1; reference:url,monster-tube.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"morangovip.com.br"; tls_sni; content:"morangovip.com.br"; pcre:"/morangovip.com.br$/"; flow:to_server,established; sid:9620048; classtype:policy-violation; rev:1; reference:url,morangovip.com.br; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"motherless.com"; tls_sni; content:"motherless.com"; pcre:"/motherless.com$/"; flow:to_server,established; sid:9620049; classtype:policy-violation; rev:1; reference:url,motherless.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"moviefap.com"; tls_sni; content:"moviefap.com"; pcre:"/moviefap.com$/"; flow:to_server,established; sid:9620050; classtype:policy-violation; rev:1; reference:url,moviefap.com; metadata:updated_at 2024_10_01;)
+alert ip any any -> [104.26.14.183, 104.26.15.183, 172.67.70.200, 2606:4700:20::681a:eb7, 2606:4700:20::681a:fb7, 2606:4700:20::ac43:46c8] any (msg:"mundosexanuncio.com"; flow:to_server,established; sid:9620052; classtype:policy-violation; rev:1; reference:url,mundosexanuncio.com; metadata:updated_at 2024_10_01;)
+alert ip any any -> [172.67.212.16, 104.21.91.78, 2606:4700:3035::ac43:d410, 2606:4700:3037::6815:5b4e] any (msg:"netfapx.com"; flow:to_server,established; sid:9620053; classtype:policy-violation; rev:1; reference:url,netfapx.com; metadata:updated_at 2024_10_01;)
+alert ip any any -> [104.21.2.216, 172.67.129.184, 2606:4700:3032::6815:2d8, 2606:4700:3037::ac43:81b8] any (msg:"palmtube.com"; flow:to_server,established; sid:9620054; classtype:policy-violation; rev:1; reference:url,palmtube.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"pandamovies.pw"; tls_sni; content:"pandamovies.pw"; pcre:"/pandamovies.pw$/"; flow:to_server,established; sid:9620055; classtype:policy-violation; rev:1; reference:url,pandamovies.pw; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"paradisehill.cc"; tls_sni; content:"paradisehill.cc"; pcre:"/paradisehill.cc$/"; flow:to_server,established; sid:9620056; classtype:policy-violation; rev:1; reference:url,paradisehill.cc; metadata:updated_at 2024_10_01;)
+alert ip any any -> [104.16.128.154, 104.16.191.215, 2606:4700::6810:809a, 2606:4700::6810:bfd7] any (msg:"photoacompanhantes.com"; flow:to_server,established; sid:9620057; classtype:policy-violation; rev:1; reference:url,photoacompanhantes.com; metadata:updated_at 2024_10_01;)
+alert ip any any -> [172.67.133.176, 104.21.5.178, 2606:4700:3037::ac43:85b0, 2606:4700:3033::6815:5b2] any (msg:"pichunter.com"; flow:to_server,established; sid:9620058; classtype:policy-violation; rev:1; reference:url,pichunter.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"plusone8.com"; tls_sni; content:"plusone8.com"; pcre:"/plusone8.com$/"; flow:to_server,established; sid:9620060; classtype:policy-violation; rev:1; reference:url,plusone8.com; metadata:updated_at 2024_10_01;)
+alert ip any any -> [104.21.235.11, 104.21.235.12, 2606:4700:3038::6815:eb0b, 2606:4700:3038::6815:eb0c] any (msg:"porn555.com"; flow:to_server,established; sid:9620061; classtype:policy-violation; rev:1; reference:url,porn555.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"porncor.com"; tls_sni; content:"porncor.com"; pcre:"/porncor.com$/"; flow:to_server,established; sid:9620062; classtype:policy-violation; rev:1; reference:url,porncor.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"porndoe.com"; tls_sni; content:"porndoe.com"; pcre:"/porndoe.com$/"; flow:to_server,established; sid:9620063; classtype:policy-violation; rev:1; reference:url,porndoe.com; metadata:updated_at 2024_10_01;)
+alert ip any any -> [104.21.19.109, 172.67.185.249, 2606:4700:3037::6815:136d, 2606:4700:3037::ac43:b9f9] any (msg:"pornobae.com"; flow:to_server,established; sid:9620064; classtype:policy-violation; rev:1; reference:url,pornobae.com; metadata:updated_at 2024_10_01;)
+alert ip any any -> [104.21.30.90, 172.67.172.177, 2606:4700:3033::ac43:acb1, 2606:4700:3030::6815:1e5a] any (msg:"pornobrasil.blog.br"; flow:to_server,established; sid:9620065; classtype:policy-violation; rev:1; reference:url,pornobrasil.blog.br; metadata:updated_at 2024_10_01;)
+alert ip any any -> [172.67.196.209, 104.21.21.69, 2606:4700:3035::ac43:c4d1, 2606:4700:3030::6815:1545] any (msg:"pornocarioca.com"; flow:to_server,established; sid:9620066; classtype:policy-violation; rev:1; reference:url,pornocarioca.com; metadata:updated_at 2024_10_01;)
+alert ip any any -> [172.66.43.114, 172.66.40.142, 2606:4700:3108::ac42:288e, 2606:4700:3108::ac42:2b72] any (msg:"pornogram.xxx"; flow:to_server,established; sid:9620067; classtype:policy-violation; rev:1; reference:url,pornogram.xxx; metadata:updated_at 2024_10_01;)
+alert ip any any -> [104.21.234.119, 104.21.234.118, 2606:4700:3038::6815:ea76, 2606:4700:3038::6815:ea77] any (msg:"pornonacionais.com"; flow:to_server,established; sid:9620068; classtype:policy-violation; rev:1; reference:url,pornonacionais.com; metadata:updated_at 2024_10_01;)
+alert ip any any -> [104.26.14.226, 104.26.15.226, 172.67.72.49] any (msg:"pornone.com"; flow:to_server,established; sid:9620069; classtype:policy-violation; rev:1; reference:url,pornone.com; metadata:updated_at 2024_10_01;)
+alert ip any any -> [104.21.78.181, 172.67.168.82, 2606:4700:3030::6815:4eb5, 2606:4700:3031::ac43:a852] any (msg:"porn-plus.com"; flow:to_server,established; sid:9620071; classtype:policy-violation; rev:1; reference:url,porn-plus.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"pornrabbit.com"; tls_sni; content:"pornrabbit.com"; pcre:"/pornrabbit.com$/"; flow:to_server,established; sid:9620072; classtype:policy-violation; rev:1; reference:url,pornrabbit.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"porntitan.com"; tls_sni; content:"porntitan.com"; pcre:"/porntitan.com$/"; flow:to_server,established; sid:9620073; classtype:policy-violation; rev:1; reference:url,porntitan.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"pornvibe.org"; tls_sni; content:"pornvibe.org"; pcre:"/pornvibe.org$/"; flow:to_server,established; sid:9620074; classtype:policy-violation; rev:1; reference:url,pornvibe.org; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"pornwild.to"; tls_sni; content:"pornwild.to"; pcre:"/pornwild.to$/"; flow:to_server,established; sid:9620075; classtype:policy-violation; rev:1; reference:url,pornwild.to; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"pussy.com"; tls_sni; content:"pussy.com"; pcre:"/pussy.com$/"; flow:to_server,established; sid:9620076; classtype:policy-violation; rev:1; reference:url,pussy.com; metadata:updated_at 2024_10_01;)
+alert ip any any -> [104.21.88.163, 172.67.186.10, 2606:4700:3035::6815:58a3, 2606:4700:3031::ac43:ba0a] any (msg:"rclove.com.br"; flow:to_server,established; sid:9620077; classtype:policy-violation; rev:1; reference:url,rclove.com.br; metadata:updated_at 2024_10_01;)
+alert ip any any -> [172.67.131.117, 104.21.10.112, 2606:4700:3033::6815:a70, 2606:4700:3035::ac43:8375] any (msg:"rcmodells.com.br"; flow:to_server,established; sid:9620078; classtype:policy-violation; rev:1; reference:url,rcmodells.com.br; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"redtube.com"; tls_sni; content:"redtube.com"; pcre:"/redtube.com$/"; flow:to_server,established; sid:9620079; classtype:policy-violation; rev:1; reference:url,redtube.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"sexlog.com"; tls_sni; content:"sexlog.com"; pcre:"/sexlog.com$/"; flow:to_server,established; sid:9620080; classtype:policy-violation; rev:1; reference:url,sexlog.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"sexo.uol.com.br"; tls_sni; content:"sexo.uol.com.br"; pcre:"/sexo.uol.com.br$/"; flow:to_server,established; sid:9620081; classtype:policy-violation; rev:1; reference:url,sexo.uol.com.br; metadata:updated_at 2024_10_01;)
+alert ip any any -> [104.21.88.237, 172.67.154.56, 2606:4700:3035::6815:58ed, 2606:4700:3032::ac43:9a38] any (msg:"sexu.com"; flow:to_server,established; sid:9620082; classtype:policy-violation; rev:1; reference:url,sexu.com; metadata:updated_at 2024_10_01;)
+alert ip any any -> [34.151.212.7] any (msg:"sexyclube.uol.com.br"; flow:to_server,established; sid:9620083; classtype:policy-violation; rev:1; reference:url,sexyclube.uol.com.br; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"sexyhot.globo.com"; tls_sni; content:"sexyhot.globo.com"; pcre:"/sexyhot.globo.com$/"; flow:to_server,established; sid:9620084; classtype:policy-violation; rev:1; reference:url,sexyhot.globo.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"spankbang.com"; tls_sni; content:"spankbang.com"; pcre:"/spankbang.com$/"; flow:to_server,established; sid:9620085; classtype:policy-violation; rev:1; reference:url,spankbang.com; metadata:updated_at 2024_10_01;)
+alert ip any any -> [212.32.229.134] any (msg:"streamporn.pw"; flow:to_server,established; sid:9620086; classtype:policy-violation; rev:1; reference:url,streamporn.pw; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"sxyprn.com"; tls_sni; content:"sxyprn.com"; pcre:"/sxyprn.com$/"; flow:to_server,established; sid:9620087; classtype:policy-violation; rev:1; reference:url,sxyprn.com; metadata:updated_at 2024_10_01;)
+alert ip any any -> [104.21.234.17, 104.21.234.16, 2606:4700:3038::6815:ea11, 2606:4700:3038::6815:ea10] any (msg:"taxi69.com"; flow:to_server,established; sid:9620088; classtype:policy-violation; rev:1; reference:url,taxi69.com; metadata:updated_at 2024_10_01;)
+alert ip any any -> [104.19.131.104, 104.19.130.104] any (msg:"theporndude.com"; flow:to_server,established; sid:9620089; classtype:policy-violation; rev:1; reference:url,theporndude.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"tnaflix.com"; tls_sni; content:"tnaflix.com"; pcre:"/tnaflix.com$/"; flow:to_server,established; sid:9620090; classtype:policy-violation; rev:1; reference:url,tnaflix.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"tube8.com"; tls_sni; content:"tube8.com"; pcre:"/tube8.com$/"; flow:to_server,established; sid:9620092; classtype:policy-violation; rev:1; reference:url,tube8.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"tv.fakings.com"; tls_sni; content:"tv.fakings.com"; pcre:"/tv.fakings.com$/"; flow:to_server,established; sid:9620093; classtype:policy-violation; rev:1; reference:url,tv.fakings.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"txxx.com"; tls_sni; content:"txxx.com"; pcre:"/txxx.com$/"; flow:to_server,established; sid:9620094; classtype:policy-violation; rev:1; reference:url,txxx.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"usexvideos.com"; tls_sni; content:"usexvideos.com"; pcre:"/usexvideos.com$/"; flow:to_server,established; sid:9620095; classtype:policy-violation; rev:1; reference:url,usexvideos.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"vidoz8.com"; tls_sni; content:"vidoz8.com"; pcre:"/vidoz8.com$/"; flow:to_server,established; sid:9620097; classtype:policy-violation; rev:1; reference:url,vidoz8.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"vrporn.com"; tls_sni; content:"vrporn.com"; pcre:"/vrporn.com$/"; flow:to_server,established; sid:9620098; classtype:policy-violation; rev:1; reference:url,vrporn.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"www.3movs.com"; tls_sni; content:"3movs.com"; pcre:"/3movs.com$/"; flow:to_server,established; sid:9620099; classtype:policy-violation; rev:1; reference:url,www.3movs.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"www.4tube.com"; tls_sni; content:"4tube.com"; pcre:"/4tube.com$/"; flow:to_server,established; sid:9620100; classtype:policy-violation; rev:1; reference:url,www.4tube.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"www.analdin.com"; tls_sni; content:"analdin.com"; pcre:"/analdin.com$/"; flow:to_server,established; sid:9620101; classtype:policy-violation; rev:1; reference:url,www.analdin.com; metadata:updated_at 2024_10_01;)
+alert ip any any -> [104.18.5.72, 104.18.4.72] any (msg:"www.boafoda.com"; flow:to_server,established; sid:9620102; classtype:policy-violation; rev:1; reference:url,www.boafoda.com; metadata:updated_at 2024_10_01;)
+alert ip any any -> [172.67.157.3, 104.21.48.241, 2606:4700:3033::ac43:9d03, 2606:4700:3035::6815:30f1] any (msg:"www.cumlouder.com"; flow:to_server,established; sid:9620104; classtype:policy-violation; rev:1; reference:url,www.cumlouder.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"www.drtuber.com"; tls_sni; content:"drtuber.com"; pcre:"/drtuber.com$/"; flow:to_server,established; sid:9620105; classtype:policy-violation; rev:1; reference:url,www.drtuber.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"www.empflix.com"; tls_sni; content:"empflix.com"; pcre:"/empflix.com$/"; flow:to_server,established; sid:9620106; classtype:policy-violation; rev:1; reference:url,www.empflix.com; metadata:updated_at 2024_10_01;)
+alert ip any any -> [94.75.220.10, 94.75.220.1, 94.75.220.2, 94.75.220.3, 94.75.220.4, 94.75.220.5, 94.75.220.6, 94.75.220.7, 94.75.220.8, 94.75.220.9, 2001:1af8:4800:b001::babe:5, 2001:1af8:4800:b001::babe:6, 2001:1af8:4800:b001::babe:7, 2001:1af8:4800:b001::babe:8, 2001:1af8:4800:b001::babe:9, 2001:1af8:4800:b001::babe:10, 2001:1af8:4800:b001::babe:1, 2001:1af8:4800:b001::babe:2, 2001:1af8:4800:b001::babe:3, 2001:1af8:4800:b001::babe:4] any (msg:"www.eporner.com"; flow:to_server,established; sid:9620107; classtype:policy-violation; rev:1; reference:url,www.eporner.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"www.freeomovie.to"; tls_sni; content:"freeomovie.to"; pcre:"/freeomovie.to$/"; flow:to_server,established; sid:9620108; classtype:policy-violation; rev:1; reference:url,www.freeomovie.to; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"www.fuq.com"; tls_sni; content:"fuq.com"; pcre:"/fuq.com$/"; flow:to_server,established; sid:9620109; classtype:policy-violation; rev:1; reference:url,www.fuq.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"www.fux.com"; tls_sni; content:"fux.com"; pcre:"/fux.com$/"; flow:to_server,established; sid:9620110; classtype:policy-violation; rev:1; reference:url,www.fux.com; metadata:updated_at 2024_10_01;)
+alert ip any any -> [104.21.32.105, 172.67.185.142, 2606:4700:3030::ac43:b98e, 2606:4700:3035::6815:2069] any (msg:"www.garotaporno.com"; flow:to_server,established; sid:9620111; classtype:policy-violation; rev:1; reference:url,www.garotaporno.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"www.gotporn.com"; tls_sni; content:"gotporn.com"; pcre:"/gotporn.com$/"; flow:to_server,established; sid:9620112; classtype:policy-violation; rev:1; reference:url,www.gotporn.com; metadata:updated_at 2024_10_01;)
+alert ip any any -> [172.67.157.143, 104.21.40.227, 2606:4700:3034::6815:28e3, 2606:4700:3037::ac43:9d8f] any (msg:"www.hd-easyporn.com"; flow:to_server,established; sid:9620113; classtype:policy-violation; rev:1; reference:url,www.hd-easyporn.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"www.ixxx.com"; tls_sni; content:"ixxx.com"; pcre:"/ixxx.com$/"; flow:to_server,established; sid:9620114; classtype:policy-violation; rev:1; reference:url,www.ixxx.com; metadata:updated_at 2024_10_01;)
+alert ip any any -> [104.21.11.177, 172.67.149.209, 2606:4700:3031::6815:bb1, 2606:4700:3035::ac43:95d1] any (msg:"www.joysporn.com"; flow:to_server,established; sid:9620115; classtype:policy-violation; rev:1; reference:url,www.joysporn.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"www.joysporn.vip"; tls_sni; content:"joysporn.vip"; pcre:"/joysporn.vip$/"; flow:to_server,established; sid:9620116; classtype:policy-violation; rev:1; reference:url,www.joysporn.vip; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"www.likuoo.video"; tls_sni; content:"likuoo.video"; pcre:"/likuoo.video$/"; flow:to_server,established; sid:9620117; classtype:policy-violation; rev:1; reference:url,www.likuoo.video; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"www.nuvid.com"; tls_sni; content:"nuvid.com"; pcre:"/nuvid.com$/"; flow:to_server,established; sid:9620118; classtype:policy-violation; rev:1; reference:url,www.nuvid.com; metadata:updated_at 2024_10_01;)
+alert ip any any -> [104.21.235.194, 104.21.235.193, 2606:4700:3038::6815:ebc1, 2606:4700:3038::6815:ebc2] any (msg:"www.porn00.org"; flow:to_server,established; sid:9620119; classtype:policy-violation; rev:1; reference:url,www.porn00.org; metadata:updated_at 2024_10_01;)
+alert ip any any -> [104.21.63.163, 172.67.171.15, 2606:4700:3037::ac43:ab0f, 2606:4700:3030::6815:3fa3] any (msg:"www.porn300.com"; flow:to_server,established; sid:9620120; classtype:policy-violation; rev:1; reference:url,www.porn300.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"www.porn.com"; tls_sni; content:"porn.com"; pcre:"/porn.com$/"; flow:to_server,established; sid:9620121; classtype:policy-violation; rev:1; reference:url,www.porn.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"www.porndig.com"; tls_sni; content:"porndig.com"; pcre:"/porndig.com$/"; flow:to_server,established; sid:9620122; classtype:policy-violation; rev:1; reference:url,www.porndig.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"www.porndish.com"; tls_sni; content:"porndish.com"; pcre:"/porndish.com$/"; flow:to_server,established; sid:9620123; classtype:policy-violation; rev:1; reference:url,www.porndish.com; metadata:updated_at 2024_10_01;)
+alert ip any any -> [104.21.8.27, 172.67.156.183, 2606:4700:3035::6815:81b, 2606:4700:3032::ac43:9cb7] any (msg:"www.porngo.com"; flow:to_server,established; sid:9620124; classtype:policy-violation; rev:1; reference:url,www.porngo.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"www.pornhd.com"; tls_sni; content:"pornhd.com"; pcre:"/pornhd.com$/"; flow:to_server,established; sid:9620125; classtype:policy-violation; rev:1; reference:url,www.pornhd.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"www.pornhits.com"; tls_sni; content:"pornhits.com"; pcre:"/pornhits.com$/"; flow:to_server,established; sid:9620126; classtype:policy-violation; rev:1; reference:url,www.pornhits.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"www.pornktu.be"; tls_sni; content:"pornktu.be"; pcre:"/pornktu.be$/"; flow:to_server,established; sid:9620127; classtype:policy-violation; rev:1; reference:url,www.pornktu.be; metadata:updated_at 2024_10_01;)
+alert ip any any -> [104.21.46.148, 172.67.140.52, 2606:4700:3030::ac43:8c34, 2606:4700:3037::6815:2e94] any (msg:"www.pornky.com"; flow:to_server,established; sid:9620128; classtype:policy-violation; rev:1; reference:url,www.pornky.com; metadata:updated_at 2024_10_01;)
+alert ip any any -> [104.21.234.22, 104.21.234.23] any (msg:"www.pornodoido.com"; flow:to_server,established; sid:9620129; classtype:policy-violation; rev:1; reference:url,www.pornodoido.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"www.porntrex.com"; tls_sni; content:"porntrex.com"; pcre:"/porntrex.com$/"; flow:to_server,established; sid:9620130; classtype:policy-violation; rev:1; reference:url,www.porntrex.com; metadata:updated_at 2024_10_01;)
+alert ip any any -> [104.23.136.14, 104.23.135.14] any (msg:"www.porntube.com"; flow:to_server,established; sid:9620131; classtype:policy-violation; rev:1; reference:url,www.porntube.com; metadata:updated_at 2024_10_01;)
+alert ip any any -> [172.67.12.66, 104.22.65.127, 104.22.64.127, 2606:4700:10::6816:417f, 2606:4700:10::6816:407f, 2606:4700:10::ac43:c42] any (msg:"www.pussyspace.com"; flow:to_server,established; sid:9620132; classtype:policy-violation; rev:1; reference:url,www.pussyspace.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"www.redtube.com"; tls_sni; content:"redtube.com"; pcre:"/redtube.com$/"; flow:to_server,established; sid:9620133; classtype:policy-violation; rev:1; reference:url,www.redtube.com; metadata:updated_at 2024_10_01;)
+alert ip any any -> [172.67.176.77, 104.21.88.99, 2606:4700:3030::ac43:b04d, 2606:4700:3035::6815:5863] any (msg:"www.sextvx.com"; flow:to_server,established; sid:9620134; classtype:policy-violation; rev:1; reference:url,www.sextvx.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"www.sexvid.xxx"; tls_sni; content:"sexvid.xxx"; pcre:"/sexvid.xxx$/"; flow:to_server,established; sid:9620135; classtype:policy-violation; rev:1; reference:url,www.sexvid.xxx; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"www.slutload.com"; tls_sni; content:"slutload.com"; pcre:"/slutload.com$/"; flow:to_server,established; sid:9620136; classtype:policy-violation; rev:1; reference:url,www.slutload.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"www.sunporno.com"; tls_sni; content:"sunporno.com"; pcre:"/sunporno.com$/"; flow:to_server,established; sid:9620137; classtype:policy-violation; rev:1; reference:url,www.sunporno.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"www.thumbzilla.com"; tls_sni; content:"thumbzilla.com"; pcre:"/thumbzilla.com$/"; flow:to_server,established; sid:9620138; classtype:policy-violation; rev:1; reference:url,www.thumbzilla.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"www.tnaflix.com"; tls_sni; content:"tnaflix.com"; pcre:"/tnaflix.com$/"; flow:to_server,established; sid:9620139; classtype:policy-violation; rev:1; reference:url,www.tnaflix.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"www.tube8.com"; tls_sni; content:"tube8.com"; pcre:"/tube8.com$/"; flow:to_server,established; sid:9620140; classtype:policy-violation; rev:1; reference:url,www.tube8.com; metadata:updated_at 2024_10_01;)
+alert ip any any -> [172.67.170.218, 104.21.28.140, 2606:4700:3030::6815:1c8c, 2606:4700:3034::ac43:aada] any (msg:"www.tubxporn.com"; flow:to_server,established; sid:9620141; classtype:policy-violation; rev:1; reference:url,www.tubxporn.com; metadata:updated_at 2024_10_01;)
+alert ip any any -> [172.67.170.218, 104.21.28.140, 2606:4700:3030::6815:1c8c, 2606:4700:3034::ac43:aada] any (msg:"www.tubxporn.xxx"; flow:to_server,established; sid:9620142; classtype:policy-violation; rev:1; reference:url,www.tubxporn.xxx; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"www.xfreehd.com"; tls_sni; content:"xfreehd.com"; pcre:"/xfreehd.com$/"; flow:to_server,established; sid:9620143; classtype:policy-violation; rev:1; reference:url,www.xfreehd.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"www.xnxx.com"; tls_sni; content:"xnxx.com"; pcre:"/xnxx.com$/"; flow:to_server,established; sid:9620144; classtype:policy-violation; rev:1; reference:url,www.xnxx.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"www.xxxfiles.com"; tls_sni; content:"xxxfiles.com"; pcre:"/xxxfiles.com$/"; flow:to_server,established; sid:9620145; classtype:policy-violation; rev:1; reference:url,www.xxxfiles.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"www.youjizz.com"; tls_sni; content:"youjizz.com"; pcre:"/youjizz.com$/"; flow:to_server,established; sid:9620146; classtype:policy-violation; rev:1; reference:url,www.youjizz.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"www.youporn.com"; tls_sni; content:"youporn.com"; pcre:"/youporn.com$/"; flow:to_server,established; sid:9620147; classtype:policy-violation; rev:1; reference:url,www.youporn.com; metadata:updated_at 2024_10_01;)
+alert ip any any -> [104.17.35.109, 104.17.34.109, 2606:4700::6811:236d, 2606:4700::6811:226d] any (msg:"xhamster.com"; flow:to_server,established; sid:9620148; classtype:policy-violation; rev:1; reference:url,xhamster.com; metadata:updated_at 2024_10_01;)
+alert ip any any -> [172.67.159.88, 104.21.81.110, 2606:4700:3034::6815:516e, 2606:4700:3030::ac43:9f58] any (msg:"xisvideos.net"; flow:to_server,established; sid:9620149; classtype:policy-violation; rev:1; reference:url,xisvideos.net; metadata:updated_at 2024_10_01;)
+alert ip any any -> [172.67.145.248, 104.21.55.82, 2606:4700:3037::6815:3752, 2606:4700:3031::ac43:91f8] any (msg:"xkeezmovies.com"; flow:to_server,established; sid:9620150; classtype:policy-violation; rev:1; reference:url,xkeezmovies.com; metadata:updated_at 2024_10_01;)
+alert ip any any -> [172.67.190.223, 104.21.92.91, 2606:4700:3034::6815:5c5b, 2606:4700:3035::ac43:bedf] any (msg:"xmoviesforyou.com"; flow:to_server,established; sid:9620151; classtype:policy-violation; rev:1; reference:url,xmoviesforyou.com; metadata:updated_at 2024_10_01;)
+alert ip any any -> [185.88.181.57, 185.88.181.54, 185.88.181.55, 185.88.181.53, 185.88.181.56, 185.88.181.59, 185.88.181.60, 185.88.181.58] any (msg:"xnxx.com"; flow:to_server,established; sid:9620152; classtype:policy-violation; rev:1; reference:url,xnxx.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"xvid3os.blog.br"; tls_sni; content:"xvid3os.blog.br"; pcre:"/xvid3os.blog.br$/"; flow:to_server,established; sid:9620153; classtype:policy-violation; rev:1; reference:url,xvid3os.blog.br; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"xvideo.blog"; tls_sni; content:"xvideo.blog"; pcre:"/xvideo.blog$/"; flow:to_server,established; sid:9620154; classtype:policy-violation; rev:1; reference:url,xvideo.blog; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"xvideoporno.net"; tls_sni; content:"xvideoporno.net"; pcre:"/xvideoporno.net$/"; flow:to_server,established; sid:9620155; classtype:policy-violation; rev:1; reference:url,xvideoporno.net; metadata:updated_at 2024_10_01;)
+alert ip any any -> [104.21.78.124, 172.67.220.250, 2606:4700:3032::6815:4e7c, 2606:4700:3032::ac43:dcfa] any (msg:"xvideos10.blog.br"; flow:to_server,established; sid:9620157; classtype:policy-violation; rev:1; reference:url,xvideos10.blog.br; metadata:updated_at 2024_10_01;)
+alert ip any any -> [172.67.169.143, 104.21.27.164, 2606:4700:3032::6815:1ba4, 2606:4700:3032::ac43:a98f] any (msg:"xvideos18.blog.br"; flow:to_server,established; sid:9620158; classtype:policy-violation; rev:1; reference:url,xvideos18.blog.br; metadata:updated_at 2024_10_01;)
+alert ip any any -> [172.67.206.5, 104.21.61.47, 2606:4700:3037::6815:3d2f, 2606:4700:3031::ac43:ce05] any (msg:"xvideos18.com.br"; flow:to_server,established; sid:9620159; classtype:policy-violation; rev:1; reference:url,xvideos18.com.br; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"xvideos-4k.com"; tls_sni; content:"xvideos-4k.com"; pcre:"/xvideos-4k.com$/"; flow:to_server,established; sid:9620160; classtype:policy-violation; rev:1; reference:url,xvideos-4k.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"xvideos5.com.br"; tls_sni; content:"xvideos5.com.br"; pcre:"/xvideos5.com.br$/"; flow:to_server,established; sid:9620161; classtype:policy-violation; rev:1; reference:url,xvideos5.com.br; metadata:updated_at 2024_10_01;)
+alert ip any any -> [104.21.233.254, 104.21.233.253, 2606:4700:3038::6815:e9fe, 2606:4700:3038::6815:e9fd] any (msg:"xvideosamadoras.com"; flow:to_server,established; sid:9620162; classtype:policy-violation; rev:1; reference:url,xvideosamadoras.com; metadata:updated_at 2024_10_01;)
+alert ip any any -> [172.67.167.227, 104.21.13.14, 2606:4700:3035::6815:d0e, 2606:4700:3036::ac43:a7e3] any (msg:"xvideos.blog"; flow:to_server,established; sid:9620163; classtype:policy-violation; rev:1; reference:url,xvideos.blog; metadata:updated_at 2024_10_01;)
+alert ip any any -> [104.26.12.119, 104.26.13.119, 172.67.70.172, 2606:4700:20::ac43:46ac, 2606:4700:20::681a:d77, 2606:4700:20::681a:c77] any (msg:"xvideos.blog.br"; flow:to_server,established; sid:9620164; classtype:policy-violation; rev:1; reference:url,xvideos.blog.br; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"xvideosbrasil.com"; tls_sni; content:"xvideosbrasil.com"; pcre:"/xvideosbrasil.com$/"; flow:to_server,established; sid:9620165; classtype:policy-violation; rev:1; reference:url,xvideosbrasil.com; metadata:updated_at 2024_10_01;)
+alert ip any any -> [104.21.94.131, 172.67.136.79, 2606:4700:3034::6815:5e83, 2606:4700:3034::ac43:884f] any (msg:"xvideosbrasil.com.br"; flow:to_server,established; sid:9620166; classtype:policy-violation; rev:1; reference:url,xvideosbrasil.com.br; metadata:updated_at 2024_10_01;)
+alert ip any any -> [172.67.169.37, 104.21.27.114, 2606:4700:3037::ac43:a925, 2606:4700:3030::6815:1b72] any (msg:"xvideosbrasileiro.net"; flow:to_server,established; sid:9620167; classtype:policy-violation; rev:1; reference:url,xvideosbrasileiro.net; metadata:updated_at 2024_10_01;)
+alert ip any any -> [172.67.169.195, 104.21.27.215, 2606:4700:3031::ac43:a9c3, 2606:4700:3037::6815:1bd7] any (msg:"xvideosbr.blog"; flow:to_server,established; sid:9620168; classtype:policy-violation; rev:1; reference:url,xvideosbr.blog; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"xvideos.com.br"; tls_sni; content:"xvideos.com.br"; pcre:"/xvideos.com.br$/"; flow:to_server,established; sid:9620169; classtype:xvideos; gid:27; rev:1; reference:url,xvideos.com.br; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"xvideos.es"; tls_sni; content:"xvideos.es"; pcre:"/xvideos.es$/"; flow:to_server,established; sid:9620170; classtype:policy-violation; rev:1; reference:url,xvideos.es; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"xvideos.etc.br"; tls_sni; content:"xvideos.etc.br"; pcre:"/xvideos.etc.br$/"; flow:to_server,established; sid:9620171; classtype:policy-violation; rev:1; reference:url,xvideos.etc.br; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"xvideos.eu.org"; tls_sni; content:"xvideos.eu.org"; pcre:"/xvideos.eu.org$/"; flow:to_server,established; sid:9620172; classtype:policy-violation; rev:1; reference:url,xvideos.eu.org; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"xvideosfoda.com"; tls_sni; content:"xvideosfoda.com"; pcre:"/xvideosfoda.com$/"; flow:to_server,established; sid:9620173; classtype:policy-violation; rev:1; reference:url,xvideosfoda.com; metadata:updated_at 2024_10_01;)
+alert ip any any -> [172.67.141.180, 104.21.39.4, 2606:4700:3031::6815:2704, 2606:4700:3037::ac43:8db4] any (msg:"xvideosgratis.com.br"; flow:to_server,established; sid:9620174; classtype:policy-violation; rev:1; reference:url,xvideosgratis.com.br; metadata:updated_at 2024_10_01;)
+alert ip any any -> [172.67.153.137, 104.21.90.58, 2606:4700:3031::6815:5a3a, 2606:4700:3034::ac43:9989] any (msg:"xvideosgratuito.com"; flow:to_server,established; sid:9620175; classtype:policy-violation; rev:1; reference:url,xvideosgratuito.com; metadata:updated_at 2024_10_01;)
+alert ip any any -> [172.67.72.151, 104.26.5.209, 104.26.4.209, 2606:4700:20::681a:4d1, 2606:4700:20::ac43:4897, 2606:4700:20::681a:5d1] any (msg:"xvideos-hd.com"; flow:to_server,established; sid:9620176; classtype:policy-violation; rev:1; reference:url,xvideos-hd.com; metadata:updated_at 2024_10_01;)
+alert ip any any -> [172.67.193.74, 104.21.92.126, 2606:4700:3031::ac43:c14a, 2606:4700:3030::6815:5c7e] any (msg:"xvideosincesto.com"; flow:to_server,established; sid:9620177; classtype:policy-violation; rev:1; reference:url,xvideosincesto.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"xvideos.net"; tls_sni; content:"xvideos.net"; pcre:"/xvideos.net$/"; flow:to_server,established; sid:9620178; classtype:policy-violation; rev:1; reference:url,xvideos.net; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"xvideosnovinha.com"; tls_sni; content:"xvideosnovinha.com"; pcre:"/xvideosnovinha.com$/"; flow:to_server,established; sid:9620179; classtype:policy-violation; rev:1; reference:url,xvideosnovinha.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"xvideosnovinha.com.br"; tls_sni; content:"xvideosnovinha.com.br"; pcre:"/xvideosnovinha.com.br$/"; flow:to_server,established; sid:9620180; classtype:policy-violation; rev:1; reference:url,xvideosnovinha.com.br; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"xvideosnovinhas.com"; tls_sni; content:"xvideosnovinhas.com"; pcre:"/xvideosnovinhas.com$/"; flow:to_server,established; sid:9620181; classtype:policy-violation; rev:1; reference:url,xvideosnovinhas.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"xvideoson.com"; tls_sni; content:"xvideoson.com"; pcre:"/xvideoson.com$/"; flow:to_server,established; sid:9620182; classtype:policy-violation; rev:1; reference:url,xvideoson.com; metadata:updated_at 2024_10_01;)
+alert ip any any -> [104.21.93.210, 172.67.214.199, 2606:4700:3032::ac43:d6c7, 2606:4700:3031::6815:5dd2] any (msg:"xvideospornor.com"; flow:to_server,established; sid:9620183; classtype:policy-violation; rev:1; reference:url,xvideospornor.com; metadata:updated_at 2024_10_01;)
+alert ip any any -> [172.67.164.207, 104.21.10.236, 2606:4700:3037::ac43:a4cf, 2606:4700:3033::6815:aec] any (msg:"xvideostop.org"; flow:to_server,established; sid:9620184; classtype:policy-violation; rev:1; reference:url,xvideostop.org; metadata:updated_at 2024_10_01;)
+alert ip any any -> [104.21.67.178, 172.67.179.79, 2606:4700:3032::ac43:b34f, 2606:4700:3037::6815:43b2] any (msg:"xvideos-tv.com"; flow:to_server,established; sid:9620185; classtype:policy-violation; rev:1; reference:url,xvideos-tv.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"xvideosx.blog.br"; tls_sni; content:"xvideosx.blog.br"; pcre:"/xvideosx.blog.br$/"; flow:to_server,established; sid:9620186; classtype:policy-violation; rev:1; reference:url,xvideosx.blog.br; metadata:updated_at 2024_10_01;)
+alert ip any any -> [104.21.30.3, 172.67.150.39, 2606:4700:3034::ac43:9627, 2606:4700:3037::6815:1e03] any (msg:"xvideosxbr.com.br"; flow:to_server,established; sid:9620187; classtype:policy-violation; rev:1; reference:url,xvideosxbr.com.br; metadata:updated_at 2024_10_01;)
+alert ip any any -> [104.21.45.95, 172.67.212.219, 2606:4700:3036::6815:2d5f, 2606:4700:3037::ac43:d4db] any (msg:"xvideosx.com.br"; flow:to_server,established; sid:9620188; classtype:policy-violation; rev:1; reference:url,xvideosx.com.br; metadata:updated_at 2024_10_01;)
+alert ip any any -> [172.67.133.66, 104.21.5.95, 2606:4700:3032::6815:55f, 2606:4700:3031::ac43:8542] any (msg:"xvideos-xxx.com"; flow:to_server,established; sid:9620189; classtype:policy-violation; rev:1; reference:url,xvideos-xxx.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"xvideosxxx.com.br"; tls_sni; content:"xvideosxxx.com.br"; pcre:"/xvideosxxx.com.br$/"; flow:to_server,established; sid:9620190; classtype:policy-violation; rev:1; reference:url,xvideosxxx.com.br; metadata:updated_at 2024_10_01;)
+alert ip any any -> [172.67.195.96, 104.21.52.46, 2606:4700:3032::6815:342e, 2606:4700:3031::ac43:c360] any (msg:"xvideotravestis.com"; flow:to_server,established; sid:9620191; classtype:policy-violation; rev:1; reference:url,xvideotravestis.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"xvideo.tv.br"; tls_sni; content:"xvideo.tv.br"; pcre:"/xvideo.tv.br$/"; flow:to_server,established; sid:9620192; classtype:policy-violation; rev:1; reference:url,xvideo.tv.br; metadata:updated_at 2024_10_01;)
+alert ip any any -> [104.21.85.88, 172.67.204.58, 2606:4700:3037::6815:5558, 2606:4700:3032::ac43:cc3a] any (msg:"xvideo.vlog.br"; flow:to_server,established; sid:9620193; classtype:policy-violation; rev:1; reference:url,xvideo.vlog.br; metadata:updated_at 2024_10_01;)
+alert ip any any -> [172.67.179.74, 104.21.59.143, 2606:4700:3031::ac43:b34a, 2606:4700:3030::6815:3b8f] any (msg:"xvidio.com.br"; flow:to_server,established; sid:9620194; classtype:policy-violation; rev:1; reference:url,xvidio.com.br; metadata:updated_at 2024_10_01;)
+alert ip any any -> [104.21.69.163, 172.67.210.92, 2606:4700:3037::ac43:d25c, 2606:4700:3035::6815:45a3] any (msg:"xvidios.blog"; flow:to_server,established; sid:9620195; classtype:policy-violation; rev:1; reference:url,xvidios.blog; metadata:updated_at 2024_10_01;)
+alert ip any any -> [104.21.235.126, 104.21.235.125, 2606:4700:3038::6815:eb7e, 2606:4700:3038::6815:eb7d] any (msg:"xxvideoss.org"; flow:to_server,established; sid:9620196; classtype:policy-violation; rev:1; reference:url,xxvideoss.org; metadata:updated_at 2024_10_01;)
+alert ip any any -> [172.67.223.192, 104.21.72.141, 2606:4700:3032::6815:488d, 2606:4700:3031::ac43:dfc0] any (msg:"xxxfree.watch"; flow:to_server,established; sid:9620197; classtype:policy-violation; rev:1; reference:url,xxxfree.watch; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"youjizz.com"; tls_sni; content:"youjizz.com"; pcre:"/youjizz.com$/"; flow:to_server,established; sid:9620198; classtype:policy-violation; rev:1; reference:url,youjizz.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"youporn.com"; tls_sni; content:"youporn.com"; pcre:"/youporn.com$/"; flow:to_server,established; sid:9620199; classtype:policy-violation; rev:1; reference:url,youporn.com; metadata:updated_at 2024_10_01;)
+alert ip any any -> [104.21.71.149, 172.67.170.181, 2606:4700:3031::ac43:aab5, 2606:4700:3032::6815:4795] any (msg:"yourdailypornvideos.ws"; flow:to_server,established; sid:9620200; classtype:policy-violation; rev:1; reference:url,yourdailypornvideos.ws; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"malicia.com.br"; tls_sni; content:"malicia.com.br"; flow:to_server,established; sid:9620203; classtype:policy-violation; rev:1; reference:url,malicia.com.br; metadata:updated_at 2024_10_01;)
+alert ip any any -> [172.67.171.27, 104.21.55.109, 2606:4700:3031::6815:376d, 2606:4700:3037::ac43:ab1b] any (msg:"porn4days.biz"; flow:to_server,established; sid:9620206; classtype:policy-violation; rev:1; reference:url,porn4days.biz; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"pornovideoshub.com"; content:"pornovideoshub.com"; tls_sni; pcre:"/pornovideoshub.com$/"; flow:to_server,established; sid:9620208; classtype:policy-violation; rev:1; reference:url,pornovideoshub.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"www.definebabe.com"; content:"definebabe.com"; tls_sni; pcre:"/definebabe.com$/"; flow:to_server,established; sid:9620212; classtype:policy-violation; rev:1; reference:url,www.definebabe.com; metadata:updated_at 2024_10_01;)
+alert ip any any -> [104.21.24.105,172.67.218.83] any (msg:"siska.video"; flow:to_server,established; sid:9620210; classtype:policy-violation; rev:1; reference:url,siska.video; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"erotik.com"; content:"erotik.com"; tls_sni; pcre:"/erotik.com$/"; flow:to_server,established; sid:9620213; classtype:policy-violation; rev:1; reference:url,www.dvdtrailertube.com; metadata:updated_at 2024_10_01;)
+alert http any any -> any any (msg:"www.lovelyclips.com"; content:"lovelyclips.com"; http_host; flow:to_server,established; sid:9620220; classtype:policy-violation; rev:1; reference:url,www.lovelyclips.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"madthumbs.com"; content:"madthumbs.com"; tls_sni; pcre:"/madthumbs.com$/"; flow:to_server,established; sid:9620221; classtype:policy-violation; rev:1; reference:url,www.madthumbs.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"www.orgasm.com"; tls_sni; content:"orgasm.com"; flow:to_server,established; sid:9620222; classtype:policy-violation; rev:1; reference:url,www.orgasm.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"perfectgirls.net"; content:"perfectgirls.xxx"; tls_sni; pcre:"/perfectgirls.xxx$/"; flow:to_server,established; sid:9620223; classtype:policy-violation; rev:1; reference:url,www.perfectgirls.net; metadata:updated_at 2024_10_01;)
+alert ip any any -> [104.21.48.76, 172.67.181.186, 2606:4700:3035::ac43:b5ba, 2606:4700:3035::6815:304c] any (msg:"www.pornomineiro.com"; flow:to_server,established; sid:9620224; classtype:policy-violation; rev:1; reference:url,www.pornomineiro.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"veporno.net"; tls_sni; content:"veporno.net"; pcre:"/veporno.net$/"; flow:to_server,established; sid:9620225; classtype:policy-violation; rev:1; reference:url,www.veporno.net; metadata:updated_at 2024_10_01;)
+alert ip any any -> [104.21.25.224, 172.67.134.206, 2606:4700:3032::ac43:86ce, 2606:4700:3037::6815:19e0] any (msg:"xtapes.to"; flow:to_server,established; sid:9620226; classtype:policy-violation; rev:1; reference:url,www.xtapes.to; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"erosguia.com.br"; tls_sni; content:"erosguia.com.br"; pcre:"/erosguia.com.br$/"; flow:to_server,established; sid:9620231; classtype:policy-violation; rev:1; reference:url,erosguia.com.br; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"onlyfans.com"; tls_sni; content:"onlyfans.com"; flow:to_server,established; sid:9620270; classtype:policy-violation; rev:1; reference:url,onlyfans.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"pt.porn.com"; tls_sni; content:"pt.porn.com"; flow:to_server,established; sid:9620233; classtype:misc-activity; rev:1; reference:url,pt.porn.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"redtube.com.br"; tls_sni; content:"redtube.com.br"; flow:to_server,established; sid:9620240; classtype:misc-activity; rev:1; reference:url,redtube.com.br; metadata:updated_at 2024_10_01;)
+alert ip any any -> [104.21.234.164, 104.21.234.165, 2606:4700:3038::6815:eaa5, 2606:4700:3038::6815:eaa4] any (msg:"www.hotms.com.br"; flow:to_server,established; sid:9620236; classtype:misc-activity; rev:1; reference:url,www.hotms.com.br; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"sexymt.com.br"; tls_sni; content:"sexymt.com.br"; flow:to_server,established; sid:9620237; classtype:misc-activity; rev:1; reference:url,sexymt.com.br; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"www.revistaplayboy.com.br"; tls_sni; content:"revistaplayboy.com.br"; flow:to_server,established; sid:9620238; classtype:playboy; gid:29; rev:1; reference:url,www.revistaplayboy.com.br; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"revistaplayboy.com.br"; tls_sni; content:"revistaplayboy.com.br"; flow:to_server,established; sid:9620271; classtype:playboy; gid:29; rev:1; reference:url,revistaplayboy.com.br; metadata:updated_at 2024_10_01;)
+alert ip any any -> [66.254.114.179, 66.254.114.179, 66.254.114.179, 66.254.114.179, 104.21.1.95, 104.21.10.130, 104.21.14.108, 104.21.16.182, 104.21.52.159, 104.21.75.239, 104.21.86.172, 104.21.234.170, 104.21.234.171, 104.21.94.120, 157.245.25.251, 172.67.128.249, 172.67.131.121, 172.67.158.167, 172.67.183.165, 172.67.215.64, 172.67.222.197, 172.67.223.69, 199.59.243.227, 213.174.129.198, 216.172.56.42, 217.194.213.134, 46.229.168.8, 46.229.168.8, 2606:4700:3030::6815:15f, 2606:4700:3032::6815:56ac, 2606:4700:3032::ac43:80f9, 2606:4700:3033::ac43:8379, 2606:4700:3033::ac43:9ea7, 2606:4700:3034::6815:e6c, 2606:4700:3034::ac43:d740, 2606:4700:3035::6815:4bef, 2606:4700:3035::6815:a82, 2606:4700:3035::ac43:b7a5, 2606:4700:3036::6815:5e78, 2606:4700:3037::6815:10b6, 2606:4700:3037::6815:349f, 2606:4700:3037::ac43:df45, 2606:4700:3038::6815:eaab, 2606:4700:3038::6815:eaaa] any (msg:"playboy.com"; flow:to_server,established; sid:9620059; classtype:playboy; gid:29; rev:1; reference:url,playboy.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"playboyplus.com"; tls_sni; content:"playboyplus.com"; pcre:"/playboyplus.com$/"; flow:to_server,established; sid:9620273; classtype:playboy; gid:29; rev:1; reference:url,playboyplus.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"playboy.de"; tls_sni; content:"playboy.de"; pcre:"/playboy.de$/"; flow:to_server,established; sid:9620241; classtype:playboy; gid:29; rev:1; reference:url,playboy.de; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"playboyjobs.shop"; tls_sni; content:"playboyjobs.shop"; pcre:"/playboyjobs.shop$/"; flow:to_server,established; sid:9620242; classtype:playboy; gid:29; rev:1; reference:url,playboyjobs.shop; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"playboytv.com"; tls_sni; content:"playboytv.com"; pcre:"/playboytv.com$/"; flow:to_server,established; sid:9620243; classtype:playboy; gid:29; rev:1; reference:url,playboytv.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"playboyzz.com"; tls_sni; content:"playboyzz.com"; pcre:"/playboyzz.com$/"; flow:to_server,established; sid:9620244; classtype:playboy; gid:29; rev:1; reference:url,playboyzz.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"playboytw.com"; tls_sni; content:"playboytw.com"; pcre:"/playboytw.com$/"; flow:to_server,established; sid:9620245; classtype:playboy; gid:29; rev:1; reference:url,playboytw.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"iplayboy.com"; tls_sni; content:"iplayboy.com"; pcre:"/iplayboy.com$/"; flow:to_server,established; sid:9620246; classtype:playboy; gid:29; rev:1; reference:url,iplayboy.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"playboy.tv"; tls_sni; content:"playboy.tv"; pcre:"/playboy.tv$/"; flow:to_server,established; sid:9620247; classtype:playboy; gid:29; rev:1; reference:url,playboy.tv; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"theplayboys.gr"; tls_sni; content:"theplayboys.gr"; pcre:"/theplayboys.gr$/"; flow:to_server,established; sid:9620248; classtype:playboy; gid:29; rev:1; reference:url,theplayboys.gr; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"vintageplayboymags.co.uk"; tls_sni; content:"vintageplayboymags.co.uk"; pcre:"/vintageplayboymags.co.uk$/"; flow:to_server,established; sid:9620249; classtype:playboy; gid:29; rev:1; reference:url,vintageplayboymags.co.uk; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"ladiesofplayboy.com"; tls_sni; content:"ladiesofplayboy.com"; pcre:"/ladiesofplayboy.com$/"; flow:to_server,established; sid:9620250; classtype:playboy; gid:29; rev:1; reference:url,ladiesofplayboy.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"playboy-babes.net"; tls_sni; content:"playboy-babes.net"; pcre:"/playboy-babes.net$/"; flow:to_server,established; sid:9620251; classtype:playboy; gid:29; rev:1; reference:url,playboy-babes.net; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"playboyrussia.com"; tls_sni; content:"playboyrussia.com"; pcre:"/playboyrussia.com$/"; flow:to_server,established; sid:9620252; classtype:playboy; gid:29; rev:1; reference:url,playboyrussia.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"playboy.nl"; tls_sni; content:"playboy.nl"; pcre:"/playboy.nl$/"; flow:to_server,established; sid:9620253; classtype:playboy; gid:29; rev:1; reference:url,playboy.nl; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"playboy.it"; tls_sni; content:"playboy.it"; pcre:"/playboy.it$/"; flow:to_server,established; sid:9620254; classtype:playboy; gid:29; rev:1; reference:url,playboy.it; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"playboy.bz"; tls_sni; content:"playboy.bz"; pcre:"/playboy.bz$/"; flow:to_server,established; sid:9620255; classtype:playboy; gid:29; rev:1; reference:url,playboy.bz; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"playboy.co"; tls_sni; content:"playboy.co"; pcre:"/playboy.co$/"; flow:to_server,established; sid:9620256; classtype:playboy; gid:29; rev:1; reference:url,playboy.co; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"playboy-babes.com"; tls_sni; content:"playboy-babes.com"; pcre:"/playboy-babes.com$/"; flow:to_server,established; sid:9620257; classtype:playboy; gid:29; rev:1; reference:url,playboy-babes.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"playboyparade.com"; tls_sni; content:"playboyparade.com"; pcre:"/playboyparade.com$/"; flow:to_server,established; sid:9620258; classtype:playboy; gid:29; rev:1; reference:url,playboyparade.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"playboy-se.com"; tls_sni; content:"playboy-se.com"; pcre:"/playboy-se.com$/"; flow:to_server,established; sid:9620259; classtype:playboy; gid:29; rev:1; reference:url,playboy-se.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"playboy.com.se"; tls_sni; content:"playboy.com.se"; pcre:"/playboy.com.se$/"; flow:to_server,established; sid:9620260; classtype:playboy; gid:29; rev:1; reference:url,playboy.com.se; metadata:updated_at 2024_10_01;)
+alert ip any any -> [104.21.50.67, 172.67.158.115, 2606:4700:3031::6815:3243, 2606:4700:3033::ac43:9e73] any (msg:"videodesexo.blog"; flow:to_server,established; sid:9620239; classtype:misc-activity; rev:1; reference:url,videodesexo.blog; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"fapdu.com"; tls_sni; content:"fapdu.com"; pcre:"/fapdu.com$/"; flow:to_server,established; sid:9620201; classtype:policy-violation; rev:1; reference:url,fapdu.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"godude.link"; tls_sni; content:"godude.link"; pcre:"/godude.link$/"; flow:to_server,established; sid:9620202; classtype:policy-violation; rev:1; reference:url,godude.link; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"m.perfectgirls.net"; tls_sni; content:"perfectgirls.net"; pcre:"/perfectgirls.net$/"; flow:to_server,established; sid:9620204; classtype:policy-violation; rev:1; reference:url,m.perfectgirls.net; metadata:updated_at 2024_10_01;)
+alert http any any -> any any (msg:"planetsuzy.com"; content:"planetsuzy.com"; http_host; flow:to_server,established; sid:9620205; classtype:policy-violation; rev:1; reference:url,planetsuzy.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"sexvideos.host"; tls_sni; content:"sexvideos.host"; pcre:"/sexvideos.host$/"; flow:to_server,established; sid:9620209; classtype:policy-violation; rev:1; reference:url,sexvideos.host; metadata:updated_at 2024_10_01;)
+alert http any any -> any any (msg:"videosx.pro"; content:"videosx.pro"; http_host; flow:to_server,established; sid:9620211; classtype:policy-violation; rev:1; reference:url,videosx.pro; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"www.ellxx.com"; tls_sni; content:"ellxx.com"; pcre:"/ellxx.com$/"; flow:to_server,established; sid:9620214; classtype:policy-violation; rev:1; reference:url,www.ellxx.com; metadata:updated_at 2024_10_01;)
+alert ip any any -> [206.54.164.24] any (msg:"www.freudbox.com"; flow:to_server,established; sid:9620215; classtype:policy-violation; rev:1; reference:url,www.freudbox.com; metadata:updated_at 2024_10_01;)
+alert http any any -> any any (msg:"www.hotgirlclub.com"; content:"hotgirlclub.com"; http_host; flow:to_server,established; sid:9620217; classtype:policy-violation; rev:1; reference:url,www.hotgirlclub.com; metadata:updated_at 2024_10_01;)
+alert http any any -> any any (msg:"www.kaktuz.com"; content:"kaktuz.com"; http_host; flow:to_server,established; sid:9620218; classtype:policy-violation; rev:1; reference:url,www.kaktuz.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"www.laraporn.com"; tls_sni; content:"laraporn.com"; pcre:"/laraporn.com$/"; flow:to_server,established; sid:9620219; classtype:policy-violation; rev:1; reference:url,www.laraporn.com; metadata:updated_at 2024_10_01;)
+alert tls any any -> any any (msg:"www.xvideosf.com"; tls_sni; content:"xvideosf.com"; pcre:"/xvideosf.com$/"; flow:to_server,established; sid:9620227; classtype:policy-violation; rev:1; reference:url,www.xvideosf.com; metadata:updated_at 2024_10_01;)
+alert ip any any -> [104.26.10.106, 104.26.11.106, 172.67.71.249, 2606:4700:20::681a:a6a, 2606:4700:20::ac43:47f9, 2606:4700:20::681a:b6a] any (msg:"xvideosporno.blog.br"; flow:to_server,established; sid:9620229; classtype:policy-violation; rev:1; reference:url,xvideosporno.blog.br; metadata:updated_at 2024_10_01;)
+alert ip any any -> [104.21.8.151, 172.67.139.169, 2606:4700:3037::ac43:8ba9, 2606:4700:3035::6815:897] any (msg:"xvidios.xxx";  flow:to_server,established; sid:9620230; classtype:policy-violation; rev:1; reference:url,xvidios.xxx; metadata:updated_at 2024_10_01;)
 
+# IPs para URL: anysex.com
+104.21.234.189, 104.21.234.188
+
+# IPs para URL: beeg.com
+104.21.56.86, 172.67.181.179, 2606:4700:3034::ac43:b5b3, 2606:4700:3037::6815:3856
+
+# IPs para URL: brasileirinhas.com.br
+170.80.190.10
+
+# IPs para URL: caiunoxvideos.com.br
+216.239.32.21
+
+# IPs para URL: cams.com
+69.165.103.130
+
+# IPs para URL: cliphunter.com
+104.21.66.39, 172.67.155.249, 2606:4700:3032::6815:4227, 2606:4700:3031::ac43:9bf9
+
+# IPs para URL: collectionofbestporn.com
+185.107.82.217
+
+# IPs para URL: daftsex.com
+66.254.114.211
+
+# IPs para URL: drtuber.com
+188.72.207.210, 78.140.187.214
+
+# IPs para URL: empflix.com
+85.159.232.129, 77.247.179.130
+
+# IPs para URL: en.paradisehill.cc
+80.82.76.37
+
+# IPs para URL: fatalmodel.com
+104.22.11.236, 104.22.10.236, 172.67.23.187, 2606:4700:10::6816:aec, 2606:4700:10::ac43:17bb, 2606:4700:10::6816:bec
+
+# IPs para URL: festadoprazer.com.br
+104.21.70.234, 172.67.168.191, 2606:4700:3032::ac43:a8bf, 2606:4700:3032::6815:46ea
+
+# IPs para URL: filmespornos.net
+104.21.83.102, 172.67.222.26, 2606:4700:3031::ac43:de1a, 2606:4700:3034::6815:5366
+
+# IPs para URL: fullxxxmovies.net
+172.67.148.140, 104.21.29.65, 2606:4700:3033::ac43:948c, 2606:4700:3035::6815:1d41
+
+# IPs para URL: garotacomlocal.com
+104.22.15.219, 172.67.44.7, 104.22.14.219, 2606:4700:10::6816:fdb, 2606:4700:10::6816:edb, 2606:4700:10::ac43:2c07
+
+# IPs para URL: hclips.com
+91.227.144.58
+
+# IPs para URL: hqporner.com
+88.208.35.41
+
+# IPs para URL: hustlertube.com
+15.197.225.128, 3.33.251.168
+
+# IPs para URL: ilhadoprazer.com.br
+104.18.0.131, 104.18.1.131, 2606:4700::6812:83, 2606:4700::6812:183
+
+# IPs para URL: justswallows.com
+3.33.251.168, 15.197.225.128
+
+# IPs para URL: keezmovies.com
+66.254.114.79
+
+# IPs para URL: king-media.net
+15.197.148.33, 3.33.130.190
+
+# IPs para URL: letsjerk.cc
+64.190.63.222
+
+# IPs para URL: letsjerk.org
+172.232.25.148
+
+# IPs para URL: livejasmin.com
+109.71.161.200
+
+# IPs para URL: lubetube.com
+104.21.79.191, 172.67.171.2, 2606:4700:3032::ac43:ab02, 2606:4700:3033::6815:4fbf
+
+# IPs para URL: mangoporn.net
+45.12.3.124
+
+# IPs para URL: mileroticos.com
+104.22.40.230, 104.22.41.230, 172.67.24.118, 2606:4700:10::6816:28e6, 2606:4700:10::ac43:1876, 2606:4700:10::6816:29e6
+
+# IPs para URL: mofosex.com
+66.254.114.79
+
+# IPs para URL: monster-tube.com
+67.227.237.65
+
+# IPs para URL: morangovip.com.br
+191.6.196.19, 2804:10:8088::196:19
+
+# IPs para URL: motherless.com
+172.67.129.190, 104.21.2.221
+
+# IPs para URL: moviefap.com
+46.166.189.210
+
+# IPs para URL: moviesand.com
+104.21.234.238, 104.21.234.239, 2606:4700:3038::6815:eaef, 2606:4700:3038::6815:eaee
+
+# IPs para URL: mundosexanuncio.com
+104.26.14.183, 104.26.15.183, 172.67.70.200, 2606:4700:20::681a:eb7, 2606:4700:20::681a:fb7, 2606:4700:20::ac43:46c8
+
+# IPs para URL: netfapx.com
+104.21.91.78, 172.67.212.16, 2606:4700:3035::ac43:d410, 2606:4700:3037::6815:5b4e
+
+# IPs para URL: palmtube.com
+104.21.2.216, 172.67.129.184, 2606:4700:3032::6815:2d8, 2606:4700:3037::ac43:81b8
+
+# IPs para URL: pandamovies.pw
+45.12.3.124
+
+# IPs para URL: paradisehill.cc
+80.82.76.35
+
+# IPs para URL: photoacompanhantes.com
+104.16.128.154, 104.16.191.215, 2606:4700::6810:bfd7, 2606:4700::6810:809a
+
+# IPs para URL: pichunter.com
+104.21.5.178, 172.67.133.176, 2606:4700:3033::6815:5b2, 2606:4700:3037::ac43:85b0
+
+# IPs para URL: plusone8.com
+172.232.4.213, 172.232.25.148, 172.232.31.180
+
+# IPs para URL: porn555.com
+104.21.235.12, 104.21.235.11, 2606:4700:3038::6815:eb0b, 2606:4700:3038::6815:eb0c
+
+# IPs para URL: porncor.com
+172.232.4.213, 172.232.25.148, 172.232.31.180
+
+# IPs para URL: porndoe.com
+185.94.237.130
+
+# IPs para URL: pornobae.com
+104.21.19.109, 172.67.185.249, 2606:4700:3037::ac43:b9f9, 2606:4700:3037::6815:136d
+
+# IPs para URL: pornobrasil.blog.br
+172.67.172.177, 104.21.30.90, 2606:4700:3033::ac43:acb1, 2606:4700:3030::6815:1e5a
+
+# IPs para URL: pornocarioca.com
+104.21.21.69, 172.67.196.209, 2606:4700:3030::6815:1545, 2606:4700:3035::ac43:c4d1
+
+# IPs para URL: pornogram.xxx
+172.66.43.114, 172.66.40.142, 2606:4700:3108::ac42:2b72, 2606:4700:3108::ac42:288e
+
+# IPs para URL: pornonacionais.com
+104.21.234.119, 104.21.234.118, 2606:4700:3038::6815:ea76, 2606:4700:3038::6815:ea77
+
+# IPs para URL: pornone.com
+104.26.14.226, 172.67.72.49, 104.26.15.226
+
+# IPs para URL: pornoou.com
+172.232.4.213, 172.232.25.148, 172.232.31.180
+
+# IPs para URL: porn-plus.com
+104.21.78.181, 172.67.168.82, 2606:4700:3030::6815:4eb5, 2606:4700:3031::ac43:a852
+
+# IPs para URL: pornrabbit.com
+208.74.148.77
+
+# IPs para URL: pornvibe.org
+172.67.199.211, 104.21.13.102, 2606:4700:3035::ac43:c7d3, 2606:4700:3035::6815:d66
+
+# IPs para URL: pornwild.to
+46.166.184.123, 185.206.180.167, 2a0b:1640:1:1:1:1:1783:3454, 2a00:1768:2001:63::46:123
+
+# IPs para URL: pussy.com
+51.81.16.0
+
+# IPs para URL: rclove.com.br
+104.21.88.163, 172.67.186.10, 2606:4700:3035::6815:58a3, 2606:4700:3031::ac43:ba0a
+
+# IPs para URL: rcmodells.com.br
+172.67.131.117, 104.21.10.112, 2606:4700:3035::ac43:8375, 2606:4700:3033::6815:a70
+
+# IPs para URL: redtube.com
+66.254.114.238
+
+# IPs para URL: sexlog.com
+104.16.68.8, 104.16.69.8, 2606:4700::6810:4408, 2606:4700::6810:4508
+
+# IPs para URL: sexo.uol.com.br
+34.151.212.7
+
+# IPs para URL: sexu.com
+172.67.154.56, 104.21.88.237, 2606:4700:3032::ac43:9a38, 2606:4700:3035::6815:58ed
+
+# IPs para URL: sexyclube.uol.com.br
+200.147.4.47
+
+# IPs para URL: sexyhot.globo.com
+186.192.83.12
+
+# IPs para URL: spankbang.com
+104.19.130.98, 104.19.131.98, 2606:4700:1::6813:8362, 2606:4700:1::6813:8262
+
+# IPs para URL: streamporn.pw
+212.32.229.134
+
+# IPs para URL: sxyprn.com
+89.248.173.40
+
+# IPs para URL: taxi69.com
+104.21.234.17, 104.21.234.16, 2606:4700:3038::6815:ea11, 2606:4700:3038::6815:ea10
+
+# IPs para URL: theporndude.com
+104.19.131.104, 104.19.130.104
+
+# IPs para URL: tnaflix.com
+77.247.179.166, 77.247.179.187, 77.247.179.181
+
+# IPs para URL: topamateursexvideos.com
+3.33.251.168, 15.197.225.128
+
+# IPs para URL: tube8.com
+66.254.114.239
+
+# IPs para URL: tv.fakings.com
+185.206.62.73
+
+# IPs para URL: txxx.com
+62.122.168.133
+
+# IPs para URL: usexvideos.com
+172.232.4.213, 172.232.31.180, 172.232.25.148
+
+# IPs para URL: videosdesexo.mobi
+104.21.20.141, 172.67.192.244, 2606:4700:3033::ac43:c0f4, 2606:4700:3035::6815:148d
+
+# IPs para URL: vidoz8.com
+103.224.182.253
+
+# IPs para URL: vrporn.com
+44.216.128.171, 52.73.150.181, 54.145.73.5, 54.243.37.233, 107.23.175.141, 23.23.38.35
+
+# IPs para URL: www.3movs.com
+82.97.206.33
+
+# IPs para URL: www.4tube.com
+159.223.211.103, 134.209.193.196, 2a03:b0c0:2:d0::1418:3001, 2a03:b0c0:2:d0::1413:8001
+
+# IPs para URL: www.analdin.com
+88.208.52.130, 2a02:b4a:1::9199:1
+
+# IPs para URL: www.boafoda.com
+104.18.4.72, 104.18.5.72
+
+# IPs para URL: www.cumlouder.com
+104.21.48.241, 172.67.157.3, 2606:4700:3033::ac43:9d03, 2606:4700:3035::6815:30f1
+
+# IPs para URL: www.drtuber.com
+78.140.187.214, 188.72.207.210
+
+# IPs para URL: www.empflix.com
+67.220.85.166
+
+# IPs para URL: www.eporner.com
+94.75.220.10, 94.75.220.9, 94.75.220.8, 94.75.220.7, 94.75.220.6, 94.75.220.5, 94.75.220.4, 94.75.220.3, 94.75.220.2, 94.75.220.1, 2001:1af8:4800:b001::babe:5, 2001:1af8:4800:b001::babe:4, 2001:1af8:4800:b001::babe:3, 2001:1af8:4800:b001::babe:2, 2001:1af8:4800:b001::babe:1, 2001:1af8:4800:b001::babe:10, 2001:1af8:4800:b001::babe:9, 2001:1af8:4800:b001::babe:8, 2001:1af8:4800:b001::babe:7, 2001:1af8:4800:b001::babe:6
+
+# IPs para URL: www.freeomovie.to
+185.178.208.154
+
+# IPs para URL: www.fuq.com
+159.223.3.206, 128.199.47.205, 2a03:b0c0:2:d0::c5d:b001, 2a03:b0c0:2:d0::13:b001
+
+# IPs para URL: www.fux.com
+159.223.211.103, 134.209.193.196, 2a03:b0c0:2:d0::1418:3001, 2a03:b0c0:2:d0::1413:8001
+
+# IPs para URL: www.garotaporno.com
+104.21.32.105, 172.67.185.142, 2606:4700:3030::ac43:b98e, 2606:4700:3035::6815:2069
+
+# IPs para URL: www.gotporn.com
+178.62.209.162, 159.223.211.188, 2a03:b0c0:2:d0::1098:4001, 2a03:b0c0:2:d0::150b:f001
+
+# IPs para URL: www.hd-easyporn.com
+172.67.157.143, 104.21.40.227, 2606:4700:3037::ac43:9d8f, 2606:4700:3034::6815:28e3
+
+# IPs para URL: www.ixxx.com
+167.71.71.84, 167.71.65.87, 2a03:b0c0:2:d0::6e:8001, 2a03:b0c0:2:d0::d94:a001
+
+# IPs para URL: www.joysporn.com
+104.21.11.177, 172.67.149.209, 2606:4700:3031::6815:bb1, 2606:4700:3035::ac43:95d1
+
+# IPs para URL: www.likuoo.video
+72.52.179.174
+
+# IPs para URL: www.nuvid.com
+88.208.59.70, 88.208.39.131
+
+# IPs para URL: www.porn00.org
+104.21.235.194, 104.21.235.193, 2606:4700:3038::6815:ebc2, 2606:4700:3038::6815:ebc1
+
+# IPs para URL: www.porn300.com
+104.21.63.163, 172.67.171.15, 2606:4700:3030::6815:3fa3, 2606:4700:3037::ac43:ab0f
+
+# IPs para URL: www.porn.com
+185.88.180.167, 185.88.180.183
+
+# IPs para URL: www.porndig.com
+104.18.18.80, 104.18.19.80
+
+# IPs para URL: www.porndish.com
+172.67.178.235, 104.21.31.173, 2606:4700:3037::6815:1fad, 2606:4700:3034::ac43:b2eb
+
+# IPs para URL: www.porngo.com
+104.21.8.27, 172.67.156.183, 2606:4700:3035::6815:81b, 2606:4700:3032::ac43:9cb7
+
+# IPs para URL: www.pornhd.com
+159.223.211.188, 178.62.209.162, 2a03:b0c0:2:d0::1098:4001, 2a03:b0c0:2:d0::150b:f001
+
+# IPs para URL: www.pornhits.com
+146.19.173.172
+
+# IPs para URL: www.pornktu.be
+172.67.199.16, 104.21.34.62, 2606:4700:3032::6815:223e, 2606:4700:3031::ac43:c710
+
+# IPs para URL: www.pornky.com
+172.67.140.52, 104.21.46.148, 2606:4700:3030::ac43:8c34, 2606:4700:3037::6815:2e94
+
+# IPs para URL: www.pornodoido.com
+104.21.234.23, 104.21.234.22
+
+# IPs para URL: www.porntrex.com
+45.150.66.9
+
+# IPs para URL: www.porntube.com
+104.23.136.14, 104.23.135.14
+
+# IPs para URL: www.pussyspace.com
+172.67.12.66, 104.22.65.127, 104.22.64.127, 2606:4700:10::6816:417f, 2606:4700:10::6816:407f, 2606:4700:10::ac43:c42
+
+# IPs para URL: www.redtube.com
+66.254.114.238
+
+# IPs para URL: www.sextvx.com
+172.67.176.77, 104.21.88.99, 2606:4700:3030::ac43:b04d, 2606:4700:3035::6815:5863
+
+# IPs para URL: www.sexvid.xxx
+213.174.152.197, 2a02:b48:207:5::8282:1
+
+# IPs para URL: www.slutload.com
+66.254.114.201
+
+# IPs para URL: www.sunporno.com
+46.229.171.173
+
+# IPs para URL: www.thumbzilla.com
+216.18.168.35
+
+# IPs para URL: www.tnaflix.com
+67.220.85.166
+
+# IPs para URL: www.tube8.com
+66.254.114.239
+
+# IPs para URL: www.tubxporn.com
+172.67.170.218, 104.21.28.140, 2606:4700:3030::6815:1c8c, 2606:4700:3034::ac43:aada
+
+# IPs para URL: www.tubxporn.xxx
+172.67.163.28, 104.21.15.160, 2606:4700:3036::ac43:a31c, 2606:4700:3036::6815:fa0
+
+# IPs para URL: www.xfreehd.com
+172.67.73.71, 104.26.2.228, 104.26.3.228, 2606:4700:20::681a:2e4, 2606:4700:20::681a:3e4, 2606:4700:20::ac43:4947
+
+# IPs para URL: www.xnxx.com
+185.88.181.54, 185.88.181.55, 185.88.181.53, 185.88.181.56, 185.88.181.59, 185.88.181.60, 185.88.181.58, 185.88.181.57
+
+# IPs para URL: www.xxxfiles.com
+104.21.90.43, 172.67.194.240, 2606:4700:3037::6815:5a2b, 2606:4700:3033::ac43:c2f0
+
+# IPs para URL: www.youjizz.com
+66.254.114.242
+
+# IPs para URL: www.youporn.com
+66.254.114.79
+
+# IPs para URL: xhamster.com
+104.17.35.109, 104.17.34.109, 2606:4700::6811:236d, 2606:4700::6811:226d
+
+# IPs para URL: xisvideos.net
+172.67.159.88, 104.21.81.110, 2606:4700:3034::6815:516e, 2606:4700:3030::ac43:9f58
+
+# IPs para URL: xkeezmovies.com
+172.67.145.248, 104.21.55.82, 2606:4700:3037::6815:3752, 2606:4700:3031::ac43:91f8
+
+# IPs para URL: xmoviesforyou.com
+172.67.190.223, 104.21.92.91, 2606:4700:3034::6815:5c5b, 2606:4700:3035::ac43:bedf
+
+# IPs para URL: xnxx.com
+185.88.181.57, 185.88.181.54, 185.88.181.55, 185.88.181.53, 185.88.181.56, 185.88.181.59, 185.88.181.60, 185.88.181.58
+
+# IPs para URL: xvideo.blog
+94.23.75.199
+
+# IPs para URL: xvideoporno.net
+104.21.41.235, 172.67.196.184, 2606:4700:3030::6815:29eb, 2606:4700:3034::ac43:c4b8
+
+# IPs para URL: xvideos10.blog.br
+104.21.78.124, 172.67.220.250, 2606:4700:3032::6815:4e7c, 2606:4700:3032::ac43:dcfa
+
+# IPs para URL: xvideos18.blog.br
+172.67.169.143, 104.21.27.164, 2606:4700:3032::6815:1ba4, 2606:4700:3032::ac43:a98f
+
+# IPs para URL: xvideos18.com.br
+172.67.206.5, 104.21.61.47, 2606:4700:3037::6815:3d2f, 2606:4700:3031::ac43:ce05
+
+# IPs para URL: xvideos-4k.com
+103.224.212.215
+
+# IPs para URL: xvideos5.com.br
+144.202.44.237
+
+# IPs para URL: xvideosamadoras.com
+104.21.233.254, 104.21.233.253, 2606:4700:3038::6815:e9fe, 2606:4700:3038::6815:e9fd
+
+# IPs para URL: xvideos.blog
+172.67.167.227, 104.21.13.14, 2606:4700:3035::6815:d0e, 2606:4700:3036::ac43:a7e3
+
+# IPs para URL: xvideos.blog.br
+104.26.12.119, 104.26.13.119, 172.67.70.172, 2606:4700:20::ac43:46ac, 2606:4700:20::681a:d77, 2606:4700:20::681a:c77
+
+# IPs para URL: xvideosbrasil.com
+104.21.233.156, 104.21.233.155, 2606:4700:3038::6815:e99b, 2606:4700:3038::6815:e99c
+
+# IPs para URL: xvideosbrasil.com.br
+104.21.94.131, 172.67.136.79, 2606:4700:3034::6815:5e83, 2606:4700:3034::ac43:884f
+
+# IPs para URL: xvideosbrasileiro.net
+172.67.169.37, 104.21.27.114, 2606:4700:3037::ac43:a925, 2606:4700:3030::6815:1b72
+
+# IPs para URL: xvideosbr.blog
+172.67.169.195, 104.21.27.215, 2606:4700:3031::ac43:a9c3, 2606:4700:3037::6815:1bd7
+
+# IPs para URL: xvideos.com.br
+172.67.175.47, 104.21.40.40, 2606:4700:3037::ac43:af2f, 2606:4700:3031::6815:2828
+
+# IPs para URL: xvideos.es
+104.18.43.51, 172.64.144.205
+
+# IPs para URL: xvideosfoda.com
+104.26.11.232, 172.67.69.77, 104.26.10.232, 2606:4700:20::681a:ae8, 2606:4700:20::ac43:454d, 2606:4700:20::681a:be8
+
+# IPs para URL: xvideosgratis.com.br
+172.67.141.180, 104.21.39.4, 2606:4700:3031::6815:2704, 2606:4700:3037::ac43:8db4
+
+# IPs para URL: xvideosgratuito.com
+172.67.153.137, 104.21.90.58, 2606:4700:3031::6815:5a3a, 2606:4700:3034::ac43:9989
+
+# IPs para URL: xvideos-hd.com
+172.67.72.151, 104.26.5.209, 104.26.4.209, 2606:4700:20::681a:4d1, 2606:4700:20::ac43:4897, 2606:4700:20::681a:5d1
+
+# IPs para URL: xvideosincesto.com
+172.67.193.74, 104.21.92.126, 2606:4700:3031::ac43:c14a, 2606:4700:3030::6815:5c7e
+
+# IPs para URL: xvideos.net
+141.0.173.175
+
+# IPs para URL: xvideosnovinha.com
+64.225.91.73
+
+# IPs para URL: xvideosnovinhas.com
+104.21.22.165, 172.67.205.236, 2606:4700:3033::ac43:cdec, 2606:4700:3036::6815:16a5
+
+# IPs para URL: xvideoson.com
+104.21.234.183, 104.21.234.182, 2606:4700:3038::6815:eab7, 2606:4700:3038::6815:eab6
+
+# IPs para URL: xvideospornor.com
+104.21.93.210, 172.67.214.199, 2606:4700:3032::ac43:d6c7, 2606:4700:3031::6815:5dd2
+
+# IPs para URL: xvideostop.org
+172.67.164.207, 104.21.10.236, 2606:4700:3037::ac43:a4cf, 2606:4700:3033::6815:aec
+
+# IPs para URL: xvideos-tv.com
+104.21.67.178, 172.67.179.79, 2606:4700:3032::ac43:b34f, 2606:4700:3037::6815:43b2
+
+# IPs para URL: xvideosxbr.com.br
+104.21.30.3, 172.67.150.39, 2606:4700:3034::ac43:9627, 2606:4700:3037::6815:1e03
+
+# IPs para URL: xvideosx.com.br
+104.21.45.95, 172.67.212.219, 2606:4700:3036::6815:2d5f, 2606:4700:3037::ac43:d4db
+
+# IPs para URL: xvideos-xxx.com
+172.67.133.66, 104.21.5.95, 2606:4700:3032::6815:55f, 2606:4700:3031::ac43:8542
+
+# IPs para URL: xvideosxxx.com.br
+146.235.36.1
+
+# IPs para URL: xvideotravestis.com
+172.67.195.96, 104.21.52.46, 2606:4700:3032::6815:342e, 2606:4700:3031::ac43:c360
+
+# IPs para URL: xvideo.vlog.br
+104.21.85.88, 172.67.204.58, 2606:4700:3037::6815:5558, 2606:4700:3032::ac43:cc3a
+
+# IPs para URL: xvidio.com.br
+172.67.179.74, 104.21.59.143, 2606:4700:3031::ac43:b34a, 2606:4700:3030::6815:3b8f
+
+# IPs para URL: xvidios.blog
+104.21.69.163, 172.67.210.92, 2606:4700:3037::ac43:d25c, 2606:4700:3035::6815:45a3
+
+# IPs para URL: xxvideoss.org
+104.21.235.126, 104.21.235.125, 2606:4700:3038::6815:eb7e, 2606:4700:3038::6815:eb7d
+
+# IPs para URL: xxxfree.watch
+172.67.223.192, 104.21.72.141, 2606:4700:3032::6815:488d, 2606:4700:3031::ac43:dfc0
+
+# IPs para URL: youjizz.com
+66.254.114.242
+
+# IPs para URL: youporn.com
+66.254.114.79
+
+# IPs para URL: yourdailypornvideos.ws
+104.21.71.149, 172.67.170.181, 2606:4700:3031::ac43:aab5, 2606:4700:3032::6815:4795
+
+# IPs para URL: malicia.com.br
+195.35.18.226
+
+# IPs para URL: porn4days.biz
+104.21.51.162, 172.67.182.132, 2606:4700:3031::ac43:b684, 2606:4700:3034::6815:33a2
+
+# IPs para URL: pornhd8k.net
+104.21.233.159, 104.21.233.160, 2606:4700:3038::6815:e9a0, 2606:4700:3038::6815:e99f
+
+# IPs para URL: pornovideoshub.com
+104.21.235.209, 104.21.235.210, 2606:4700:3038::6815:ebd1, 2606:4700:3038::6815:ebd2
+
+# IPs para URL: www.definebabe.com
+172.67.68.112, 104.26.12.59, 104.26.13.59, 2606:4700:20::681a:c3b, 2606:4700:20::ac43:4470, 2606:4700:20::681a:d3b
+
+# IPs para URL: siska.video
+172.67.218.83, 104.21.24.105, 2606:4700:3030::6815:1869, 2606:4700:3031::ac43:da53
+
+# IPs para URL: erotik.com
+89.149.192.186
+
+# IPs para URL: www.lovelyclips.com
+208.69.117.229
+
+# IPs para URL: madthumbs.com
+66.254.114.201
+
+# IPs para URL: www.orgasm.com
+172.67.151.94, 104.21.73.246, 2606:4700:3036::ac43:975e, 2606:4700:3032::6815:49f6
+
+# IPs para URL: perfectgirls.net
+172.67.166.14, 104.21.16.31, 2606:4700:3033::6815:101f, 2606:4700:3034::ac43:a60e
+
+# IPs para URL: www.pornomineiro.com
+172.67.181.186, 104.21.48.76, 2606:4700:3035::ac43:b5ba, 2606:4700:3035::6815:304c
+
+# IPs para URL: veporno.net
+66.254.114.211
+
+# IPs para URL: xtapes.to
+104.21.25.224, 172.67.134.206, 2606:4700:3032::ac43:86ce, 2606:4700:3037::6815:19e0
+
+# IPs para URL: erosguia.com.br
+104.26.5.99, 104.26.4.99, 172.67.71.38, 2606:4700:20::681a:463, 2606:4700:20::681a:563, 2606:4700:20::ac43:4726
+
+# IPs para URL: onlyfans.com
+172.66.0.144, 162.159.140.146
+
+# IPs para URL: pt.porn.com
+185.88.180.183, 185.88.180.167
+
+# IPs para URL: redtube.com.br
+66.254.114.238
+
+# IPs para URL: www.hotms.com.br
+104.21.234.165, 104.21.234.164, 2606:4700:3038::6815:eaa5, 2606:4700:3038::6815:eaa4
+
+# IPs para URL: sexymt.com.br
+108.167.151.51
+
+# IPs para URL: www.revistaplayboy.com.br
+34.149.87.45
+
+# IPs para URL: revistaplayboy.com.br
+185.230.63.186, 185.230.63.171, 185.230.63.107
+
+# IPs para URL: playboy.com
+162.159.140.211, 172.66.0.209, 2606:4700:7::d1, 2a06:98c1:58::d1
+
+# IPs para URL: playboyplus.com
+66.254.114.179
+
+# IPs para URL: playboy.de
+157.245.25.251
+
+# IPs para URL: playboytv.com
+66.254.114.179
+
+# IPs para URL: playboyzz.com
+199.59.243.227
+
+# IPs para URL: iplayboy.com
+66.254.114.179
+
+# IPs para URL: playboy.tv
+104.21.52.159, 172.67.201.38, 2606:4700:3037::6815:349f, 2606:4700:3037::ac43:c926
+
+# IPs para URL: theplayboys.gr
+104.21.1.95, 172.67.128.249, 2606:4700:3030::6815:15f, 2606:4700:3032::ac43:80f9
+
+# IPs para URL: vintageplayboymags.co.uk
+217.194.213.134
+
+# IPs para URL: ladiesofplayboy.com
+46.229.168.8
+
+# IPs para URL: playboy-babes.net
+213.174.129.198
+
+# IPs para URL: playboyrussia.com
+104.21.16.182, 172.67.215.64, 2606:4700:3034::ac43:d740, 2606:4700:3037::6815:10b6
+
+# IPs para URL: playboy.nl
+104.21.234.171, 104.21.234.170, 2606:4700:3038::6815:eaaa, 2606:4700:3038::6815:eaab
+
+# IPs para URL: playboy.it
+104.21.86.172, 172.67.222.197, 2606:4700:3035::ac43:dec5, 2606:4700:3032::6815:56ac
+
+# IPs para URL: playboy.bz
+172.67.131.121, 104.21.10.130, 2606:4700:3033::ac43:8379, 2606:4700:3035::6815:a82
+
+# IPs para URL: playboy.co
+104.21.75.239, 172.67.183.165, 2606:4700:3035::ac43:b7a5, 2606:4700:3035::6815:4bef
+
+# IPs para URL: playboy-babes.com
+216.172.56.42
+
+# IPs para URL: playboyparade.com
+46.229.168.8
+
+# IPs para URL: playboy-se.com
+172.67.158.167, 104.21.14.108, 2606:4700:3034::6815:e6c, 2606:4700:3033::ac43:9ea7
+
+# IPs para URL: playboy.com.se
+104.21.94.120, 172.67.223.69, 2606:4700:3036::6815:5e78, 2606:4700:3037::ac43:df45
+
+# IPs para URL: videodesexo.blog
+172.67.158.115, 104.21.50.67, 2606:4700:3033::ac43:9e73, 2606:4700:3031::6815:3243
+
+# IPs para URL: fapdu.com
+104.21.19.108, 172.67.185.248, 2606:4700:3034::6815:136c, 2606:4700:3030::ac43:b9f8
+
+# IPs para URL: godude.link
+104.21.54.76, 172.67.136.194, 2606:4700:3033::ac43:88c2, 2606:4700:3031::6815:364c
+
+# IPs para URL: m.perfectgirls.net
+172.67.166.14, 104.21.16.31, 2606:4700:3034::ac43:a60e, 2606:4700:3033::6815:101f
+
+# IPs para URL: planetsuzy.com
+109.201.152.122
+
+# IPs para URL: sexvideos.host
+62.122.169.70
+
+# IPs para URL: videosx.pro
+162.251.111.175, 2605:6280:1:36::14
+
+# IPs para URL: www.freudbox.com
+206.54.164.24
+
+# IPs para URL: www.gameofporn.net
+172.232.4.213, 172.232.31.180, 172.232.25.148
+
+# IPs para URL: www.hotgirlclub.com
+78.140.128.133
+
+# IPs para URL: www.kaktuz.com
+107.181.235.106
+
+# IPs para URL: www.laraporn.com
+172.232.25.148
+
+# IPs para URL: www.xvideosf.com
+172.232.25.148, 172.232.31.180, 172.232.4.213
+
+# IPs para URL: xvideos.pet
+172.67.188.60, 104.21.48.224, 2606:4700:3030::ac43:bc3c, 2606:4700:3032::6815:30e0
+
+# IPs para URL: xvideosporno.blog.br
+104.26.10.106, 104.26.11.106, 172.67.71.249, 2606:4700:20::681a:a6a, 2606:4700:20::ac43:47f9, 2606:4700:20::681a:b6a
+
+# IPs para URL: xvidios.xxx
+104.21.8.151, 172.67.139.169, 2606:4700:3037::ac43:8ba9, 2606:4700:3035::6815:897
 

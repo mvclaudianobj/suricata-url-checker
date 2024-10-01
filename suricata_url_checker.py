@@ -2,10 +2,13 @@ import re
 import requests
 import os
 import logging
+import subprocess  # Importa para executar comandos do sistema
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.chrome.options import Options
 from datetime import datetime  # Importa para manipulação de data
+import time  # Importa para usar sleep
+import mss
 
 # Configuração de logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -62,8 +65,32 @@ def check_url_with_selenium(url):
     driver.quit()  # Fecha o navegador
     return status_code, description
 
+def open_chrome_incognito(url, screenshot_dir='screenshot'):
+    try:
+        os.makedirs(screenshot_dir, exist_ok=True)
+
+        # Inicia o Chrome
+        process = subprocess.Popen(['/usr/bin/flatpak', 'run', '--branch=stable', '--arch=x86_64', 
+                                    '--command=/app/bin/chrome', '--file-forwarding', 'com.google.Chrome', 
+                                    '--incognito', url])
+
+        time.sleep(10)
+
+        # Espera 3 segundos antes de capturar a tela
+        time.sleep(3)
+        
+        # Captura a tela usando mss
+        with mss.mss() as sct:
+            screenshot_path = os.path.join(screenshot_dir, f'screenshot_{int(time.time())}.png')
+            sct.shot(output=screenshot_path)
+            print(f"Captura de tela salva em: {screenshot_path}")
+
+        process.terminate()  # Fecha o Chrome
+    except Exception as e:
+        logging.error(f"Erro ao abrir o Chrome no modo incógnito ou capturar a tela: {e}")
+
 # Função para processar arquivo .rules e extrair URLs
-def extract_urls_from_rules(file_input, file_output, analytics_file, analytics_200_file, processed_urls_file, debug_mode, use_selenium):
+def extract_urls_from_rules(file_input, file_output, analytics_file, analytics_200_file, processed_urls_file, debug_mode, use_selenium, real_mode):
     processed_urls = set()
     
     # Carregar URLs já processadas
@@ -102,6 +129,10 @@ def extract_urls_from_rules(file_input, file_output, analytics_file, analytics_2
                 if debug_mode:
                     print(f"SID: {sid} - {full_url} - Código: {status_code}, Descrição: {description}")
 
+                # Se real_mode for True, abre o Chrome no modo incógnito
+                if real_mode:
+                    open_chrome_incognito(full_url)
+
                 # Escreve no arquivo de resultado
                 f_out.write(f"SID: {sid} - {full_url} - Código: {status_code}, Descrição: {description}\n")
                 
@@ -116,7 +147,7 @@ def extract_urls_from_rules(file_input, file_output, analytics_file, analytics_2
                 f_processed.write(f"{full_url}\n")
 
 # Função para ler qualquer arquivo .rules do diretório 'rules' e gravar em 'result'
-def process_all_rules_files(debug_mode=False, use_selenium=False):
+def process_all_rules_files(debug_mode=False, use_selenium=False, real_mode=False):
     input_dir = 'rules'  # Diretório de entrada com os arquivos .rules
     output_dir = 'result'  # Diretório de saída para os resultados
     analytics_file = 'Analytics.txt'  # Arquivo de saída para URLs que não retornam 200 Sucesso
@@ -144,7 +175,7 @@ def process_all_rules_files(debug_mode=False, use_selenium=False):
         input_path = os.path.join(input_dir, file_input)  # Caminho completo do arquivo de entrada
         output_path = os.path.join(output_dir, f"result_{file_input}.txt")  # Caminho completo do arquivo de saída
         logging.info(f"Processando {file_input}...")
-        extract_urls_from_rules(input_path, output_path, analytics_file, analytics_200_file, processed_urls_file, debug_mode, use_selenium)
+        extract_urls_from_rules(input_path, output_path, analytics_file, analytics_200_file, processed_urls_file, debug_mode, use_selenium, real_mode)
         logging.info(f"Resultado salvo em {output_path}")
 
     # Salva processed_urls.txt com a data e limpa o arquivo para a próxima execução
@@ -162,6 +193,6 @@ def process_all_rules_files(debug_mode=False, use_selenium=False):
 # Configurações
 # debug_mode = True exibe resultados na tela em tempo real
 # use_selenium = True para usar o Selenium na navegação
-process_all_rules_files(debug_mode=True, use_selenium=True)
+process_all_rules_files(debug_mode=True, use_selenium=False, real_mode=True)
 
 print("Verificação concluída. Confira os arquivos resultantes na pasta 'result', o Analytics.txt e o Analytics_200.txt.")

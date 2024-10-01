@@ -1,6 +1,6 @@
 SID: 9650001 - https://crunchyroll.com - Código: 403, Descrição: Proibido
-SID: 9650003 - https://hbogo.com.br - Código: Erro, Descrição: HTTPSConnectionPool(host='hbogo.com.br', port=443): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f30aba53850>: Failed to establish a new connection: [Errno -2] Name or service not known'))
-SID: 9650004 - https://static.hbogola.com - Código: Erro, Descrição: HTTPSConnectionPool(host='static.hbogola.com', port=443): Max retries exceeded with url: / (Caused by SSLError(CertificateError("hostname 'static.hbogola.com' doesn't match either of '*.s3.amazonaws.com', 's3.amazonaws.com'")))
+SID: 9650003 - https://hbogo.com.br - Código: Erro, Descrição: HTTPSConnectionPool(host='hbogo.com.br', port=443): Max retries exceeded with url: / (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7f246494cd60>: Failed to resolve 'hbogo.com.br' ([Errno -2] Name or service not known)"))
+SID: 9650004 - https://static.hbogola.com - Código: Erro, Descrição: HTTPSConnectionPool(host='static.hbogola.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'static.hbogola.com'. (_ssl.c:1007)")))
 SID: 9650005 - https://art-gallery-latam.api.hbo.com - Código: 403, Descrição: Proibido
 SID: 9650007 - https://dashboard.komprehend.io - Código: 200, Descrição: Sucesso
 SID: 9650008 - https://hbomax-images.warnermediacdn.com - Código: 403, Descrição: Proibido
@@ -8,10 +8,10 @@ SID: 9650009 - https://hbomax.onelink.me - Código: 403, Descrição: Proibido
 SID: 9650010 - https://lightning.hbomax.com - Código: 404, Descrição: Página Não Encontrada
 SID: 9650011 - https://sessions-latam.api.hbo.com - Código: 404, Descrição: Página Não Encontrada
 SID: 9650012 - https://sessions.api.hbo.com - Código: 404, Descrição: Página Não Encontrada
-SID: 9650013 - https://hbo-go - Código: Erro, Descrição: HTTPSConnectionPool(host='hbo-go', port=443): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f30aba532e0>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+SID: 9650013 - https://hbo-go - Código: Erro, Descrição: HTTPSConnectionPool(host='hbo-go', port=443): Max retries exceeded with url: / (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7f24648fb370>: Failed to resolve 'hbo-go' ([Errno -2] Name or service not known)"))
 SID: 9650014 - https://hbobrasil.com - Código: 200, Descrição: Sucesso
 SID: 9650016 - https://dailymotion.com - Código: 200, Descrição: Sucesso
-SID: 9650017 - https://crackle.com.br - Código: Erro, Descrição: HTTPSConnectionPool(host='crackle.com.br', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7f30aba51a20>, 'Connection to crackle.com.br timed out. (connect timeout=5)'))
+SID: 9650017 - https://crackle.com.br - Código: Erro, Descrição: HTTPSConnectionPool(host='crackle.com.br', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7f24648faf50>, 'Connection to crackle.com.br timed out. (connect timeout=5)'))
 SID: 9650018 - https://starz.com - Código: 200, Descrição: Sucesso
 SID: 9650019 - https://nimo.tv - Código: 200, Descrição: Sucesso
 SID: 9650020 - https://vudu.com - Código: 200, Descrição: Sucesso
@@ -22,15 +22,15 @@ SID: 9650024 - https://api.globovideos.com - Código: 404, Descrição: Página 
 SID: 9650025 - https://api.user.video.globo.com - Código: 404, Descrição: Página Não Encontrada
 SID: 9650026 - https://drm.globovideos.com - Código: 403, Descrição: Proibido
 SID: 9650027 - https://login.globo.com - Código: 404, Descrição: Página Não Encontrada
-SID: 9650028 - https://router.video.globo.com - Código: Erro, Descrição: HTTPSConnectionPool(host='router.video.globo.com', port=443): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f30aba51840>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+SID: 9650028 - https://router.video.globo.com - Código: Erro, Descrição: HTTPSConnectionPool(host='router.video.globo.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7f246494faf0>: Failed to resolve 'router.video.globo.com' ([Errno -2] Name or service not known)"))
 SID: 9650029 - https://s03.video.glbimg.com - Código: 200, Descrição: Sucesso
 SID: 9650030 - https://security.video.globo.com - Código: 404, Descrição: Página Não Encontrada
 SID: 9650031 - https://s.glbimg.com - Código: 404, Descrição: Página Não Encontrada
 SID: 9650032 - https://filmplay.biz - Código: Erro, Descrição: HTTPSConnectionPool(host='filmplay.biz', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLError(1, '[SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:1007)')))
 SID: 9650040 - https://netflix.com - Código: 200, Descrição: Sucesso
-SID: 9650043 - https://netflix - Código: Erro, Descrição: HTTPSConnectionPool(host='netflix', port=443): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f30aba52050>: Failed to establish a new connection: [Errno -2] Name or service not known'))
-SID: 9650044 - https://nflxso.net - Código: Erro, Descrição: HTTPSConnectionPool(host='nflxso.net', port=443): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f30aba512d0>: Failed to establish a new connection: [Errno -2] Name or service not known'))
-SID: 9650045 - https://netflix.net - Código: Erro, Descrição: HTTPSConnectionPool(host='netflix.net', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7f30aba51c00>, 'Connection to netflix.net timed out. (connect timeout=5)'))
+SID: 9650043 - https://netflix - Código: Erro, Descrição: HTTPSConnectionPool(host='netflix', port=443): Max retries exceeded with url: / (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7f246494f280>: Failed to resolve 'netflix' ([Errno -2] Name or service not known)"))
+SID: 9650044 - https://nflxso.net - Código: Erro, Descrição: HTTPSConnectionPool(host='nflxso.net', port=443): Max retries exceeded with url: / (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7f246494d780>: Failed to resolve 'nflxso.net' ([Errno -2] Name or service not known)"))
+SID: 9650045 - https://netflix.net - Código: Erro, Descrição: HTTPSConnectionPool(host='netflix.net', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7f246494d3c0>, 'Connection to netflix.net timed out. (connect timeout=5)'))
 SID: 9650046 - https://netflixstudios.com - Código: Erro, Descrição: HTTPSConnectionPool(host='netflixstudios.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLError(1, '[SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:1007)')))
 SID: 9650287 - https://bam-sdk-configs.bamgrid.com - Código: 404, Descrição: Página Não Encontrada
 SID: 9650288 - https://disney.go.com - Código: 200, Descrição: Sucesso
@@ -38,15 +38,15 @@ SID: 9650302 - https://sdk.iad-03.braze.com - Código: 400, Descrição: Requisi
 SID: 9650303 - https://disneynow.com - Código: 200, Descrição: Sucesso
 SID: 9650304 - https://watchdisneyfe.com - Código: 406, Descrição: Erro desconhecido
 SID: 9650305 - https://www.disneyplus.com - Código: 200, Descrição: Sucesso
-SID: 9650306 - https://search-api-disney.svcs.dssott.com - Código: Erro, Descrição: HTTPSConnectionPool(host='search-api-disney.svcs.dssott.com', port=443): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f30ab910610>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+SID: 9650306 - https://search-api-disney.svcs.dssott.com - Código: Erro, Descrição: HTTPSConnectionPool(host='search-api-disney.svcs.dssott.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7f24647b41f0>: Failed to resolve 'search-api-disney.svcs.dssott.com' ([Errno -2] Name or service not known)"))
 SID: 9650307 - https://cdn.registerdisney.go.com - Código: 404, Descrição: Página Não Encontrada
 SID: 9650308 - https://prod-static.disney-plus.net - Código: 200, Descrição: Sucesso
 SID: 9650309 - https://sanalytics.disneyplus.com - Código: 200, Descrição: Sucesso
 SID: 9650312 - https://disney.com.br - Código: 200, Descrição: Sucesso
 SID: 9650327 - https://tubitv.com - Código: 200, Descrição: Sucesso
 SID: 9650328 - https://funimation.com - Código: 403, Descrição: Proibido
-SID: 9650329 - https://www.anitube.site - Código: Erro, Descrição: HTTPSConnectionPool(host='www.anitube.site', port=443): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f30aba52680>: Failed to establish a new connection: [Errno -2] Name or service not known'))
-SID: 9650330 - https://anitubesite.ml - Código: Erro, Descrição: HTTPSConnectionPool(host='anitubesite.ml', port=443): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f30aba51510>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+SID: 9650329 - https://www.anitube.site - Código: Erro, Descrição: HTTPSConnectionPool(host='www.anitube.site', port=443): Max retries exceeded with url: / (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7f24648fbd30>: Failed to resolve 'www.anitube.site' ([Errno -2] Name or service not known)"))
+SID: 9650330 - https://anitubesite.ml - Código: Erro, Descrição: HTTPSConnectionPool(host='anitubesite.ml', port=443): Max retries exceeded with url: / (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7f246494c460>: Failed to resolve 'anitubesite.ml' ([Errno -2] Name or service not known)"))
 SID: 9650331 - https://animesonline.cx - Código: 403, Descrição: Proibido
 SID: 9650332 - https://hulu.com - Código: 200, Descrição: Sucesso
 SID: 9650333 - https://api2.branch.io - Código: 403, Descrição: Proibido
@@ -58,9 +58,9 @@ SID: 9650338 - https://pubsub-edge.twitch.tv - Código: 400, Descrição: Requis
 SID: 9650339 - https://static-cdn.jtvnw.net - Código: 404, Descrição: Página Não Encontrada
 SID: 9650340 - https://static.twitchcdn.net - Código: 404, Descrição: Página Não Encontrada
 SID: 9650341 - https://twitch.prod.entry.video-ads.a2z.com - Código: 404, Descrição: Página Não Encontrada
-SID: 9650342 - https://video-edge-10e733.pdx01.abs.hls.ttvnw.net - Código: Erro, Descrição: HTTPSConnectionPool(host='video-edge-10e733.pdx01.abs.hls.ttvnw.net', port=443): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f30aba51630>: Failed to establish a new connection: [Errno -2] Name or service not known'))
-SID: 9650343 - https://video-edge-c2b1dc.sao01.abs.hls.ttvnw.net - Código: Erro, Descrição: HTTPSConnectionPool(host='video-edge-c2b1dc.sao01.abs.hls.ttvnw.net', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7f30aba52110>, 'Connection to video-edge-c2b1dc.sao01.abs.hls.ttvnw.net timed out. (connect timeout=5)'))
-SID: 9650344 - https://video-weaver.sao01.hls.ttvnw.net - Código: Erro, Descrição: HTTPSConnectionPool(host='video-weaver.sao01.hls.ttvnw.net', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7f30ab9f5ed0>, 'Connection to video-weaver.sao01.hls.ttvnw.net timed out. (connect timeout=5)'))
+SID: 9650342 - https://video-edge-10e733.pdx01.abs.hls.ttvnw.net - Código: Erro, Descrição: HTTPSConnectionPool(host='video-edge-10e733.pdx01.abs.hls.ttvnw.net', port=443): Max retries exceeded with url: / (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7f24648fb070>: Failed to resolve 'video-edge-10e733.pdx01.abs.hls.ttvnw.net' ([Errno -2] Name or service not known)"))
+SID: 9650343 - https://video-edge-c2b1dc.sao01.abs.hls.ttvnw.net - Código: Erro, Descrição: HTTPSConnectionPool(host='video-edge-c2b1dc.sao01.abs.hls.ttvnw.net', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7f246494fa00>, 'Connection to video-edge-c2b1dc.sao01.abs.hls.ttvnw.net timed out. (connect timeout=5)'))
+SID: 9650344 - https://video-weaver.sao01.hls.ttvnw.net - Código: Erro, Descrição: HTTPSConnectionPool(host='video-weaver.sao01.hls.ttvnw.net', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7f246494f160>, 'Connection to video-weaver.sao01.hls.ttvnw.net timed out. (connect timeout=5)'))
 SID: 9650346 - https://vimeo.com - Código: 200, Descrição: Sucesso
-SID: 9650347 - https://directvgo - Código: Erro, Descrição: HTTPSConnectionPool(host='directvgo', port=443): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f30ab9103d0>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+SID: 9650347 - https://directvgo - Código: Erro, Descrição: HTTPSConnectionPool(host='directvgo', port=443): Max retries exceeded with url: / (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7f246494c910>: Failed to resolve 'directvgo' ([Errno -2] Name or service not known)"))
 SID: 96502298 - https://youtube.com - Código: 200, Descrição: Sucesso
