@@ -1,0 +1,93 @@
+SID: 9430005 - https://amazon.com.br - Código: 503, Descrição: Serviço Indisponível
+SID: 9430006 - https://amazonaws.com - Código: Erro, Descrição: HTTPSConnectionPool(host='amazonaws.com', port=443): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f33f5dbd330>: Failed to establish a new connection: [Errno 111] Connection refused'))
+SID: 9430007 - https://amazon.com - Código: 503, Descrição: Serviço Indisponível
+SID: 9430011 - https://sdb.amazonaws.com - Código: 503, Descrição: Serviço Indisponível
+SID: 9430013 - https://images-na.ssl-images-amazon.com - Código: 400, Descrição: Requisição Inválida
+SID: 9430014 - https://m.media-amazon.com - Código: 400, Descrição: Requisição Inválida
+SID: 9430017 - https://api.amazon.com - Código: 403, Descrição: Proibido
+SID: 9391004 - https://cap2.sieg.com - Código: 403, Descrição: Proibido
+SID: 9391005 - https://cap3.sieg.com - Código: 403, Descrição: Proibido
+SID: 9391006 - https://cap4.sieg.com - Código: 403, Descrição: Proibido
+SID: 9391007 - https://cap.sieg.com - Código: 403, Descrição: Proibido
+SID: 9391015 - https://console.sieg.com - Código: Erro, Descrição: HTTPSConnectionPool(host='console.sieg.com', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7f33f5dbc490>, 'Connection to console.sieg.com timed out. (connect timeout=5)'))
+SID: 9391023 - https://nfe.sieg.com - Código: Erro, Descrição: HTTPSConnectionPool(host='nfe.sieg.com', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7f33f5dbda80>, 'Connection to nfe.sieg.com timed out. (connect timeout=5)'))
+SID: 9391025 - https://cav.receita.fazenda.gov.br - Código: Erro, Descrição: HTTPSConnectionPool(host='cav.receita.fazenda.gov.br', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)')))
+SID: 9391027 - https://nfe.fazenda.sp.gov.br - Código: Erro, Descrição: HTTPSConnectionPool(host='nfe.fazenda.sp.gov.br', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)')))
+SID: 9391029 - https://www1.nfe.fazenda.gov.br - Código: Erro, Descrição: HTTPSConnectionPool(host='www1.nfe.fazenda.gov.br', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)')))
+SID: 9391035 - https://satsp.fazenda.sp.gov.br - Código: Erro, Descrição: HTTPSConnectionPool(host='satsp.fazenda.sp.gov.br', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)')))
+SID: 9391036 - https://www.receita.fazenda.gov.br - Código: Erro, Descrição: HTTPSConnectionPool(host='www.receita.fazenda.gov.br', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1007)')))
+SID: 9391041 - https://www.onvio.com.br - Código: Erro, Descrição: HTTPSConnectionPool(host='www.onvio.com.br', port=443): Read timed out. (read timeout=5)
+SID: 9391050 - https://ftp.dominiosistemas.com.br - Código: Erro, Descrição: HTTPSConnectionPool(host='ftp.dominiosistemas.com.br', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7f33f5e105e0>, 'Connection to ftp.dominiosistemas.com.br timed out. (connect timeout=5)'))
+SID: 9450001 - https://adservice.google.com - Código: 404, Descrição: Página Não Encontrada
+SID: 9450002 - https://adservice.google.com.mt - Código: 404, Descrição: Página Não Encontrada
+SID: 9450004 - https://clientmetrics-pa.googleapis.com - Código: 404, Descrição: Página Não Encontrada
+SID: 9450005 - https://googleadservices.com - Código: 404, Descrição: Página Não Encontrada
+SID: 9450007 - https://googleanalytics.com - Código: Erro, Descrição: HTTPSConnectionPool(host='marketingplatform.google.com', port=443): Read timed out. (read timeout=5)
+SID: 9450008 - https://google-analytics.l.google.com - Código: Erro, Descrição: HTTPSConnectionPool(host='google-analytics.l.google.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7f33f5e12350>: Failed to resolve 'google-analytics.l.google.com' ([Errno -2] Name or service not known)"))
+SID: 9450010 - https://googletagservices.com - Código: Erro, Descrição: HTTPSConnectionPool(host='googletagservices.com', port=443): Max retries exceeded with url: / (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7f33f5dbc580>: Failed to resolve 'googletagservices.com' ([Errno -2] Name or service not known)"))
+SID: 9450011 - https://googlevideo.com - Código: Erro, Descrição: HTTPSConnectionPool(host='googlevideo.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'googlevideo.com'. (_ssl.c:1007)")))
+SID: 9450012 - https://mail-ads.google.com - Código: 404, Descrição: Página Não Encontrada
+SID: 9450013 - https://pagead.l.google.com - Código: Erro, Descrição: HTTPSConnectionPool(host='pagead.l.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'pagead.l.google.com'. (_ssl.c:1007)")))
+SID: 9450014 - https://partnerad.l.google.com - Código: Erro, Descrição: HTTPSConnectionPool(host='partnerad.l.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'partnerad.l.google.com'. (_ssl.c:1007)")))
+SID: 9450015 - https://video-stats.video.google.com - Código: Erro, Descrição: HTTPSConnectionPool(host='video-stats.video.google.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLCertVerificationError(1, "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'video-stats.video.google.com'. (_ssl.c:1007)")))
+SID: 9450016 - https://wintricksbanner.googlepages.com - Código: Erro, Descrição: HTTPSConnectionPool(host='wintricksbanner.googlepages.com', port=443): Max retries exceeded with url: / (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)')))
+SID: 9450026 - https://adservice.google.com.br - Código: 404, Descrição: Página Não Encontrada
+SID: 9450034 - https://android.clients.google.com - Código: 404, Descrição: Página Não Encontrada
+SID: 9450037 - https://android.googleapis.com - Código: 404, Descrição: Página Não Encontrada
+SID: 9450039 - https://app-measurement.com - Código: 404, Descrição: Página Não Encontrada
+SID: 9450050 - https://ci5.googleusercontent.com - Código: 400, Descrição: Requisição Inválida
+SID: 9450052 - https://clients2.google.com - Código: 404, Descrição: Página Não Encontrada
+SID: 9450053 - https://clients4.google.com - Código: 404, Descrição: Página Não Encontrada
+SID: 9450054 - https://clients6.google.com - Código: 404, Descrição: Página Não Encontrada
+SID: 9450055 - https://clientservices.googleapis.com - Código: 404, Descrição: Página Não Encontrada
+SID: 9450061 - https://connectivitycheck.gstatic.com - Código: 404, Descrição: Página Não Encontrada
+SID: 9450067 - https://content-autofill.googleapis.com - Código: 404, Descrição: Página Não Encontrada
+SID: 9450086 - https://firebaseinstallations.googleapis.com - Código: 404, Descrição: Página Não Encontrada
+SID: 9450087 - https://firebaseremoteconfig.googleapis.com - Código: 404, Descrição: Página Não Encontrada
+SID: 9450088 - https://firebase-settings.crashlytics.com - Código: 404, Descrição: Página Não Encontrada
+SID: 9450089 - https://fonts.googleapis.com - Código: 404, Descrição: Página Não Encontrada
+SID: 9450096 - https://googlechrome.github.io - Código: 404, Descrição: Página Não Encontrada
+SID: 9450103 - https://google.qualtrics.com - Código: 403, Descrição: Proibido
+SID: 9450112 - https://infinitedata-pa.googleapis.com - Código: 404, Descrição: Página Não Encontrada
+SID: 9450116 - https://lh3.googleusercontent.com - Código: 400, Descrição: Requisição Inválida
+SID: 9450125 - https://measurementpartners.google.com - Código: 404, Descrição: Página Não Encontrada
+SID: 9450126 - https://mtalk.google.com - Código: Erro, Descrição: ('Connection aborted.', BadStatusLine(')\x04\x00'))
+SID: 9450130 - https://oauthaccountmanager.googleapis.com - Código: 404, Descrição: Página Não Encontrada
+SID: 9450131 - https://ogs.google.com - Código: 404, Descrição: Página Não Encontrada
+SID: 9450132 - https://orderfood.google.com - Código: 404, Descrição: Página Não Encontrada
+SID: 9450133 - https://pagead2.googlesyndication.com - Código: 404, Descrição: Página Não Encontrada
+SID: 9450139 - https://people-pa.googleapis.com - Código: 404, Descrição: Página Não Encontrada
+SID: 9450145 - https://plus.url.google.com - Código: 404, Descrição: Página Não Encontrada
+SID: 9450148 - https://poly.google.com - Código: Erro, Descrição: HTTPSConnectionPool(host='poly.google.com', port=443): Read timed out. (read timeout=5)
+SID: 9450154 - https://safebrowsing.googleapis.com - Código: 404, Descrição: Página Não Encontrada
+SID: 9450157 - https://sb-ssl.google.com - Código: 404, Descrição: Página Não Encontrada
+SID: 9450161 - https://semanticlocation-pa.googleapis.com - Código: 404, Descrição: Página Não Encontrada
+SID: 9450169 - https://static.googleusercontent.com - Código: 404, Descrição: Página Não Encontrada
+SID: 9450171 - https://storage.googleapis.com - Código: Erro, Descrição: HTTPSConnectionPool(host='storage.googleapis.com', port=443): Read timed out. (read timeout=5)
+SID: 9450180 - https://tpc.googlesyndication.com - Código: 404, Descrição: Página Não Encontrada
+SID: 9450181 - https://translate.googleapis.com - Código: 404, Descrição: Página Não Encontrada
+SID: 9450184 - https://trustvox-certificate-assets.storage.googleapis.com - Código: 403, Descrição: Proibido
+SID: 9450185 - https://update.googleapis.com - Código: 404, Descrição: Página Não Encontrada
+SID: 9450214 - https://www.googleadservices.com - Código: 404, Descrição: Página Não Encontrada
+SID: 9450216 - https://www.googleapis.com - Código: 404, Descrição: Página Não Encontrada
+SID: 9450221 - https://www.googletagmanager.com - Código: 404, Descrição: Página Não Encontrada
+SID: 9450223 - https://youtube-eng.googleblog.com - Código: 404, Descrição: Página Não Encontrada
+SID: 9450236 - https://telephonyspamprotect-pa.googleapis.com - Código: 404, Descrição: Página Não Encontrada
+SID: 9450237 - https://userlocation.googleapis.com - Código: 404, Descrição: Página Não Encontrada
+SID: 9450239 - https://play.googleapis.com - Código: 404, Descrição: Página Não Encontrada
+SID: 9450240 - https://play-fe.googleapis.com - Código: 404, Descrição: Página Não Encontrada
+SID: 9450241 - https://play-lh.googleusercontent.com - Código: 400, Descrição: Requisição Inválida
+SID: 9450242 - https://playatoms-pa.googleapis.com - Código: 404, Descrição: Página Não Encontrada
+SID: 9450246 - https://beacons.gvt2.com - Código: 404, Descrição: Página Não Encontrada
+SID: 9450248 - https://googleapis.com - Código: 404, Descrição: Página Não Encontrada
+SID: 9450249 - https://googleusercontent.com - Código: 404, Descrição: Página Não Encontrada
+SID: 9450250 - https://gstatic.com - Código: 404, Descrição: Página Não Encontrada
+SID: 9450251 - https://lamssettings-pa.googleapis.com - Código: 404, Descrição: Página Não Encontrada
+SID: 9450253 - https://notifications-pa.googleapis.com - Código: 404, Descrição: Página Não Encontrada
+SID: 9450259 - https://www.gstatic.com - Código: 404, Descrição: Página Não Encontrada
+SID: 9020001 - https://openai.com - Código: 403, Descrição: Proibido
+SID: 9020020 - https://typeset.io - Código: 403, Descrição: Proibido
+SID: 9500018 - https://beacon.shazam.com - Código: 404, Descrição: Página Não Encontrada
+SID: 9500020 - https://images.shazam.com - Código: 404, Descrição: Página Não Encontrada
+SID: 9500022 - https://music-xray-service.amazon.com - Código: 404, Descrição: Página Não Encontrada
+SID: 9500023 - https://na.explore.skill.music.a2z.com - Código: 404, Descrição: Página Não Encontrada

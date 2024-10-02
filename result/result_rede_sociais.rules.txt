@@ -1,8 +1,0 @@
-SID: 9000009 - https://twitter.com - Código: Erro, Descrição: HTTPSConnectionPool(host='twitter.com', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7fabda392140>, 'Connection to twitter.com timed out. (connect timeout=5)'))
-SID: 9000013 - https://pluto.web.telegram.org - Código: 403, Descrição: Proibido
-SID: 9000014 - https://telegram.org - Código: 200, Descrição: Sucesso
-SID: 9000016 - https://web.telegram.org - Código: 200, Descrição: Sucesso
-SID: 9000552 - https://br.viadeo.com - Código: 410, Descrição: Erro desconhecido
-SID: 9000021 - https://branchout.com - Código: Erro, Descrição: HTTPSConnectionPool(host='branchout.com', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7fabda211570>, 'Connection to branchout.com timed out. (connect timeout=5)'))
-SID: 9000022 - https://youku.com - Código: 200, Descrição: Sucesso
-SID: 9000023 - https://www.xing.com - Código: 200, Descrição: Sucesso

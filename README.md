@@ -7,16 +7,17 @@ O Suricata URL Checker é um script Python desenvolvido para processar arquivos 
     Analytics.txt: Contém URLs que retornaram código de status diferente de 200 (erros).
     Analytics_200.txt: Contém URLs que retornaram código de status 200 (sucesso).
 
-Além disso, o script evita navegar em URLs repetidas e grava o SID da regra associada no arquivo de resultado.
-Funcionalidades
+Além disso, o script evita navegar em URLs repetidas e grava o SID da regra associada no arquivo de resultado e captura capturas de tela dos sites acessados.
 
-    Extração de URLs de arquivos .rules localizados na pasta rules.
-    Verificação do status HTTP de URLs usando Requests ou Selenium.
-    Organização dos resultados em arquivos separados (Analytics.txt para erros e Analytics_200.txt para sucessos).
-    Opção de usar modo debug para exibir o progresso em tempo real.
-    Prevenção de navegação repetida em URLs já verificadas.
-    Armazenamento dos resultados na pasta result.
-    Geração de um arquivo de URLs já processadas (processed_urls.txt).
+## Funcionalidades
+
+- Verifica URLs extraídas de arquivos .rules.
+- Usa requests para verificação rápida.
+- Usa selenium para acessar sites que requerem renderização JavaScript.
+- Salva os resultados em arquivos de texto.
+- Captura capturas de tela dos sites abertos no Chrome.
+- Suporta modo de depuração para visualização em tempo real dos resultados.
+- Permite navegação em modo incógnito.
 
 ## Pré-requisitos
 1. Instalação de dependências
@@ -56,6 +57,9 @@ Certifique-se de ter as seguintes pastas no diretório do projeto:
 
 rules/    # Coloque seus arquivos .rules aqui
 result/   # A pasta 'result' será criada automaticamente para armazenar os resultados
+
+## Chrome Driver Downloads
+https://chromedriver.storage.googleapis.com/index.html
 
 ## Como Usar
 1. Adicionar Regras Suricata
@@ -178,6 +182,19 @@ graphql
 ├── processed_urls.txt    # Arquivo para URLs que já foram processadas
 │
 └── script.py            # O script Python principal
+
+Captura de Tela
+
+Se a opção real_mode for ativada, o script abrirá o Google Chrome em modo incógnito, navegará para cada URL e fará uma captura de tela após 3 segundos. As capturas de tela serão salvas na pasta screenshot com um timestamp no nome do arquivo.
+
+### Observações
+
+Para usar o Chrome com Flatpak, o comando para abrir será:
+
+```bash
+sudo /usr/bin/flatpak run --branch=stable --arch=x86_64 --command=/app/bin/chrome --file-forwarding com.google.Chrome --incognito URL
+```
+
 
 Como Usar
 
