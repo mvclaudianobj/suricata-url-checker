@@ -50,9 +50,15 @@ def clean_directory(directory):
     except Exception as e:
         print(f"Erro ao limpar o diretório {directory}: {e}")
 
-# Função para baixar e extrair as assinaturas
-def download_and_extract_signatures():
-    url = 'http://wsutm.bluepex.com/fapp/rules0.tar.gz'
+# Função para baixar e extrair as assinaturas, com opção de produção ou homologação
+def download_and_extract_signatures(is_production=True):
+    if is_production:
+        url = 'http://wsutm.bluepex.com/fapp/rules0.tar.gz'
+        print("Modo de Produção selecionado.")
+    else:
+        url = 'http://wsutm.bluepex.com/fapp_homologation/rules0.tar.gz'
+        print("Modo de Homologação selecionado.")
+
     download_path = 'fapp_rules/rules0.tar.gz'
     extract_path = 'fapp_rules'
 
@@ -74,16 +80,21 @@ def download_and_extract_signatures():
 
 # Pergunta ao usuário se deseja fazer o download das assinaturas
 def ask_to_download_signatures():
-    answer = input("Deseja fazer o download das assinaturas do Firewall App? (s/n): ").lower()
-    if answer == 's':
-        download_and_extract_signatures()
+    mode = input("Deseja usar o modo produção ou homologação? (p/h): ").lower()
+
+    if mode == 'p':
+        download_and_extract_signatures(is_production=True)
+    elif mode == 'h':
+        download_and_extract_signatures(is_production=False)
     else:
-        print("Download das assinaturas não realizado.")
+        print("Opção inválida. Nenhum download será realizado.")
+        return
 
     # Limpa as pastas rules e rules_navigate após o download
     clean_directory('rules')
     clean_directory('rules_navigate')
     print("Pastas 'rules' e 'rules_navigate' limpas.")
+
 
 # Função para listar os arquivos extraídos e perguntar qual homologar
 def ask_category_to_approve():
@@ -170,7 +181,7 @@ def check_url_with_selenium(url, driver):
     return status_code, description
 
 # Função para abrir o Chrome no modo incógnito e capturar a tela
-def open_chrome_incognito(url, screenshot_dir='screenshot', use_flatpak=False):
+def open_chrome_incognito(url, screenshot_dir='screenshot', use_flatpak=False, monitor_number=2):
     try:
         os.makedirs(screenshot_dir, exist_ok=True)
 
@@ -184,11 +195,21 @@ def open_chrome_incognito(url, screenshot_dir='screenshot', use_flatpak=False):
 
         time.sleep(10)  # Aguarda o carregamento da página
 
-        # Captura a tela usando mss
+        # Captura a tela usando mss, selecionando o monitor especificado
         with mss.mss() as sct:
+            # Obtém a lista de monitores disponíveis
+            monitors = sct.monitors
+            if monitor_number > len(monitors) or monitor_number < 1:
+                monitor_number = 1  # Se o monitor escolhido não existir, usa o primeiro
+
+            monitor = monitors[monitor_number]  # Seleciona o monitor
             sanitized_url = re.sub(r'\W+', '_', url)  # Remove caracteres especiais da URL para usar no nome do arquivo
             screenshot_path = os.path.join(screenshot_dir, f'screenshot_{sanitized_url}_{int(time.time())}.png')
-            sct.shot(output=screenshot_path)
+
+            # Captura a tela do monitor selecionado
+            sct_img = sct.grab(monitor)
+            mss.tools.to_png(sct_img.rgb, sct_img.size, output=screenshot_path)
+
             print(f"Captura de tela salva em: {screenshot_path}")
 
         process.terminate()  # Fecha o Chrome
@@ -198,13 +219,13 @@ def open_chrome_incognito(url, screenshot_dir='screenshot', use_flatpak=False):
 # Função para processar arquivo .rules e extrair URLs
 def extract_urls_from_rules(file_input, file_output, analytics_file, analytics_200_file, processed_urls_file, debug_mode, use_selenium, real_mode, use_flatpak, test_false_positives):
     processed_urls = set()
-    
+
     if os.path.exists(processed_urls_file):
         with open(processed_urls_file, 'r') as f_processed:
             processed_urls.update(line.strip() for line in f_processed.readlines())
-    
+
     driver = None  # Inicializando a variável 'driver' para evitar referência antes de definição
-    
+
     with open(file_input, 'r') as f_in, open(file_output, 'w') as f_out, \
          open(analytics_file, 'a') as f_analytics, open(analytics_200_file, 'a') as f_analytics_200, \
          open(processed_urls_file, 'a') as f_processed:
@@ -224,7 +245,7 @@ def extract_urls_from_rules(file_input, file_output, analytics_file, analytics_2
                     continue
 
                 logging.info(f"Processando URL: {full_url} (SID: {sid})")
-                
+
                 if use_selenium:
                     driver = configure_selenium()
                     status_code, description = check_url_with_selenium(full_url, driver)
@@ -235,16 +256,18 @@ def extract_urls_from_rules(file_input, file_output, analytics_file, analytics_2
                 if debug_mode:
                     print(f"SID: {sid} - {full_url} - Código: {status_code}, Descrição: {description}")
 
-                if real_mode:
-                    open_chrome_incognito(full_url, use_flatpak=use_flatpak)
-
+                # Grava a informação no arquivo de saída
                 f_out.write(f"SID: {sid} - {full_url} - Código: {status_code}, Descrição: {description}\n")
-                
-                if status_code != 200:
-                    f_analytics.write(f"SID: {sid} - {full_url} - Código: {status_code}, Descrição: {description}\n")
-                else:
+
+                if status_code == 200:
                     f_analytics_200.write(f"SID: {sid} - {full_url} - Código: {status_code}, Descrição: {description}\n")
-                
+                    
+                    # Se o código de status for 200 e o real_mode estiver ativado, captura a tela
+                    if real_mode:
+                        open_chrome_incognito(full_url, use_flatpak=use_flatpak)
+                else:
+                    f_analytics.write(f"SID: {sid} - {full_url} - Código: {status_code}, Descrição: {description}\n")
+
                 processed_urls.add(full_url)
                 f_processed.write(f"{full_url}\n")
 
@@ -309,6 +332,6 @@ def process_all_rules_files(debug_mode=False, use_selenium=False, real_mode=Fals
 ask_to_download_signatures()
 ask_category_to_approve()
 # Configurações
-process_all_rules_files(debug_mode=True, use_selenium=False, real_mode=True, use_flatpak=True, test_false_positives=True)
+process_all_rules_files(debug_mode=True, use_selenium=False, real_mode=True, use_flatpak=False, test_false_positives=True)
 
 print("Verificação concluída. Confira os arquivos resultantes na pasta 'result', o Analytics.txt e o Analytics_200.txt.")
