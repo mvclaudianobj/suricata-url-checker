@@ -38,6 +38,13 @@ status_descriptions = {
 url_pattern = re.compile(r'reference:url,([^;]+);')
 sid_pattern = re.compile(r'sid:(\d+);')
 
+# Função para carregar URLs de um arquivo em uma lista
+def load_urls_from_file(file_path):
+    if os.path.exists(file_path):
+        with open(file_path, 'r') as f:
+            return {line.strip() for line in f.readlines() if line.strip()}
+    return set()
+
 # Função para limpar o conteúdo das pastas, mesmo arquivos ocultos
 def clean_directory(directory):
     try:
@@ -187,8 +194,7 @@ def open_chrome_incognito(url, screenshot_dir='screenshot', use_flatpak=False, m
 
         # Inicia o Chrome dependendo do valor de use_flatpak
         if use_flatpak:
-            process = subprocess.Popen(['/usr/bin/flatpak', 'run', '--branch=stable', '--arch=x86_64', 
-                                        '--command=/app/bin/chrome', '--file-forwarding', 'com.google.Chrome', 
+            process = subprocess.Popen(['/usr/bin/flatpak', 'run', 'com.google.Chrome', 
                                         '--incognito', url])
         else:
             process = subprocess.Popen(['google-chrome', '--incognito', url])
@@ -217,7 +223,7 @@ def open_chrome_incognito(url, screenshot_dir='screenshot', use_flatpak=False, m
         logging.error(f"Erro ao abrir o Chrome no modo incógnito ou capturar a tela: {e}")
 
 # Função para processar arquivo .rules e extrair URLs
-def extract_urls_from_rules(file_input, file_output, analytics_file, analytics_200_file, processed_urls_file, debug_mode, use_selenium, real_mode, use_flatpak, test_false_positives):
+def extract_urls_from_rules(file_input, file_output, analytics_file, analytics_200_file, processed_urls_file, debug_mode, use_selenium, real_mode, use_flatpak, test_false_positives, except_urls):
     processed_urls = set()
 
     if os.path.exists(processed_urls_file):
@@ -242,6 +248,10 @@ def extract_urls_from_rules(file_input, file_output, analytics_file, analytics_2
 
                 if full_url in processed_urls:
                     logging.info(f"URL já processada: {full_url}")
+                    continue
+                
+                if full_url in except_urls:
+                    logging.info(f"URL ignorada por estar na lista de exceções (except_urls): {full_url}")
                     continue
 
                 logging.info(f"Processando URL: {full_url} (SID: {sid})")
@@ -288,16 +298,63 @@ def extract_urls_from_rules(file_input, file_output, analytics_file, analytics_2
                 logging.info(f"Testando falso positivo em {file_input}...")
 
                 # No teste de falso positivo, apenas utiliza requests, sem real_mode ou Selenium
-                extract_urls_from_rules(input_path, output_path, analytics_error_file, analytics_200_file, processed_urls_file, debug_mode, use_selenium=False, real_mode=False, use_flatpak=use_flatpak, test_false_positives=False)
+                extract_urls_from_rules(input_path, output_path, analytics_error_file, analytics_200_file, processed_urls_file, debug_mode, use_selenium=False, real_mode=False, use_flatpak=use_flatpak, test_false_positives=False, except_urls=except_urls)
 
-# Função para ler qualquer arquivo .rules do diretório 'rules' e gravar em 'result'
+# Função para navegar em URLs customizadas após rules_navigate
+def navigate_custom_urls(use_selenium, real_mode, use_flatpak, debug_mode):
+    custom_urls_file = 'custom_urls_navigate.txt'
+    processed_urls_file = 'processed_urls.txt'
+    
+    custom_urls = load_urls_from_file(custom_urls_file)
+    processed_urls = load_urls_from_file(processed_urls_file)
+    
+    # Remove URLs que já foram processadas
+    custom_urls -= processed_urls
+    
+    if not custom_urls:
+        logging.info("Nenhuma URL personalizada para processar.")
+        return
+    
+    logging.info("Navegando em URLs personalizadas.")
+    
+    driver = None
+    for url in custom_urls:
+        full_url = f"https://{url}"
+        logging.info(f"Processando URL personalizada: {full_url}")
+
+        if full_url in except_urls:
+            logging.info(f"URL personalizada ignorada por estar na lista de exceções (except_urls): {full_url}")
+            continue
+
+        if use_selenium:
+            driver = configure_selenium()
+            status_code, description = check_url_with_selenium(full_url, driver)
+            driver.quit()
+        else:
+            status_code, description = check_url_with_requests(full_url)
+
+        if debug_mode:
+            print(f"URL: {full_url} - Código: {status_code}, Descrição: {description}")
+        
+        if real_mode and status_code == 200:
+            open_chrome_incognito(full_url, use_flatpak=use_flatpak)
+
+        with open(processed_urls_file, 'a') as f_processed:
+            f_processed.write(f"{full_url}\n")
+
+    # Fechar o driver se ele foi usado
+    if driver is not None:
+        driver.quit()
+
+# Função para processar todos os arquivos .rules e custom_urls_navigate.txt
 def process_all_rules_files(debug_mode=False, use_selenium=False, real_mode=False, use_flatpak=False, test_false_positives=False):
     input_dir = 'rules'
     output_dir = 'result'
     analytics_file = 'Analytics.txt'
     analytics_200_file = 'Analytics_200.txt'
     processed_urls_file = 'processed_urls.txt'
-    
+    except_urls_file = 'except_urls.txt'
+
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
 
@@ -311,13 +368,19 @@ def process_all_rules_files(debug_mode=False, use_selenium=False, real_mode=Fals
     if not files:
         logging.error("Nenhum arquivo .rules encontrado na pasta 'rules'.")
         return
-    
+
+    # Carregar URLs a serem ignoradas
+    except_urls = load_urls_from_file(except_urls_file)
+
     for file_input in files:
         input_path = os.path.join(input_dir, file_input)
         output_path = os.path.join(output_dir, f"result_{file_input}.txt")
         logging.info(f"Processando {file_input}...")
-        extract_urls_from_rules(input_path, output_path, analytics_file, analytics_200_file, processed_urls_file, debug_mode, use_selenium, real_mode, use_flatpak, test_false_positives)
+        extract_urls_from_rules(input_path, output_path, analytics_file, analytics_200_file, processed_urls_file, debug_mode, use_selenium, real_mode, use_flatpak, test_false_positives, except_urls)
         logging.info(f"Resultado salvo em {output_path}")
+
+    # Navegar nas URLs personalizadas de custom_urls_navigate.txt
+    navigate_custom_urls(use_selenium, real_mode, use_flatpak, debug_mode)
 
     current_date = datetime.now().strftime("%Y%m%d")
     dated_processed_file = f"processed_urls_{current_date}.txt"
@@ -332,6 +395,6 @@ def process_all_rules_files(debug_mode=False, use_selenium=False, real_mode=Fals
 ask_to_download_signatures()
 ask_category_to_approve()
 # Configurações
-process_all_rules_files(debug_mode=True, use_selenium=False, real_mode=True, use_flatpak=False, test_false_positives=True)
+process_all_rules_files(debug_mode=True, use_selenium=False, real_mode=True, use_flatpak=True, test_false_positives=True)
 
 print("Verificação concluída. Confira os arquivos resultantes na pasta 'result', o Analytics.txt e o Analytics_200.txt.")
